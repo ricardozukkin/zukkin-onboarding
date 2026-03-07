@@ -526,10 +526,11 @@ export default function Home() {
             {/* Departamentos - Alinhados e com cores dos produtos */}
             <div className="flex justify-center gap-4 flex-wrap">
               {[
-                { name: "Fabiana", role: "Financeiro & RH", color: "#6B7280" },
-                { name: "Chayeni", role: "Pricing", color: "#02385A" },
-                { name: "Guilherme", role: "Analytics & ZGO", color: "#EE8625" },
-                { name: "Rafael", role: "ZRobot & ZPromo", color: "#6B2246" },
+                { name: "Fabiana Roballo", role: "Financeiro & RH", color: "#6B7280" },
+                { name: "Chayeni Campos", role: "Pricing", color: "#02385A" },
+                { name: "Guilherme Bezerra", role: "Analytics & ZGO", color: "#EE8625" },
+                { name: "Rafael Rabaça", role: "ZRobot & ZPromo", color: "#6B2246" },
+                { name: "André Sanchez", role: "ZConsulting", color: "#6B7280" },
               ].map((dept, idx) => (
                 <div key={idx} className="text-center" data-reveal>
                   <div className="flex justify-center mb-4">
