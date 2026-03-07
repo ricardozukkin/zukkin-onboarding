@@ -1060,6 +1060,115 @@ export default function Home() {
         );
       })()}
 
+      {/* Cultura Zukkin Section */}
+      <section className="py-28 px-6 bg-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-16 text-center" data-reveal>
+            <div className="inline-block px-4 py-1.5 rounded-full border border-red-500/30 text-red-600 text-xs font-bold tracking-widest uppercase mb-6" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+              Nosso Jeito de Ser
+            </div>
+            <h2 className="text-5xl md:text-6xl font-black text-gray-900 tracking-tight" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+              Cultura Zukkin
+            </h2>
+            <p className="text-gray-500 mt-4 max-w-2xl mx-auto">Mais do que uma empresa, somos um time movido por prop\u00f3sito, inova\u00e7\u00e3o e respeito</p>
+          </div>
+
+          {/* Pilares da Cultura */}
+          <div className="grid md:grid-cols-3 gap-8 mb-16" data-reveal>
+            <div className="group relative bg-gradient-to-br from-red-600 to-red-700 rounded-2xl p-8 text-white overflow-hidden hover:scale-[1.02] transition-transform duration-300">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+              <div className="relative z-10">
+                <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center mb-6">
+                  <span className="text-3xl">\ud83c\udfaf</span>
+                </div>
+                <h3 className="text-2xl font-black mb-3" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>Foco no Cliente</h3>
+                <p className="text-white/80 text-sm leading-relaxed">Nosso sucesso \u00e9 medido pelo sucesso dos nossos clientes. Cada decis\u00e3o que tomamos visa entregar mais valor e resultados para quem confia em n\u00f3s.</p>
+              </div>
+            </div>
+
+            <div className="group relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 text-white overflow-hidden hover:scale-[1.02] transition-transform duration-300">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+              <div className="relative z-10">
+                <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center mb-6">
+                  <span className="text-3xl">\ud83d\ude80</span>
+                </div>
+                <h3 className="text-2xl font-black mb-3" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>Inova\u00e7\u00e3o Constante</h3>
+                <p className="text-white/80 text-sm leading-relaxed">Questionamos o status quo e buscamos sempre novas formas de resolver problemas. Aqui, errar faz parte do processo de aprender e evoluir.</p>
+              </div>
+            </div>
+
+            <div className="group relative bg-gradient-to-br from-red-600 to-red-700 rounded-2xl p-8 text-white overflow-hidden hover:scale-[1.02] transition-transform duration-300">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+              <div className="relative z-10">
+                <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center mb-6">
+                  <span className="text-3xl">\ud83e\udd1d</span>
+                </div>
+                <h3 className="text-2xl font-black mb-3" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>Respeito e Transpar\u00eancia</h3>
+                <p className="text-white/80 text-sm leading-relaxed">Valorizamos a diversidade, a comunica\u00e7\u00e3o aberta e o respeito m\u00fatuo. Cada voz importa e cada opini\u00e3o \u00e9 ouvida.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Valores no dia a dia */}
+          <div className="grid md:grid-cols-2 gap-12 items-center" data-reveal>
+            <div>
+              <h3 className="text-3xl font-black text-gray-900 mb-6" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>Nossos Valores no Dia a Dia</h3>
+              <div className="space-y-5">
+                {[
+                  { icon: "\u2764\ufe0f", title: "Respeito", desc: "Tratamos todos com dignidade e empatia, criando um ambiente onde cada pessoa se sente valorizada e acolhida." },
+                  { icon: "\ud83d\udca1", title: "Inova\u00e7\u00e3o", desc: "Buscamos constantemente novas solu\u00e7\u00f5es e tecnologias para transformar o mercado de pricing no Brasil." },
+                  { icon: "\u2696\ufe0f", title: "\u00c9tica", desc: "Agimos com integridade e transpar\u00eancia em todas as nossas rela\u00e7\u00f5es, sejam internas ou com clientes." },
+                  { icon: "\ud83d\ude04", title: "Alegria", desc: "Acreditamos que um ambiente leve e positivo gera mais criatividade, produtividade e resultados." },
+                ].map((valor, idx) => (
+                  <div key={idx} className="flex items-start gap-4 group">
+                    <div className="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-red-100 transition-colors">
+                      <span className="text-xl">{valor.icon}</span>
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-900 text-lg" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>{valor.title}</h4>
+                      <p className="text-gray-600 text-sm leading-relaxed mt-1">{valor.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
+              <h3 className="text-2xl font-black text-gray-900 mb-6" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>O que Esperamos de Voc\u00ea</h3>
+              <div className="space-y-4">
+                {[
+                  { emoji: "\ud83c\udf1f", text: "Proatividade para buscar solu\u00e7\u00f5es e n\u00e3o apenas apontar problemas" },
+                  { emoji: "\ud83d\udcac", text: "Comunica\u00e7\u00e3o clara e transparente com colegas e lideran\u00e7as" },
+                  { emoji: "\ud83d\udcda", text: "Vontade de aprender e se desenvolver continuamente" },
+                  { emoji: "\ud83e\udde9", text: "Colabora\u00e7\u00e3o e trabalho em equipe acima de individualismo" },
+                  { emoji: "\u23f0", text: "Comprometimento com prazos e qualidade nas entregas" },
+                  { emoji: "\ud83c\udfe2", text: "Cuidado com o ambiente de trabalho e com os colegas" },
+                ].map((item, idx) => (
+                  <div key={idx} className="flex items-center gap-3 py-2 border-b border-gray-200 last:border-0">
+                    <span className="text-lg">{item.emoji}</span>
+                    <p className="text-gray-700 text-sm">{item.text}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Frase inspiracional */}
+          <div className="mt-16 text-center" data-reveal>
+            <div className="bg-gradient-to-r from-red-600 to-red-700 rounded-2xl p-10 text-white relative overflow-hidden">
+              <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, white 1px, transparent 1px), radial-gradient(circle at 80% 50%, white 1px, transparent 1px)", backgroundSize: "40px 40px" }}></div>
+              <div className="relative z-10">
+                <span className="text-5xl mb-4 block">\u201c</span>
+                <p className="text-xl md:text-2xl font-bold italic leading-relaxed max-w-3xl mx-auto" style={{ fontFamily: "'Barlow', sans-serif" }}>
+                  Sozinhos vamos mais r\u00e1pido, mas juntos vamos mais longe. Na Zukkin, cada conquista \u00e9 do time.
+                </p>
+                <div className="mt-6 w-16 h-0.5 bg-white/50 mx-auto"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Encerramento Section */}
       <section className="py-28 px-6 bg-gradient-to-br from-gray-900 to-gray-800 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "url('https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/zukkin-technology-abstract-Yzj9sKe74tFv9hh6yLoiYK.webp')", backgroundSize: "cover" }}></div>
