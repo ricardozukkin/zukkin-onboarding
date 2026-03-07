@@ -197,7 +197,7 @@ export default function Home() {
                 className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
                 data-reveal
               >
-                <img src={dir.image} alt={dir.name} className="w-full h-96 object-cover" style={{ objectPosition: '50% 15%' }} />
+                <img src={dir.image} alt={dir.name} className="w-full h-72 object-cover" style={{ objectPosition: '50% 10%' }} />
                 <div className="p-8">
                   <h3 className="text-2xl font-black text-gray-900 mb-1" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
                     {dir.name}
