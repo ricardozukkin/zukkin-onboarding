@@ -2,16 +2,14 @@ import { Button } from "@/components/ui/button";
 import { useEffect } from "react";
 
 /**
- * Design: Clean & Professional - Paleta clara com vermelho vibrante
- * Baseado no HTML fornecido com melhorias de conteúdo
- * Tipografia: Barlow Condensed para headlines, Barlow para body
- * Cores: #E30613 (vermelho), #f5f4f0 (fundo), #1a1a1a (texto)
- * 
- * Assets:
- * - Logo Zukkin: https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/LogoZukkin2_7f4d5964.png
- * - Ricardo: https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/ricardo-director-babYuUokyGsq6kdNYNVqex.webp
- * - Bruno: https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/bruno-director-fybFUZ8FrDeKstHgvbQinn.webp
- * - Logos clientes: GPA, Vivo, Muffato, Nissei
+ * Design: Clean & Professional - Identidade Visual Zukkin
+ * Cores dos Produtos:
+ * - ZPricing: #056BF1 (Azul)
+ * - ZAnalytics: #EE8625 (Laranja)
+ * - ZGO: #78AE3F (Verde)
+ * - ZRobot: #6B2246 (Marrom)
+ * - ZPromo: #DA8A7F (Rosa)
+ * - ZConsulting: #02385A (Azul Escuro)
  */
 
 export default function Home() {
@@ -107,7 +105,7 @@ export default function Home() {
         <div
           className="absolute inset-0"
           style={{
-            background: "radial-gradient(ellipse 70% 55% at 55% 40%, rgba(227,6,19,.18) 0%, transparent 70%), radial-gradient(ellipse 45% 40% at 15% 85%, rgba(227,6,19,.07) 0%, transparent 60%)",
+            background: "radial-gradient(ellipse 70% 55% at 55% 40%, rgba(207,17,13,.18) 0%, transparent 70%), radial-gradient(ellipse 45% 40% at 15% 85%, rgba(207,17,13,.07) 0%, transparent 60%)",
           }}
         ></div>
 
@@ -143,12 +141,6 @@ export default function Home() {
               Nossos Produtos
             </Button>
           </div>
-
-          {/* Scroll Indicator */}
-          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2">
-            <span className="text-xs tracking-widest uppercase text-gray-500" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>Scroll</span>
-            <div className="w-0.5 h-12 bg-gradient-to-b from-red-600 to-transparent animate-pulse"></div>
-          </div>
         </div>
       </section>
 
@@ -159,7 +151,7 @@ export default function Home() {
             { num: "2014", label: "Fundação" },
             { num: "+100", label: "Clientes" },
             { num: "6", label: "Produtos" },
-            { num: "2025", label: "Expansão" },
+            { num: "2026", label: "Inovação" },
           ].map((stat, idx) => (
             <div key={idx} className="text-center py-9 px-6">
               <div className="text-4xl md:text-5xl font-black text-red-600 leading-none" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
@@ -243,19 +235,33 @@ export default function Home() {
               { year: "2018", title: "Renascimento", desc: "Produtos B2B e expansão de mercado" },
               { year: "2020", title: "Reconhecimento", desc: "Melhor Software de Pricing Varejo" },
               { year: "2024", title: "Consolidação", desc: "Manter e crescer em mercado competitivo" },
-              { year: "2026", title: "Agora você faz parte", desc: "Bem-vindo à nossa história de sucesso" },
+              { year: "2026", title: "Agora você faz parte", desc: "Bem-vindo à nossa história de sucesso", highlight: true },
             ].map((item, idx) => (
               <div key={idx} className="pb-12 relative" data-reveal>
                 {/* Timeline Dot */}
-                <div className="absolute -left-6 top-1 w-3 h-3 bg-red-600 rounded-full border-4 border-gray-100"></div>
+                <div className={`absolute -left-6 top-1 w-3 h-3 rounded-full border-4 ${item.highlight ? 'bg-red-600 border-red-600' : 'bg-red-600 border-gray-100'}`}></div>
 
-                <div className="text-4xl font-black text-gray-300 leading-none mb-2" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
-                  {item.year}
-                </div>
-                <h4 className="text-xl font-black text-gray-900 mb-2" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
-                  {item.title}
-                </h4>
-                <p className="text-sm text-gray-600">{item.desc}</p>
+                {item.highlight ? (
+                  <div className="bg-gradient-to-r from-red-600 to-red-500 text-white p-6 rounded-lg">
+                    <div className="text-4xl font-black leading-none mb-2" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+                      {item.year}
+                    </div>
+                    <h4 className="text-2xl font-black mb-2" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+                      {item.title}
+                    </h4>
+                    <p className="text-sm text-white/90">{item.desc}</p>
+                  </div>
+                ) : (
+                  <>
+                    <div className="text-4xl font-black text-gray-300 leading-none mb-2" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+                      {item.year}
+                    </div>
+                    <h4 className="text-xl font-black text-gray-900 mb-2" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+                      {item.title}
+                    </h4>
+                    <p className="text-sm text-gray-600">{item.desc}</p>
+                  </>
+                )}
               </div>
             ))}
           </div>
@@ -263,13 +269,13 @@ export default function Home() {
       </section>
 
       {/* Missão, Visão e Valores - Redesigned */}
-      <section className="py-28 px-6 bg-gradient-to-br from-red-600 to-red-700">
+      <section className="py-28 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="mb-16 text-center" data-reveal>
-            <div className="text-xs font-bold tracking-widest uppercase text-white/70 mb-3" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+          <div className="mb-16" data-reveal>
+            <div className="text-xs font-bold tracking-widest uppercase text-red-600 mb-3" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
               Nossos Pilares
             </div>
-            <h2 className="text-5xl md:text-6xl font-black text-white tracking-tight" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+            <h2 className="text-5xl md:text-6xl font-black text-gray-900 tracking-tight" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
               Missão, Visão e Valores
             </h2>
           </div>
@@ -278,33 +284,32 @@ export default function Home() {
             {[
               {
                 label: "Missão",
-                icon: "🎯",
                 text: "Democratizar o Pricing no varejo e garantir que os clientes tenham as melhores precificações nos seus negócios.",
               },
               {
                 label: "Visão",
-                icon: "🔭",
                 text: "Em 5 anos ter produtos utilizados por 50% dos varejistas do Brasil.",
               },
               {
                 label: "Valores",
-                icon: "💎",
                 text: "Respeito, Inovação, Ética e Alegria guiam todas as nossas decisões.",
               },
             ].map((item, idx) => (
-              <div key={idx} className="bg-white/10 backdrop-blur-sm p-12 rounded-xl border border-white/20 hover:bg-white/20 transition-all" data-reveal>
-                <div className="text-5xl mb-6">{item.icon}</div>
-                <h3 className="text-2xl font-black text-white mb-4" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
-                  {item.label}
-                </h3>
-                <p className="text-white/90 leading-relaxed font-light text-base">{item.text}</p>
+              <div key={idx} className="relative" data-reveal>
+                <div className="absolute -top-8 -left-8 w-24 h-24 bg-red-600/5 rounded-full"></div>
+                <div className="relative bg-white border-l-4 border-red-600 pl-8 pr-6 py-8">
+                  <h3 className="text-2xl font-black text-gray-900 mb-4" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+                    {item.label}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed font-light text-base">{item.text}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Produtos Section - Redesigned */}
+      {/* Produtos Section - Com Cores Oficiais */}
       <section id="produtos" className="py-28 px-6 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="mb-16" data-reveal>
@@ -321,37 +326,38 @@ export default function Home() {
               { 
                 name: "ZPricing", 
                 desc: "Ferramenta de precificação inteligente e automatizada com recomendações em tempo real",
-                color: "from-blue-500 to-blue-600"
+                color: "#056BF1"
               },
               { 
                 name: "ZAnalytics", 
                 desc: "Plataforma de competitividade e análise de mercado com dashboards avançados",
-                color: "from-purple-500 to-purple-600"
+                color: "#EE8625"
               },
               { 
                 name: "ZGO", 
                 desc: "Pesquisa sob demanda com API de integração para dados precisos",
-                color: "from-green-500 to-green-600"
+                color: "#78AE3F"
               },
               { 
                 name: "ZRobot", 
                 desc: "Captura massiva de dados com entrega contínua e automação",
-                color: "from-orange-500 to-orange-600"
+                color: "#6B2246"
               },
               { 
                 name: "ZPromo", 
                 desc: "Gestão de promoções e campanhas com otimização de margens",
-                color: "from-pink-500 to-pink-600"
+                color: "#DA8A7F"
               },
               { 
                 name: "ZConsulting", 
                 desc: "Consultoria especializada em estratégia de pricing e mercado",
-                color: "from-indigo-500 to-indigo-600"
+                color: "#02385A"
               },
             ].map((prod, idx) => (
               <div
                 key={idx}
-                className={`bg-gradient-to-br ${prod.color} p-8 rounded-xl text-white shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all`}
+                className="p-8 rounded-xl text-white shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all"
+                style={{ backgroundColor: prod.color }}
                 data-reveal
               >
                 <h3 className="text-2xl font-black mb-3" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
@@ -364,7 +370,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Clientes Section - Redesigned with Logos */}
+      {/* Clientes Section - Placeholder */}
       <section className="bg-white border-y border-gray-200 py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16" data-reveal>
@@ -407,8 +413,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Benefícios Section - Redesigned with Colors */}
-      <section id="beneficios" className="py-28 px-6">
+      {/* Benefícios Section - Redesigned Sofisticado */}
+      <section id="beneficios" className="py-28 px-6 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto">
           <div className="mb-16" data-reveal>
             <div className="text-xs font-bold tracking-widest uppercase text-red-600 mb-3" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
@@ -419,32 +425,39 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-8">
             {[
-              { icon: "🏢", title: "Modalidade Híbrida", desc: "Flexibilidade de trabalho", bg: "from-blue-100 to-blue-50" },
-              { icon: "🎉", title: "Day Off Aniversário", desc: "Seu dia especial é nosso feriado", bg: "from-yellow-100 to-yellow-50" },
-              { icon: "🏥", title: "Plano de Saúde", desc: "SulAmérica (após 90 dias)", bg: "from-green-100 to-green-50" },
-              { icon: "🎟️", title: "Convênio SESC", desc: "Benefícios e descontos", bg: "from-purple-100 to-purple-50" },
-              { icon: "💰", title: "Bônus Semestral", desc: "Recompensa pelo desempenho", bg: "from-pink-100 to-pink-50" },
-              { icon: "⭐", title: "Folga Destaque", desc: "Reconhecimento do mês", bg: "from-orange-100 to-orange-50" },
+              { icon: "🏢", title: "Modalidade Híbrida", desc: "Flexibilidade de trabalho com equilíbrio entre home office e presencial" },
+              { icon: "🎉", title: "Day Off Aniversário", desc: "Seu dia especial é nosso feriado - celebramos você" },
+              { icon: "🏥", title: "Plano de Saúde", desc: "Cobertura completa SulAmérica após 90 dias de contratação" },
+              { icon: "🎟️", title: "Convênio SESC", desc: "Acesso a benefícios e descontos em lazer e cultura" },
+              { icon: "💰", title: "Bônus Semestral", desc: "Recompensa pelo desempenho e resultados alcançados" },
+              { icon: "⭐", title: "Folga Destaque", desc: "Reconhecimento mensal com folga extra para colaboradores destaque" },
             ].map((ben, idx) => (
               <div
                 key={idx}
-                className={`bg-gradient-to-br ${ben.bg} p-8 rounded-xl border-2 border-transparent hover:border-red-600 transition-all`}
+                className="group bg-white border border-gray-200 p-8 rounded-xl hover:border-red-600 hover:shadow-xl transition-all relative overflow-hidden"
                 data-reveal
               >
-                <div className="text-4xl mb-4">{ben.icon}</div>
-                <h4 className="font-black text-gray-900 mb-2 text-lg" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
-                  {ben.title}
-                </h4>
-                <p className="text-sm text-gray-600">{ben.desc}</p>
+                {/* Accent Line */}
+                <div className="absolute top-0 left-0 w-1 h-0 group-hover:h-full bg-red-600 transition-all duration-300"></div>
+                
+                <div className="flex gap-4">
+                  <div className="text-4xl flex-shrink-0">{ben.icon}</div>
+                  <div className="flex-1">
+                    <h4 className="font-black text-gray-900 mb-2 text-lg" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+                      {ben.title}
+                    </h4>
+                    <p className="text-sm text-gray-600 leading-relaxed">{ben.desc}</p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Time Section - Organograma Orientado a Produto */}
+      {/* Time Section - Organograma Corrigido */}
       <section id="time" className="py-28 px-6 bg-gray-100">
         <div className="max-w-7xl mx-auto">
           <div className="mb-16" data-reveal>
@@ -458,7 +471,7 @@ export default function Home() {
 
           <div className="bg-white p-12 rounded-xl border-2 border-gray-200" data-reveal>
             {/* Diretoria */}
-            <div className="text-center mb-12">
+            <div className="text-center mb-16">
               <div className="inline-block bg-red-600 text-white rounded-lg px-8 py-4 mb-8">
                 <div className="text-xs font-bold tracking-widest uppercase text-white/80 mb-1" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
                   Diretoria
@@ -474,19 +487,19 @@ export default function Home() {
               <div className="w-0.5 h-12 bg-gray-300"></div>
             </div>
 
-            {/* Departamentos */}
-            <div className="grid md:grid-cols-5 gap-4">
+            {/* Departamentos - Alinhados e com cores dos produtos */}
+            <div className="flex justify-center gap-4 flex-wrap">
               {[
-                { name: "Fabiana", role: "Financeiro & RH", color: "from-blue-500 to-blue-600" },
-                { name: "Chayeni", role: "Pricing", color: "from-purple-500 to-purple-600" },
-                { name: "Guilherme", role: "Analytics & ZGO", color: "from-green-500 to-green-600" },
-                { name: "Rafael", role: "ZRobot & ZPromo", color: "from-orange-500 to-orange-600" },
+                { name: "Fabiana", role: "Financeiro & RH", color: "#CF110D" },
+                { name: "Chayeni", role: "Pricing", color: "#056BF1" },
+                { name: "Guilherme", role: "Analytics & ZGO", color: "#EE8625" },
+                { name: "Rafael", role: "ZRobot & ZPromo", color: "#6B2246" },
               ].map((dept, idx) => (
                 <div key={idx} className="text-center" data-reveal>
                   <div className="flex justify-center mb-4">
                     <div className="w-0.5 h-8 bg-gray-300"></div>
                   </div>
-                  <div className={`bg-gradient-to-br ${dept.color} text-white rounded-lg px-6 py-4`}>
+                  <div className="text-white rounded-lg px-6 py-4 min-w-max" style={{ backgroundColor: dept.color }}>
                     <div className="font-black text-lg mb-1" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
                       {dept.name}
                     </div>
@@ -501,7 +514,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Boas Práticas Section - Updated Content */}
+      {/* Boas Práticas Section */}
       <section id="praticas" className="py-28 px-6 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="mb-16" data-reveal>
