@@ -700,30 +700,37 @@ export default function Home() {
                   <span>Mensalista</span>
                 </div>
                 {/* Tabela de vencimentos */}
-                <div className="px-6 py-4">
-                  <table className="w-full text-sm">
+                <div className="px-4 py-4 overflow-x-auto">
+                  <table className="w-full text-sm table-fixed">
+                    <colgroup>
+                      <col className="w-[10%]" />
+                      <col className="w-[40%]" />
+                      <col className="w-[14%]" />
+                      <col className="w-[18%]" />
+                      <col className="w-[18%]" />
+                    </colgroup>
                     <thead>
                       <tr className="border-b-2 border-gray-200">
-                        <th className="text-left py-2 text-xs font-bold text-gray-500">Cód.</th>
-                        <th className="text-left py-2 text-xs font-bold text-gray-500">Descrição</th>
-                        <th className="text-right py-2 text-xs font-bold text-gray-500">Ref.</th>
-                        <th className="text-right py-2 text-xs font-bold text-green-600">Vencimentos</th>
-                        <th className="text-right py-2 text-xs font-bold text-red-500">Descontos</th>
+                        <th className="text-left py-2 px-1 text-[10px] font-bold text-gray-500 whitespace-nowrap">Cód.</th>
+                        <th className="text-left py-2 px-1 text-[10px] font-bold text-gray-500">Descrição</th>
+                        <th className="text-right py-2 px-1 text-[10px] font-bold text-gray-500 whitespace-nowrap">Ref.</th>
+                        <th className="text-right py-2 px-1 text-[10px] font-bold text-green-600 whitespace-nowrap">Vencimentos</th>
+                        <th className="text-right py-2 px-1 text-[10px] font-bold text-red-500 whitespace-nowrap">Descontos</th>
                       </tr>
                     </thead>
                     <tbody>
                       {[
                         { cod: "8797", desc: "DIAS BOLSA AUXÍLIO", ref: "30,00", venc: "1.100,00", desc2: "" },
-                        { cod: "206", desc: "REEMBOLSO VALE TRANSPORTE", ref: "117,00", venc: "117,00", desc2: "" },
-                        { cod: "8521", desc: "BOLSA AUXÍLIO TROCO DO MÊS", ref: "0,00", venc: "0,33", desc2: "" },
-                        { cod: "8526", desc: "BOLSA AUXÍLIO TROCO MÊS ANT.", ref: "0,33", venc: "", desc2: "0,33" },
+                        { cod: "206", desc: "REEMB. VALE TRANSP.", ref: "117,00", venc: "117,00", desc2: "" },
+                        { cod: "8521", desc: "BOLSA AUX. TROCO MÊS", ref: "0,00", venc: "0,33", desc2: "" },
+                        { cod: "8526", desc: "BOLSA AUX. TROCO ANT.", ref: "0,33", venc: "", desc2: "0,33" },
                       ].map((row, idx) => (
                         <tr key={idx} className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                          <td className="py-2 text-xs text-gray-400">{row.cod}</td>
-                          <td className="py-2 text-xs font-medium text-gray-700">{row.desc}</td>
-                          <td className="py-2 text-xs text-gray-500 text-right">{row.ref}</td>
-                          <td className="py-2 text-xs text-green-600 font-semibold text-right">{row.venc}</td>
-                          <td className="py-2 text-xs text-red-500 font-semibold text-right">{row.desc2}</td>
+                          <td className="py-2 px-1 text-[10px] text-gray-400 whitespace-nowrap">{row.cod}</td>
+                          <td className="py-2 px-1 text-[10px] font-medium text-gray-700 truncate">{row.desc}</td>
+                          <td className="py-2 px-1 text-[10px] text-gray-500 text-right whitespace-nowrap">{row.ref}</td>
+                          <td className="py-2 px-1 text-[10px] text-green-600 font-semibold text-right whitespace-nowrap">{row.venc}</td>
+                          <td className="py-2 px-1 text-[10px] text-red-500 font-semibold text-right whitespace-nowrap">{row.desc2}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -767,7 +774,7 @@ export default function Home() {
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm hover:shadow-md hover:border-red-200 transition-all">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <span className="text-green-600 text-xl">\ud83d\udcb0</span>
+                    <span className="text-green-600 text-xl">{"\ud83d\udcb0"}</span>
                   </div>
                   <div>
                     <h4 className="font-bold text-gray-900 mb-1" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>Vencimentos</h4>
@@ -779,7 +786,7 @@ export default function Home() {
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm hover:shadow-md hover:border-red-200 transition-all">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <span className="text-red-600 text-xl">\ud83d\udcc9</span>
+                    <span className="text-red-600 text-xl">{"\ud83d\udcc9"}</span>
                   </div>
                   <div>
                     <h4 className="font-bold text-gray-900 mb-1" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>Descontos</h4>
@@ -791,7 +798,7 @@ export default function Home() {
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm hover:shadow-md hover:border-red-200 transition-all">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <span className="text-blue-600 text-xl">\ud83d\udcca</span>
+                    <span className="text-blue-600 text-xl">{"\ud83d\udcca"}</span>
                   </div>
                   <div>
                     <h4 className="font-bold text-gray-900 mb-1" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>Valor Líquido</h4>
@@ -803,7 +810,7 @@ export default function Home() {
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm hover:shadow-md hover:border-red-200 transition-all">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <span className="text-amber-600 text-xl">\ud83d\udcc5</span>
+                    <span className="text-amber-600 text-xl">{"\ud83d\udcc5"}</span>
                   </div>
                   <div>
                     <h4 className="font-bold text-gray-900 mb-1" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>Pagamento</h4>
