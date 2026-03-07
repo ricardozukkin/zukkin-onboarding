@@ -681,40 +681,112 @@ export default function Home() {
       </section>
 
       {/* Boas Práticas do Escritório Section */}
-      <section className="py-28 px-6 bg-gray-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 opacity-95"></div>
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="mb-16 text-center" data-reveal>
-            <div className="inline-block px-4 py-1.5 rounded-full border border-red-500/30 text-red-400 text-xs font-bold tracking-widest uppercase mb-6" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
-              Convivência
-            </div>
-            <h2 className="text-5xl md:text-6xl font-black text-white tracking-tight" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
-              Boas Práticas do <span className="text-red-500">Escritório</span>
-            </h2>
-          </div>
+      {(() => {
+        const officeRules = [
+          { icon: "🍽️", title: "Louça", text: "Lave, seque e guarde o copo ou talher após o usar;" },
+          { icon: "🥄", title: "Talheres", text: "Devolver o talher caso leve para casa;" },
+          { icon: "🥡", title: "Geladeira", text: "Não deixar marmita mais de dois dias na geladeira;" },
+          { icon: "☕", title: "Cafeteira", text: "Somente os analistas estão autorizados a utilizar a cafeteira. Caso queira café, solicite ao analista presente no escritório;" },
+          { icon: "🪑", title: "Mesas", text: "Deixar a mesa limpa e organizada após a utilização, pois as mesas são rotativas;" },
+          { icon: "🚪", title: "Banheiro", text: "Deixar a porta do banheiro aberta após a utilização;" },
+          { icon: "❄️", title: "Ao Sair", text: "Se caso você for o último a sair, verifique se o ar-condicionado está desligado e a janela da cozinha está fechada." },
+        ];
+        return (
+          <section className="py-28 px-6 bg-gray-900 text-white relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 opacity-95"></div>
+            <div className="max-w-7xl mx-auto relative z-10">
+              <div className="mb-16 text-center" data-reveal>
+                <div className="inline-block px-4 py-1.5 rounded-full border border-red-500/30 text-red-400 text-xs font-bold tracking-widest uppercase mb-6" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+                  Convivência
+                </div>
+                <h2 className="text-5xl md:text-6xl font-black text-white tracking-tight" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+                  Boas Práticas do <span className="text-red-500">Escritório</span>
+                </h2>
+              </div>
 
-          <div className="max-w-4xl mx-auto bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-10 md:p-14" data-reveal>
-            <ul className="space-y-6">
-              {[
-                "Lave, seque e guarde o copo ou talher após o usar;",
-                "Devolver o talher caso leve para casa;",
-                "Não deixar marmita mais de dois dias na geladeira;",
-                "Somente os analistas estão autorizados a utilizar a cafeteira. Caso queira café, solicite ao analista presente no escritório;",
-                "Deixar a mesa limpa e organizada após a utilização, pois as mesas são rotativas;",
-                "Deixar a porta do banheiro aberta após a utilização;",
-                "Se caso você for o último a sair, verifique se o ar-condicionado está desligado e a janela da cozinha está fechada."
-              ].map((item, idx) => (
-                <li key={idx} className="flex items-start gap-4">
-                  <div className="w-8 h-8 bg-red-600/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <span className="text-red-400 text-sm font-bold">{idx + 1}</span>
+              {/* Carrossel de cartões */}
+              <div className="relative max-w-5xl mx-auto" data-reveal>
+                <div className="overflow-hidden" id="office-carousel">
+                  <div 
+                    className="flex transition-transform duration-500 ease-in-out"
+                    style={{ transform: `translateX(-${(typeof window !== 'undefined' ? (window as any).__officeSlide || 0 : 0) * 100}%)` }}
+                    id="office-carousel-track"
+                  >
+                    {/* Grupos de 3 cards */}
+                    {[0, 1, 2].map((groupIdx) => (
+                      <div key={groupIdx} className="w-full flex-shrink-0 grid grid-cols-1 md:grid-cols-3 gap-6 px-2">
+                        {officeRules.slice(groupIdx * 3, groupIdx * 3 + 3).map((rule, idx) => (
+                          <div 
+                            key={idx}
+                            className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 hover:border-red-500/30 transition-all group"
+                          >
+                            <div className="text-5xl mb-6 group-hover:scale-110 transition-transform">{rule.icon}</div>
+                            <div className="bg-red-600/20 text-red-400 rounded-lg px-4 py-1.5 inline-block mb-4">
+                              <span className="text-sm font-bold tracking-widest uppercase" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>{rule.title}</span>
+                            </div>
+                            <p className="text-gray-300 leading-relaxed">{rule.text}</p>
+                          </div>
+                        ))}
+                      </div>
+                    ))}
                   </div>
-                  <span className="text-lg text-gray-200 leading-relaxed">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
+                </div>
+
+                {/* Navegação por setas */}
+                <button 
+                  className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 w-12 h-12 bg-red-600 hover:bg-red-700 rounded-full flex items-center justify-center shadow-lg transition-colors z-10"
+                  onClick={() => {
+                    const track = document.getElementById('office-carousel-track');
+                    const current = (window as any).__officeSlide || 0;
+                    const next = current > 0 ? current - 1 : 2;
+                    (window as any).__officeSlide = next;
+                    if (track) track.style.transform = `translateX(-${next * 100}%)`;
+                    document.querySelectorAll('.office-dot').forEach((d, i) => {
+                      (d as HTMLElement).style.backgroundColor = i === next ? '#E30613' : 'rgba(255,255,255,0.2)';
+                    });
+                  }}
+                >
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" /></svg>
+                </button>
+                <button 
+                  className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 w-12 h-12 bg-red-600 hover:bg-red-700 rounded-full flex items-center justify-center shadow-lg transition-colors z-10"
+                  onClick={() => {
+                    const track = document.getElementById('office-carousel-track');
+                    const current = (window as any).__officeSlide || 0;
+                    const next = current < 2 ? current + 1 : 0;
+                    (window as any).__officeSlide = next;
+                    if (track) track.style.transform = `translateX(-${next * 100}%)`;
+                    document.querySelectorAll('.office-dot').forEach((d, i) => {
+                      (d as HTMLElement).style.backgroundColor = i === next ? '#E30613' : 'rgba(255,255,255,0.2)';
+                    });
+                  }}
+                >
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
+                </button>
+
+                {/* Indicadores */}
+                <div className="flex justify-center gap-3 mt-10">
+                  {[0, 1, 2].map((dotIdx) => (
+                    <button
+                      key={dotIdx}
+                      className="office-dot w-3 h-3 rounded-full transition-all"
+                      style={{ backgroundColor: dotIdx === 0 ? '#E30613' : 'rgba(255,255,255,0.2)' }}
+                      onClick={() => {
+                        const track = document.getElementById('office-carousel-track');
+                        (window as any).__officeSlide = dotIdx;
+                        if (track) track.style.transform = `translateX(-${dotIdx * 100}%)`;
+                        document.querySelectorAll('.office-dot').forEach((d, i) => {
+                          (d as HTMLElement).style.backgroundColor = i === dotIdx ? '#E30613' : 'rgba(255,255,255,0.2)';
+                        });
+                      }}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+      })()}
 
       {/* Encerramento Section */}
       <section className="py-28 px-6 bg-gradient-to-br from-gray-900 to-gray-800 text-white relative overflow-hidden">
