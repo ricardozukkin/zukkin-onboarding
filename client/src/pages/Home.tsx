@@ -386,10 +386,11 @@ export default function Home() {
             <span className="text-gray-600">Redes, dentre elas atendemos:</span>
           </p>
 
-          {/* Row 1 - 3 logos */}
-          <div className="grid grid-cols-3 md:grid-cols-3 gap-6 mb-6" data-reveal>
+          {/* Row 1 - 4 logos */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-6" data-reveal>
             {[
-              { name: "GPA", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/4ddp6GhLAzFD_7f933dc3.png" },
+              { name: "Vivo", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/bF0DSB9gNVOg_8d38e125.png" },
+              { name: "Votorantim", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/Wmbs16oWI8wN_711017f4.png" },
               { name: "Super Muffato", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/NCWLt44MBkoy_44381369.jpg" },
               { name: "Grupo Pereira", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/N4wIPTB9rM0M_ee08b0a7.jpg" },
             ].map((client, idx) => (
@@ -399,13 +400,12 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Row 2 - 6 logos */}
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-6 mb-6" data-reveal>
+          {/* Row 2 - 5 logos */}
+          <div className="grid grid-cols-3 md:grid-cols-5 gap-6 mb-6" data-reveal>
             {[
               { name: "Zaffari", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/OB9qE9PKGRao_671e795f.jpg" },
               { name: "Tonin", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/U2ULP459xT3h_1a24441b.jpg" },
               { name: "Grupo Coutinho", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/dlNDMwyNkcid_ff232ca6.jpg" },
-              { name: "Barbosa", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/QijOVuPQ27TI_f2b4027c.jpg" },
               { name: "Nordestão", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/wtXsTqbUHqyH_49bd05ca.jpg" },
               { name: "Hiperideal", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/u3kM96CIg2D9_4f088029.png" },
             ].map((client, idx) => (
