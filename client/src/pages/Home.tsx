@@ -370,9 +370,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Clientes Section */}
-      <section className="py-28 px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
+      {/* Clientes Section - Carrossel */}
+      <section className="py-28 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="mb-6" data-reveal>
             <div className="text-xs font-bold tracking-widest uppercase text-red-600 mb-3" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
               Confiança
@@ -385,62 +385,64 @@ export default function Home() {
             <span className="text-5xl font-black text-red-600" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>+100</span>{" "}
             <span className="text-gray-600">Redes, dentre elas atendemos:</span>
           </p>
+        </div>
 
-          {/* Row 1 - 4 logos */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-6" data-reveal>
-            {[
-              { name: "Vivo", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/bF0DSB9gNVOg_8d38e125.png" },
-              { name: "Votorantim", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/Wmbs16oWI8wN_711017f4.png" },
-              { name: "Super Muffato", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/NCWLt44MBkoy_44381369.jpg" },
-              { name: "Grupo Pereira", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/N4wIPTB9rM0M_ee08b0a7.jpg" },
-            ].map((client, idx) => (
-              <div key={idx} className="bg-gray-50 border border-gray-100 rounded-xl p-6 flex items-center justify-center h-28 hover:shadow-lg hover:border-red-100 transition-all">
-                <img src={client.logo} alt={client.name} className="max-h-16 max-w-full object-contain" />
+        {/* Carousel Row 1 - slides left */}
+        <div className="relative mb-8">
+          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10"></div>
+          <div className="flex animate-[scrollLeft_30s_linear_infinite] hover:[animation-play-state:paused] w-max">
+            {[...Array(2)].map((_, setIdx) => (
+              <div key={setIdx} className="flex gap-8 mr-8">
+                {[
+                  { name: "Vivo", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/bF0DSB9gNVOg_8d38e125.png" },
+                  { name: "Votorantim", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/Wmbs16oWI8wN_711017f4.png" },
+                  { name: "Super Muffato", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/NCWLt44MBkoy_44381369.jpg" },
+                  { name: "Grupo Pereira", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/N4wIPTB9rM0M_ee08b0a7.jpg" },
+                  { name: "Zaffari", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/OB9qE9PKGRao_671e795f.jpg" },
+                  { name: "Tonin", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/U2ULP459xT3h_1a24441b.jpg" },
+                  { name: "Grupo Coutinho", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/dlNDMwyNkcid_ff232ca6.jpg" },
+                  { name: "Nordestão", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/wtXsTqbUHqyH_49bd05ca.jpg" },
+                  { name: "Hiperideal", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/u3kM96CIg2D9_4f088029.png" },
+                ].map((client, idx) => (
+                  <div
+                    key={idx}
+                    className="bg-gray-50 border border-gray-100 rounded-xl px-8 py-5 flex items-center justify-center h-24 w-48 flex-shrink-0 hover:shadow-lg hover:border-red-200 hover:scale-105 transition-all duration-300"
+                  >
+                    <img src={client.logo} alt={client.name} className="max-h-14 max-w-full object-contain" />
+                  </div>
+                ))}
               </div>
             ))}
           </div>
+        </div>
 
-          {/* Row 2 - 5 logos */}
-          <div className="grid grid-cols-3 md:grid-cols-5 gap-6 mb-6" data-reveal>
-            {[
-              { name: "Zaffari", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/OB9qE9PKGRao_671e795f.jpg" },
-              { name: "Tonin", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/U2ULP459xT3h_1a24441b.jpg" },
-              { name: "Grupo Coutinho", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/dlNDMwyNkcid_ff232ca6.jpg" },
-              { name: "Nordestão", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/wtXsTqbUHqyH_49bd05ca.jpg" },
-              { name: "Hiperideal", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/u3kM96CIg2D9_4f088029.png" },
-            ].map((client, idx) => (
-              <div key={idx} className="bg-gray-50 border border-gray-100 rounded-xl p-4 flex items-center justify-center h-24 hover:shadow-lg hover:border-red-100 transition-all">
-                <img src={client.logo} alt={client.name} className="max-h-14 max-w-full object-contain" />
-              </div>
-            ))}
-          </div>
-
-          {/* Row 3 - 6 logos */}
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-6 mb-6" data-reveal>
-            {[
-              { name: "Pague Menos", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/pfCZxhAjFW58_a1c182fb.jpg" },
-              { name: "Shibata", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/2G2PA4afmNcR_c74098d9.jpg" },
-              { name: "Confiança", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/Wzmid3nRwc9T_de8d5e1a.png" },
-              { name: "São Vicente", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/PhUVpR6m4kd2_dd4435e6.png" },
-              { name: "Costa Atacadão", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/hwtqmapKNcZI_66c07095.jpg" },
-              { name: "Bahamas", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/Q7EmsdAFsiIH_2bb01b8b.png" },
-            ].map((client, idx) => (
-              <div key={idx} className="bg-gray-50 border border-gray-100 rounded-xl p-4 flex items-center justify-center h-24 hover:shadow-lg hover:border-red-100 transition-all">
-                <img src={client.logo} alt={client.name} className="max-h-14 max-w-full object-contain" />
-              </div>
-            ))}
-          </div>
-
-          {/* Row 4 - 4 logos */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6" data-reveal>
-            {[
-              { name: "Nissei", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/cx8jY6dbKJgV_0c806e22.png" },
-              { name: "Mart Minas", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/b0CxvkHgqGHU_0791dcf7.png" },
-              { name: "Zona Sul", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/KEvkZXe3H2zm_275b9850.jpg" },
-              { name: "Atakarejo", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/dXWTPXq7kS2u_208708e4.jpeg" },
-            ].map((client, idx) => (
-              <div key={idx} className="bg-gray-50 border border-gray-100 rounded-xl p-6 flex items-center justify-center h-28 hover:shadow-lg hover:border-red-100 transition-all">
-                <img src={client.logo} alt={client.name} className="max-h-16 max-w-full object-contain" />
+        {/* Carousel Row 2 - slides right */}
+        <div className="relative">
+          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10"></div>
+          <div className="flex animate-[scrollRight_35s_linear_infinite] hover:[animation-play-state:paused] w-max">
+            {[...Array(2)].map((_, setIdx) => (
+              <div key={setIdx} className="flex gap-8 mr-8">
+                {[
+                  { name: "Pague Menos", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/pfCZxhAjFW58_a1c182fb.jpg" },
+                  { name: "Shibata", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/2G2PA4afmNcR_c74098d9.jpg" },
+                  { name: "Confiança", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/Wzmid3nRwc9T_de8d5e1a.png" },
+                  { name: "São Vicente", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/PhUVpR6m4kd2_dd4435e6.png" },
+                  { name: "Costa Atacadão", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/hwtqmapKNcZI_66c07095.jpg" },
+                  { name: "Bahamas", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/Q7EmsdAFsiIH_2bb01b8b.png" },
+                  { name: "Nissei", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/cx8jY6dbKJgV_0c806e22.png" },
+                  { name: "Mart Minas", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/b0CxvkHgqGHU_0791dcf7.png" },
+                  { name: "Zona Sul", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/KEvkZXe3H2zm_275b9850.jpg" },
+                  { name: "Atakarejo", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/dXWTPXq7kS2u_208708e4.jpeg" },
+                ].map((client, idx) => (
+                  <div
+                    key={idx}
+                    className="bg-gray-50 border border-gray-100 rounded-xl px-8 py-5 flex items-center justify-center h-24 w-48 flex-shrink-0 hover:shadow-lg hover:border-red-200 hover:scale-105 transition-all duration-300"
+                  >
+                    <img src={client.logo} alt={client.name} className="max-h-14 max-w-full object-contain" />
+                  </div>
+                ))}
               </div>
             ))}
           </div>
