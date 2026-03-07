@@ -551,6 +551,96 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Meios de Comunicação Section */}
+      <section id="comunicacao" className="py-28 px-6 bg-gray-900 text-white relative overflow-hidden">
+        {/* Background overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 opacity-95"></div>
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="mb-16 text-center" data-reveal>
+            <div className="inline-block px-4 py-1.5 rounded-full border border-red-500/30 text-red-400 text-xs font-bold tracking-widest uppercase mb-6" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+              Ferramentas & Canais
+            </div>
+            <h2 className="text-5xl md:text-6xl font-black text-white tracking-tight" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+              Meios de Comunicação
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-10 mb-16">
+            {/* Canais de Comunicação */}
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 hover:bg-white/10 transition-all" data-reveal>
+              <div className="bg-red-600 text-white rounded-lg px-6 py-3 inline-block mb-8">
+                <h3 className="text-xl font-black tracking-tight" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>Canais de Comunicação</h3>
+              </div>
+              <ul className="space-y-5">
+                <li className="flex items-center gap-4">
+                  <div className="w-10 h-10 bg-indigo-600/20 rounded-lg flex items-center justify-center">
+                    <svg className="w-5 h-5 text-indigo-400" fill="currentColor" viewBox="0 0 24 24"><path d="M19.5 3h-15A1.5 1.5 0 003 4.5v15A1.5 1.5 0 004.5 21h15a1.5 1.5 0 001.5-1.5v-15A1.5 1.5 0 0019.5 3zM8.5 7h7a.5.5 0 01.5.5v2a.5.5 0 01-.5.5h-7a.5.5 0 01-.5-.5v-2a.5.5 0 01.5-.5zm-1 5h9a.5.5 0 01.5.5v2a.5.5 0 01-.5.5h-9a.5.5 0 01-.5-.5v-2a.5.5 0 01.5-.5z"/></svg>
+                  </div>
+                  <span className="text-lg text-gray-200">Teams</span>
+                </li>
+                <li className="flex items-center gap-4">
+                  <div className="w-10 h-10 bg-green-600/20 rounded-lg flex items-center justify-center">
+                    <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+                  </div>
+                  <span className="text-lg text-gray-200">WhatsApp</span>
+                </li>
+                <li className="flex items-center gap-4">
+                  <div className="w-10 h-10 bg-blue-600/20 rounded-lg flex items-center justify-center">
+                    <svg className="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                  </div>
+                  <div>
+                    <span className="text-lg text-gray-200">Email</span>
+                    <span className="block text-sm text-gray-400 italic">nome.sobrenome@zukkin.com</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            {/* Gerenciamento e Execução */}
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 hover:bg-white/10 transition-all" data-reveal>
+              <div className="bg-red-600/80 text-white rounded-lg px-6 py-3 inline-block mb-8">
+                <h3 className="text-xl font-black tracking-tight" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>Gerenciamento e Execução</h3>
+              </div>
+              <ul className="space-y-5">
+                <li className="flex items-center gap-4">
+                  <div className="w-10 h-10 bg-red-600/20 rounded-lg flex items-center justify-center">
+                    <span className="text-red-400 font-black text-lg" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>Z</span>
+                  </div>
+                  <span className="text-lg text-gray-200">Plataforma Zukkin ADM</span>
+                </li>
+                <li className="flex items-center gap-4">
+                  <div className="w-10 h-10 bg-yellow-600/20 rounded-lg flex items-center justify-center">
+                    <svg className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M7.71 3.5L1.15 15.54c-.27.47-.27 1.05 0 1.52l2.82 4.88c.27.47.77.76 1.31.76h16.44c.54 0 1.04-.29 1.31-.76l2.82-4.88c.27-.47.27-1.05 0-1.52L19.29 3.5c-.27-.47-.77-.76-1.31-.76H9.02c-.54 0-1.04.29-1.31.76z"/></svg>
+                  </div>
+                  <span className="text-lg text-gray-200">Google Drive</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Ícones das ferramentas */}
+          <div className="flex justify-center gap-12 flex-wrap" data-reveal>
+            {[
+              { name: "Teams", color: "#5B5FC7", letter: "T" },
+              { name: "Zukkin ADM", color: "#E30613", letter: "Z" },
+              { name: "Outlook", color: "#0078D4", letter: "O" },
+              { name: "Google Drive", color: "#F4B400", letter: "G" },
+              { name: "WhatsApp", color: "#25D366", letter: "W" },
+            ].map((tool, idx) => (
+              <div key={idx} className="text-center group">
+                <div 
+                  className="w-20 h-20 rounded-2xl flex items-center justify-center mb-3 shadow-lg group-hover:scale-110 transition-transform"
+                  style={{ backgroundColor: tool.color }}
+                >
+                  <span className="text-white text-3xl font-black" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>{tool.letter}</span>
+                </div>
+                <span className="text-sm text-gray-400">{tool.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Boas Práticas Section */}
       <section id="praticas" className="py-28 px-6 bg-gray-50">
         <div className="max-w-7xl mx-auto">
