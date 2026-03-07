@@ -6,6 +6,12 @@ import { useEffect } from "react";
  * Baseado no HTML fornecido com melhorias de conteúdo
  * Tipografia: Barlow Condensed para headlines, Barlow para body
  * Cores: #E30613 (vermelho), #f5f4f0 (fundo), #1a1a1a (texto)
+ * 
+ * Assets:
+ * - Logo Zukkin: https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/LogoZukkin2_7f4d5964.png
+ * - Ricardo: https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/ricardo-director-babYuUokyGsq6kdNYNVqex.webp
+ * - Bruno: https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/bruno-director-fybFUZ8FrDeKstHgvbQinn.webp
+ * - Logos clientes: GPA, Vivo, Muffato, Nissei
  */
 
 export default function Home() {
@@ -37,13 +43,15 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-hidden" style={{ fontFamily: "'Barlow', sans-serif" }}>
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/92 backdrop-blur-md border-b border-border">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/92 backdrop-blur-md border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-12 flex items-center justify-between h-[70px]">
-          <div className="flex items-center gap-2">
-            <div className="w-9 h-9 bg-red-600 rounded flex items-center justify-center">
-              <span className="text-white font-bold text-lg" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>Z</span>
-            </div>
-          </div>
+          <a href="#hero" className="flex items-center gap-2">
+            <img 
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/LogoZukkin2_7f4d5964.png"
+              alt="Zukkin"
+              className="h-8"
+            />
+          </a>
           <div className="hidden md:flex items-center gap-9">
             <button
               onClick={() => scrollToSection("historia")}
@@ -107,11 +115,11 @@ export default function Home() {
         <div className="relative z-10 text-center px-6 max-w-3xl">
           <div className="mb-8 inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-red-600 border border-red-600/35 px-5 py-1.5" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
             <span className="w-1.5 h-1.5 bg-red-600 rounded-full animate-pulse"></span>
-            Bem-vindo ao Zukkin
+            Bem-vindo ao Futuro do Pricing
           </div>
 
-          <h1 className="text-7xl md:text-8xl font-black text-white mb-8 leading-none tracking-tight" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
-            Inteligência de <span className="text-red-600">Preços</span>
+          <h1 className="text-6xl md:text-7xl font-black text-white mb-8 leading-none tracking-tight" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+            Bem vindo ao futuro do <span className="text-red-600">Pricing</span>
           </h1>
 
           <p className="text-lg text-gray-400 mb-12 max-w-xl mx-auto leading-relaxed font-light">
@@ -177,31 +185,36 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-14">
+          <div className="grid md:grid-cols-2 gap-12">
             {[
-              {
-                name: "Bruno Fernandes",
-                role: "Diretor",
-                bio: "Visionário na inteligência de mercado, lidera a estratégia de inovação e crescimento da Zukkin.",
-              },
               {
                 name: "Ricardo Forte",
                 role: "Diretor",
-                bio: "Especialista em tecnologia e pricing, responsável pela excelência operacional e desenvolvimento de produtos.",
+                bio: "Especialista em tecnologia e pricing, responsável pela excelência operacional e desenvolvimento de produtos inovadores.",
+                image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/ricardo-director-babYuUokyGsq6kdNYNVqex.webp"
+              },
+              {
+                name: "Bruno Fernandes",
+                role: "Diretor",
+                bio: "Visionário na inteligência de mercado, lidera a estratégia de inovação e crescimento da Zukkin com foco em resultados.",
+                image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/bruno-director-fybFUZ8FrDeKstHgvbQinn.webp"
               },
             ].map((dir, idx) => (
               <div
                 key={idx}
-                className="bg-white border-l-4 border-red-600 p-8 hover:shadow-lg transition-shadow"
+                className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
                 data-reveal
               >
-                <h3 className="text-2xl font-black text-gray-900 mb-1" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
-                  {dir.name}
-                </h3>
-                <div className="text-xs font-bold tracking-widest uppercase text-red-600 mb-3" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
-                  {dir.role}
+                <img src={dir.image} alt={dir.name} className="w-full h-80 object-cover" />
+                <div className="p-8">
+                  <h3 className="text-2xl font-black text-gray-900 mb-1" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+                    {dir.name}
+                  </h3>
+                  <div className="text-xs font-bold tracking-widest uppercase text-red-600 mb-3" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+                    {dir.role}
+                  </div>
+                  <p className="text-sm text-gray-600 leading-relaxed">{dir.bio}</p>
                 </div>
-                <p className="text-sm text-gray-600 leading-relaxed">{dir.bio}</p>
               </div>
             ))}
           </div>
@@ -230,7 +243,7 @@ export default function Home() {
               { year: "2018", title: "Renascimento", desc: "Produtos B2B e expansão de mercado" },
               { year: "2020", title: "Reconhecimento", desc: "Melhor Software de Pricing Varejo" },
               { year: "2024", title: "Consolidação", desc: "Manter e crescer em mercado competitivo" },
-              { year: "2025", title: "Expansão", desc: "Time ampliado e novos horizontes" },
+              { year: "2026", title: "Agora você faz parte", desc: "Bem-vindo à nossa história de sucesso" },
             ].map((item, idx) => (
               <div key={idx} className="pb-12 relative" data-reveal>
                 {/* Timeline Dot */}
@@ -249,39 +262,50 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Missão, Visão e Valores */}
-      <section className="py-0 bg-red-600">
-        <div className="grid grid-cols-1 md:grid-cols-3 divide-x divide-red-700">
-          {[
-            {
-              label: "Missão",
-              icon: "🎯",
-              text: "Democratizar o Pricing no varejo e garantir que os clientes tenham as melhores precificações nos seus negócios.",
-            },
-            {
-              label: "Visão",
-              icon: "🔭",
-              text: "Em 5 anos ter produtos utilizados por 50% dos varejistas do Brasil.",
-            },
-            {
-              label: "Valores",
-              icon: "💎",
-              text: "Respeito, Inovação, Ética e Alegria guiam todas as nossas decisões.",
-            },
-          ].map((item, idx) => (
-            <div key={idx} className="bg-black/8 p-16 text-center hover:bg-black/16 transition-colors" data-reveal>
-              <div className="text-4xl mb-4">{item.icon}</div>
-              <div className="text-xs font-bold tracking-widest uppercase text-white/50 mb-3" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
-                {item.label}
-              </div>
-              <p className="text-white/95 leading-relaxed font-light text-base">{item.text}</p>
+      {/* Missão, Visão e Valores - Redesigned */}
+      <section className="py-28 px-6 bg-gradient-to-br from-red-600 to-red-700">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-16 text-center" data-reveal>
+            <div className="text-xs font-bold tracking-widest uppercase text-white/70 mb-3" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+              Nossos Pilares
             </div>
-          ))}
+            <h2 className="text-5xl md:text-6xl font-black text-white tracking-tight" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+              Missão, Visão e Valores
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                label: "Missão",
+                icon: "🎯",
+                text: "Democratizar o Pricing no varejo e garantir que os clientes tenham as melhores precificações nos seus negócios.",
+              },
+              {
+                label: "Visão",
+                icon: "🔭",
+                text: "Em 5 anos ter produtos utilizados por 50% dos varejistas do Brasil.",
+              },
+              {
+                label: "Valores",
+                icon: "💎",
+                text: "Respeito, Inovação, Ética e Alegria guiam todas as nossas decisões.",
+              },
+            ].map((item, idx) => (
+              <div key={idx} className="bg-white/10 backdrop-blur-sm p-12 rounded-xl border border-white/20 hover:bg-white/20 transition-all" data-reveal>
+                <div className="text-5xl mb-6">{item.icon}</div>
+                <h3 className="text-2xl font-black text-white mb-4" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+                  {item.label}
+                </h3>
+                <p className="text-white/90 leading-relaxed font-light text-base">{item.text}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Produtos Section */}
-      <section id="produtos" className="py-28 px-6 bg-gray-200">
+      {/* Produtos Section - Redesigned */}
+      <section id="produtos" className="py-28 px-6 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="mb-16" data-reveal>
             <div className="text-xs font-bold tracking-widest uppercase text-red-600 mb-3" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
@@ -292,51 +316,99 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-4">
+          <div className="grid md:grid-cols-3 gap-6">
             {[
-              { name: "Zukkin Pesquisa", desc: "Aplicativo para equipe com personalização e integração" },
-              { name: "Zukkin ZRobot", desc: "Captura massiva de dados com entrega contínua" },
-              { name: "Zukkin ZGO", desc: "Pesquisa sob demanda com API de integração" },
-              { name: "Zukkin Pricing", desc: "Ferramenta de precificação inteligente e automatizada" },
-              { name: "Zukkin Analytics", desc: "Plataforma de competitividade e análise de mercado" },
-              { name: "Zukkin Market", desc: "Monitoramento de preços online com crawler avançado" },
+              { 
+                name: "ZPricing", 
+                desc: "Ferramenta de precificação inteligente e automatizada com recomendações em tempo real",
+                color: "from-blue-500 to-blue-600"
+              },
+              { 
+                name: "ZAnalytics", 
+                desc: "Plataforma de competitividade e análise de mercado com dashboards avançados",
+                color: "from-purple-500 to-purple-600"
+              },
+              { 
+                name: "ZGO", 
+                desc: "Pesquisa sob demanda com API de integração para dados precisos",
+                color: "from-green-500 to-green-600"
+              },
+              { 
+                name: "ZRobot", 
+                desc: "Captura massiva de dados com entrega contínua e automação",
+                color: "from-orange-500 to-orange-600"
+              },
+              { 
+                name: "ZPromo", 
+                desc: "Gestão de promoções e campanhas com otimização de margens",
+                color: "from-pink-500 to-pink-600"
+              },
+              { 
+                name: "ZConsulting", 
+                desc: "Consultoria especializada em estratégia de pricing e mercado",
+                color: "from-indigo-500 to-indigo-600"
+              },
             ].map((prod, idx) => (
               <div
                 key={idx}
-                className="bg-white p-8 border-b-3 border-red-600/0 hover:border-red-600 transition-all hover:shadow-lg hover:-translate-y-1"
+                className={`bg-gradient-to-br ${prod.color} p-8 rounded-xl text-white shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all`}
                 data-reveal
               >
-                <div className="text-xs font-bold tracking-widest uppercase text-red-600 mb-2" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
-                  Produto {idx + 1}
-                </div>
-                <h3 className="text-lg font-black text-gray-900 mb-2" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+                <h3 className="text-2xl font-black mb-3" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
                   {prod.name}
                 </h3>
-                <p className="text-sm text-gray-600">{prod.desc}</p>
+                <p className="text-white/90 text-sm leading-relaxed">{prod.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Clientes Section */}
-      <section className="bg-white border-y border-gray-200 py-14">
+      {/* Clientes Section - Redesigned with Logos */}
+      <section className="bg-white border-y border-gray-200 py-20">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-xs font-bold tracking-widest uppercase text-gray-500 text-center mb-9" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
-            +100 Redes Varejistas Confiam em Nós
+          <div className="text-center mb-16" data-reveal>
+            <div className="text-xs font-bold tracking-widest uppercase text-red-600 mb-3" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+              Confiança
+            </div>
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+              Nossos Clientes
+            </h2>
           </div>
-          <div className="flex flex-wrap justify-center items-center gap-0 divide-x divide-gray-200">
-            {["GPA", "Muffato", "Líder Atacadista", "Grupo Pereira", "Swift", "Rede Krill", "Nissei", "Tonin"].map((client, idx) => (
-              <div key={idx} className="text-sm font-black text-gray-400 px-6 py-4 hover:text-gray-700 transition-colors" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
-                {client}
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+            {[
+              {
+                name: "GPA",
+                logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/logo-gpa-SxagX6KYuqwvWGvHLViRor.webp"
+              },
+              {
+                name: "Vivo",
+                logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/logo-vivo-BLBTLWKnshsEBn72jCRp7D.webp"
+              },
+              {
+                name: "Muffato",
+                logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/logo-muffato-GtoeVdfMyYFKJftvwJXueX.webp"
+              },
+              {
+                name: "Nissei",
+                logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/logo-nissei-5wCW4RLszAfD8bP2HYf5ZW.webp"
+              },
+            ].map((client, idx) => (
+              <div
+                key={idx}
+                className="bg-gray-50 p-8 rounded-lg border border-gray-200 hover:border-red-600 hover:shadow-lg transition-all flex items-center justify-center"
+                data-reveal
+              >
+                <img src={client.logo} alt={client.name} className="max-h-16 object-contain" />
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Benefícios Section */}
-      <section id="beneficios" className="py-28 px-6 bg-gray-50">
+      {/* Benefícios Section - Redesigned with Colors */}
+      <section id="beneficios" className="py-28 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="mb-16" data-reveal>
             <div className="text-xs font-bold tracking-widest uppercase text-red-600 mb-3" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
@@ -347,34 +419,32 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-0 border border-gray-200">
+          <div className="grid md:grid-cols-3 gap-6">
             {[
-              { icon: "🏢", title: "Modalidade Híbrida", desc: "Flexibilidade de trabalho" },
-              { icon: "🎉", title: "Day Off Aniversário", desc: "Seu dia especial é nosso feriado" },
-              { icon: "🏥", title: "Plano de Saúde", desc: "SulAmérica (após 90 dias)" },
-              { icon: "🎟️", title: "Convênio SESC", desc: "Benefícios e descontos" },
-              { icon: "💰", title: "Bônus Semestral", desc: "Recompensa pelo desempenho" },
-              { icon: "⭐", title: "Folga Destaque", desc: "Reconhecimento do mês" },
+              { icon: "🏢", title: "Modalidade Híbrida", desc: "Flexibilidade de trabalho", bg: "from-blue-100 to-blue-50" },
+              { icon: "🎉", title: "Day Off Aniversário", desc: "Seu dia especial é nosso feriado", bg: "from-yellow-100 to-yellow-50" },
+              { icon: "🏥", title: "Plano de Saúde", desc: "SulAmérica (após 90 dias)", bg: "from-green-100 to-green-50" },
+              { icon: "🎟️", title: "Convênio SESC", desc: "Benefícios e descontos", bg: "from-purple-100 to-purple-50" },
+              { icon: "💰", title: "Bônus Semestral", desc: "Recompensa pelo desempenho", bg: "from-pink-100 to-pink-50" },
+              { icon: "⭐", title: "Folga Destaque", desc: "Reconhecimento do mês", bg: "from-orange-100 to-orange-50" },
             ].map((ben, idx) => (
               <div
                 key={idx}
-                className="border-r border-b border-gray-200 p-8 hover:bg-white transition-colors flex gap-4"
+                className={`bg-gradient-to-br ${ben.bg} p-8 rounded-xl border-2 border-transparent hover:border-red-600 transition-all`}
                 data-reveal
               >
-                <div className="text-3xl flex-shrink-0">{ben.icon}</div>
-                <div>
-                  <h4 className="font-black text-gray-900 mb-1" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
-                    {ben.title}
-                  </h4>
-                  <p className="text-sm text-gray-600">{ben.desc}</p>
-                </div>
+                <div className="text-4xl mb-4">{ben.icon}</div>
+                <h4 className="font-black text-gray-900 mb-2 text-lg" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+                  {ben.title}
+                </h4>
+                <p className="text-sm text-gray-600">{ben.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Organograma Section */}
+      {/* Time Section - Organograma Orientado a Produto */}
       <section id="time" className="py-28 px-6 bg-gray-100">
         <div className="max-w-7xl mx-auto">
           <div className="mb-16" data-reveal>
@@ -386,23 +456,43 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="bg-white p-12 rounded border border-gray-200" data-reveal>
-            <div className="text-center mb-8">
-              <div className="inline-block bg-white border border-gray-300 rounded px-6 py-3 mb-4">
-                <div className="text-xs font-bold tracking-widest uppercase text-gray-600 mb-1" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
-                  Direção
+          <div className="bg-white p-12 rounded-xl border-2 border-gray-200" data-reveal>
+            {/* Diretoria */}
+            <div className="text-center mb-12">
+              <div className="inline-block bg-red-600 text-white rounded-lg px-8 py-4 mb-8">
+                <div className="text-xs font-bold tracking-widest uppercase text-white/80 mb-1" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+                  Diretoria
                 </div>
-                <div className="text-lg font-black text-gray-900" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
-                  Bruno & Ricardo
+                <div className="text-xl font-black" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+                  Ricardo & Bruno
                 </div>
               </div>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-4 mt-12">
-              {["Desenvolvimento", "Financeiro", "Operações", "Projetos", "Qualidade", "RH"].map((dept, idx) => (
-                <div key={idx} className="bg-gray-50 border border-gray-200 rounded px-4 py-3 text-center hover:border-red-600 transition-colors" data-reveal>
-                  <div className="text-xs font-bold tracking-widest uppercase text-gray-600" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
-                    {dept}
+            {/* Vertical Line */}
+            <div className="flex justify-center mb-8">
+              <div className="w-0.5 h-12 bg-gray-300"></div>
+            </div>
+
+            {/* Departamentos */}
+            <div className="grid md:grid-cols-5 gap-4">
+              {[
+                { name: "Fabiana", role: "Financeiro & RH", color: "from-blue-500 to-blue-600" },
+                { name: "Chayeni", role: "Pricing", color: "from-purple-500 to-purple-600" },
+                { name: "Guilherme", role: "Analytics & ZGO", color: "from-green-500 to-green-600" },
+                { name: "Rafael", role: "ZRobot & ZPromo", color: "from-orange-500 to-orange-600" },
+              ].map((dept, idx) => (
+                <div key={idx} className="text-center" data-reveal>
+                  <div className="flex justify-center mb-4">
+                    <div className="w-0.5 h-8 bg-gray-300"></div>
+                  </div>
+                  <div className={`bg-gradient-to-br ${dept.color} text-white rounded-lg px-6 py-4`}>
+                    <div className="font-black text-lg mb-1" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+                      {dept.name}
+                    </div>
+                    <div className="text-xs font-bold tracking-widest uppercase text-white/80" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+                      {dept.role}
+                    </div>
                   </div>
                 </div>
               ))}
@@ -411,8 +501,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Práticas Section */}
-      <section id="praticas" className="py-28 px-6 bg-gray-200">
+      {/* Boas Práticas Section - Updated Content */}
+      <section id="praticas" className="py-28 px-6 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="mb-16" data-reveal>
             <div className="text-xs font-bold tracking-widest uppercase text-red-600 mb-3" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
@@ -423,21 +513,23 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="grid md:grid-cols-2 gap-6">
             {[
-              { icon: "🧹", title: "Limpeza", desc: "Ambiente organizado e acolhedor" },
-              { icon: "☕", title: "Cafeteria", desc: "Café e lanches disponíveis" },
-              { icon: "❄️", title: "Ar-condicionado", desc: "Conforto térmico garantido" },
-              { icon: "🤝", title: "Colaboração", desc: "Trabalho em equipe e respeito" },
+              { icon: "🤝", title: "Colaboração", desc: "Trabalho em equipe, respeito e comunicação aberta entre todos os departamentos" },
+              { icon: "🚀", title: "Inovação Contínua", desc: "Incentivamos novas ideias e experimentação para melhorar nossos produtos" },
+              { icon: "📊", title: "Dados Orientados", desc: "Decisões baseadas em dados e análises para resultados comprovados" },
+              { icon: "🎓", title: "Desenvolvimento", desc: "Investimento em treinamento e crescimento profissional de nosso time" },
+              { icon: "💚", title: "Bem-estar", desc: "Ambiente saudável, confortável e acolhedor para todos" },
+              { icon: "🏆", title: "Excelência", desc: "Compromisso com qualidade e resultados em tudo que fazemos" },
             ].map((prac, idx) => (
               <div
                 key={idx}
-                className="bg-white p-8 border border-gray-300 hover:shadow-lg hover:-translate-y-1 transition-all flex gap-4"
+                className="bg-white p-8 border-l-4 border-red-600 rounded-lg shadow hover:shadow-lg hover:-translate-y-1 transition-all flex gap-4"
                 data-reveal
               >
-                <div className="text-3xl flex-shrink-0">{prac.icon}</div>
+                <div className="text-4xl flex-shrink-0">{prac.icon}</div>
                 <div>
-                  <h4 className="font-black text-gray-900 mb-1" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+                  <h4 className="font-black text-gray-900 mb-2 text-lg" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
                     {prac.title}
                   </h4>
                   <p className="text-sm text-gray-600">{prac.desc}</p>
@@ -449,7 +541,7 @@ export default function Home() {
       </section>
 
       {/* Encerramento Section */}
-      <section className="py-28 px-6 bg-gray-900 text-white relative overflow-hidden">
+      <section className="py-28 px-6 bg-gradient-to-br from-gray-900 to-gray-800 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "url('https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/zukkin-technology-abstract-Yzj9sKe74tFv9hh6yLoiYK.webp')", backgroundSize: "cover" }}></div>
 
         <div className="max-w-3xl mx-auto text-center relative z-10" data-reveal>
@@ -474,12 +566,13 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-black py-11 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-red-600 rounded flex items-center justify-center">
-              <span className="text-white font-bold text-sm" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>Z</span>
-            </div>
-            <span className="text-white text-sm font-bold" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>Zukkin</span>
-          </div>
+          <a href="#hero" className="flex items-center gap-2">
+            <img 
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/LogoZukkin2_7f4d5964.png"
+              alt="Zukkin"
+              className="h-8"
+            />
+          </a>
 
           <p className="text-gray-600 text-xs">© 2026 Zukkin Brasil Inteligência de Mercado S/A. Todos os direitos reservados.</p>
 
