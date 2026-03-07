@@ -4,12 +4,12 @@ import { useEffect } from "react";
 /**
  * Design: Clean & Professional - Identidade Visual Zukkin
  * Cores dos Produtos:
- * - ZPricing: #056BF1 (Azul)
+ * - ZPricing: #02385A (Azul Escuro)
  * - ZAnalytics: #EE8625 (Laranja)
  * - ZGO: #78AE3F (Verde)
  * - ZRobot: #6B2246 (Marrom)
- * - ZPromo: #DA8A7F (Rosa)
- * - ZConsulting: #02385A (Azul Escuro)
+ * - ZPromo: #E30613 (Vermelho)
+ * - ZConsulting: #6B7280 (Cinza)
  */
 
 export default function Home() {
@@ -326,7 +326,7 @@ export default function Home() {
               { 
                 name: "ZPricing", 
                 desc: "Ferramenta de precificação inteligente e automatizada com recomendações em tempo real",
-                color: "#056BF1"
+                color: "#02385A"
               },
               { 
                 name: "ZAnalytics", 
@@ -346,12 +346,12 @@ export default function Home() {
               { 
                 name: "ZPromo", 
                 desc: "Gestão de promoções e campanhas com otimização de margens",
-                color: "#DA8A7F"
+                color: "#E30613"
               },
               { 
                 name: "ZConsulting", 
                 desc: "Consultoria especializada em estratégia de pricing e mercado",
-                color: "#02385A"
+                color: "#6B7280"
               },
             ].map((prod, idx) => (
               <div
