@@ -8,7 +8,7 @@ import { useEffect } from "react";
  * - ZAnalytics: #EE8625 (Laranja)
  * - ZGO: #78AE3F (Verde)
  * - ZRobot: #6B2246 (Marrom)
- * - ZPromo: #FF4500 (Vermelho Alaranjado)
+ * - ZPromo: #FF6B6B (Coral)
  * - ZConsulting: #6B7280 (Cinza)
  */
 
@@ -346,7 +346,7 @@ export default function Home() {
               { 
                 name: "ZPromo", 
                 desc: "Gestão de promoções e campanhas com otimização de margens",
-                color: "#FF4500"
+                color: "#FF6B6B"
               },
               { 
                 name: "ZConsulting", 
