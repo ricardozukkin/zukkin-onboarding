@@ -183,13 +183,13 @@ export default function Home() {
                 name: "Ricardo Forte",
                 role: "Diretor",
                 bio: "Especialista em tecnologia e pricing, responsável pela excelência operacional e desenvolvimento de produtos inovadores.",
-                image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/ricardo-director-babYuUokyGsq6kdNYNVqex.webp"
+                image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/pasted_file_vXsXiy_image_152329e1.png"
               },
               {
                 name: "Bruno Fernandes",
                 role: "Diretor",
                 bio: "Visionário na inteligência de mercado, lidera a estratégia de inovação e crescimento da Zukkin com foco em resultados.",
-                image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/bruno-director-fybFUZ8FrDeKstHgvbQinn.webp"
+                image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/pasted_file_2fZsPS_image_052c9e57.png"
               },
             ].map((dir, idx) => (
               <div
