@@ -680,6 +680,42 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Boas Práticas do Escritório Section */}
+      <section className="py-28 px-6 bg-gray-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 opacity-95"></div>
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="mb-16 text-center" data-reveal>
+            <div className="inline-block px-4 py-1.5 rounded-full border border-red-500/30 text-red-400 text-xs font-bold tracking-widest uppercase mb-6" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+              Convivência
+            </div>
+            <h2 className="text-5xl md:text-6xl font-black text-white tracking-tight" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+              Boas Práticas do <span className="text-red-500">Escritório</span>
+            </h2>
+          </div>
+
+          <div className="max-w-4xl mx-auto bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-10 md:p-14" data-reveal>
+            <ul className="space-y-6">
+              {[
+                "Lave, seque e guarde o copo ou talher após o usar;",
+                "Devolver o talher caso leve para casa;",
+                "Não deixar marmita mais de dois dias na geladeira;",
+                "Somente os analistas estão autorizados a utilizar a cafeteira. Caso queira café, solicite ao analista presente no escritório;",
+                "Deixar a mesa limpa e organizada após a utilização, pois as mesas são rotativas;",
+                "Deixar a porta do banheiro aberta após a utilização;",
+                "Se caso você for o último a sair, verifique se o ar-condicionado está desligado e a janela da cozinha está fechada."
+              ].map((item, idx) => (
+                <li key={idx} className="flex items-start gap-4">
+                  <div className="w-8 h-8 bg-red-600/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="text-red-400 text-sm font-bold">{idx + 1}</span>
+                  </div>
+                  <span className="text-lg text-gray-200 leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
       {/* Encerramento Section */}
       <section className="py-28 px-6 bg-gradient-to-br from-gray-900 to-gray-800 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "url('https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/zukkin-technology-abstract-Yzj9sKe74tFv9hh6yLoiYK.webp')", backgroundSize: "cover" }}></div>
