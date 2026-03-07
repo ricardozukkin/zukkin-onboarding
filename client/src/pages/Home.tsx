@@ -1071,7 +1071,7 @@ export default function Home() {
             <h2 className="text-5xl md:text-6xl font-black text-gray-900 tracking-tight" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
               Cultura Zukkin
             </h2>
-            <p className="text-gray-500 mt-4 max-w-2xl mx-auto text-base">Mais do que uma empresa, somos um time movido por prop\u00f3sito, inova\u00e7\u00e3o e respeito</p>
+            <p className="text-gray-500 mt-4 max-w-2xl mx-auto text-base">Mais do que uma empresa, somos um time movido por propósito, inovação e respeito</p>
           </div>
 
           {/* Pilares da Cultura - 3 cards */}
@@ -1121,7 +1121,7 @@ export default function Home() {
 
             {/* O que esperamos */}
             <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
-              <h3 className="text-2xl font-black text-gray-900 mb-6" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>O que Esperamos de Voc\u00ea</h3>
+          <h3 className="text-2xl font-black text-gray-900 mb-6" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>O que Esperamos de Você</h3>
               <div className="space-y-4">
                 {[
                   { emoji: "\ud83c\udf1f", text: "Proatividade para buscar solu\u00e7\u00f5es e n\u00e3o apenas apontar problemas" },
@@ -1145,9 +1145,9 @@ export default function Home() {
             <div className="bg-gradient-to-r from-red-600 to-red-700 rounded-2xl py-12 px-8 text-white relative overflow-hidden">
               <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, white 1px, transparent 1px), radial-gradient(circle at 80% 50%, white 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
               <div className="relative z-10">
-                <span className="text-5xl mb-4 block">\u201c</span>
+                              <span className="text-5xl mb-4 block">“</span>
                 <p className="text-xl md:text-2xl font-bold italic leading-relaxed max-w-3xl mx-auto" style={{ fontFamily: "'Barlow', sans-serif" }}>
-                  Sozinhos vamos mais r\u00e1pido, mas juntos vamos mais longe. Na Zukkin, cada conquista \u00e9 do time.
+                  Talento a gente faz em casa!!
                 </p>
                 <div className="mt-6 w-16 h-0.5 bg-white/50 mx-auto" />
               </div>
