@@ -551,6 +551,119 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Ponto Eletrônico Section */}
+      <section className="py-28 px-6 bg-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-16 text-center" data-reveal>
+            <div className="inline-block px-4 py-1.5 rounded-full border border-red-500/30 text-red-600 text-xs font-bold tracking-widest uppercase mb-6" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+              Registro de Jornada
+            </div>
+            <h2 className="text-5xl md:text-6xl font-black text-gray-900 tracking-tight" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+              Ponto <span className="text-red-600">Eletrônico</span>
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Regras */}
+            <div data-reveal>
+              <div className="space-y-6">
+                {[
+                  {
+                    icon: "\u23F0",
+                    title: "Marcações Pares",
+                    text: "Todas as marcações devem ser em números pares. (Entrada x Saída/almoço x Volta/almoço x Saída definitiva)"
+                  },
+                  {
+                    icon: "\ud83c\udf7d\ufe0f",
+                    title: "Jornada de Almoço",
+                    text: "A jornada de almoço deve ser de 1 hora, não sendo permitido registrar o retorno antes de completar esse período."
+                  },
+                  {
+                    icon: "\ud83c\udfe0",
+                    title: "Home Office",
+                    text: "Nos dias de home office, o registro de ponto fica limitado ao endereço informado na admissão."
+                  },
+                  {
+                    icon: "\u26a0\ufe0f",
+                    title: "Esqueceu de Marcar?",
+                    text: "Caso esqueça de realizar alguma marcação ou esteja fora do endereço informado, os estagiários devem comunicar ao seu analista, os colaboradores efetivos devem informar no grupo de ponto."
+                  }
+                ].map((rule, idx) => (
+                  <div key={idx} className="flex items-start gap-4 bg-gray-50 rounded-xl p-5 border border-gray-100 hover:border-red-200 hover:shadow-md transition-all">
+                    <div className="text-3xl flex-shrink-0 mt-0.5">{rule.icon}</div>
+                    <div>
+                      <h4 className="font-bold text-gray-900 mb-1" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>{rule.title}</h4>
+                      <p className="text-gray-600 text-sm leading-relaxed">{rule.text}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Mockup do App */}
+            <div className="flex justify-center" data-reveal>
+              <div className="relative">
+                {/* Phone mockup */}
+                <div className="bg-gray-900 rounded-[2.5rem] p-3 shadow-2xl w-72">
+                  <div className="bg-white rounded-[2rem] overflow-hidden">
+                    {/* Status bar */}
+                    <div className="bg-gray-50 px-6 py-3 flex items-center justify-between">
+                      <span className="text-xs font-semibold text-gray-800">09:00</span>
+                      <span className="text-xs text-gray-500">19 fevereiro, 2026</span>
+                    </div>
+                    {/* App content */}
+                    <div className="px-5 py-4 space-y-4">
+                      <div className="bg-green-500 text-white text-center py-3 rounded-xl font-bold text-sm">Bater ponto</div>
+                      <div className="flex justify-between text-xs text-gray-500">
+                        <div className="text-center">
+                          <div className="font-semibold text-gray-800">Entrada</div>
+                          <div className="text-green-600">08:00</div>
+                        </div>
+                        <div className="text-center">
+                          <div className="font-semibold text-gray-800">Saída</div>
+                          <div className="text-red-500">12:00</div>
+                        </div>
+                        <div className="text-center">
+                          <div className="font-semibold text-gray-800">Entrada</div>
+                          <div className="text-green-600">13:00</div>
+                        </div>
+                        <div className="text-center">
+                          <div className="font-semibold text-gray-800">Saída</div>
+                          <div className="text-red-500">17:40</div>
+                        </div>
+                      </div>
+                      <div className="border-t border-gray-100 pt-4">
+                        <div className="flex justify-between items-center mb-3">
+                          <span className="text-xs font-semibold text-gray-700">Contador de jornada</span>
+                          <span className="text-sm font-bold text-gray-900">07:30h</span>
+                        </div>
+                        <div className="flex justify-between items-center mb-3">
+                          <span className="text-xs font-semibold text-gray-700">Banco de horas</span>
+                          <span className="text-sm font-bold text-green-600">+00:01</span>
+                        </div>
+                      </div>
+                      <div className="border-t border-gray-100 pt-4">
+                        <h5 className="text-sm font-bold text-gray-800 mb-3">Controle de ponto</h5>
+                        <div className="grid grid-cols-3 gap-2">
+                          {["Meu ponto", "Solicitações", "Espelho ponto"].map((item, i) => (
+                            <div key={i} className="bg-gray-50 rounded-lg p-2 text-center">
+                              <div className="w-8 h-8 bg-gray-200 rounded-full mx-auto mb-1"></div>
+                              <span className="text-[10px] text-gray-600">{item}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {/* Glow effect */}
+                <div className="absolute -inset-4 bg-red-500/10 rounded-[3rem] blur-2xl -z-10"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Meios de Comunicação Section */}
       <section id="comunicacao" className="py-28 px-6 bg-gray-900 text-white relative overflow-hidden">
         {/* Background overlay */}
