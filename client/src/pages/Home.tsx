@@ -526,8 +526,8 @@ export default function Home() {
             {/* Departamentos - Alinhados e com cores dos produtos */}
             <div className="flex justify-center gap-4 flex-wrap">
               {[
-                { name: "Fabiana", role: "Financeiro & RH", color: "#CF110D" },
-                { name: "Chayeni", role: "Pricing", color: "#056BF1" },
+                { name: "Fabiana", role: "Financeiro & RH", color: "#6B7280" },
+                { name: "Chayeni", role: "Pricing", color: "#02385A" },
                 { name: "Guilherme", role: "Analytics & ZGO", color: "#EE8625" },
                 { name: "Rafael", role: "ZRobot & ZPromo", color: "#6B2246" },
               ].map((dept, idx) => (
