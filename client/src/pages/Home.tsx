@@ -183,7 +183,7 @@ export default function Home() {
                 name: "Ricardo Forte",
                 role: "Diretor",
                 bio: "Especialista em tecnologia e pricing, responsável pela excelência operacional e desenvolvimento de produtos inovadores.",
-                image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/pasted_file_vXsXiy_image_152329e1.png"
+                image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/_63A5355_d3b2e542.JPG"
               },
               {
                 name: "Bruno Fernandes",
@@ -1062,7 +1062,8 @@ export default function Home() {
 
       {/* Cultura Zukkin Section */}
       <section className="py-28 px-6 bg-white relative overflow-hidden">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-6xl mx-auto">
+          {/* Header */}
           <div className="mb-16 text-center" data-reveal>
             <div className="inline-block px-4 py-1.5 rounded-full border border-red-500/30 text-red-600 text-xs font-bold tracking-widest uppercase mb-6" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
               Nosso Jeito de Ser
@@ -1070,50 +1071,35 @@ export default function Home() {
             <h2 className="text-5xl md:text-6xl font-black text-gray-900 tracking-tight" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
               Cultura Zukkin
             </h2>
-            <p className="text-gray-500 mt-4 max-w-2xl mx-auto">Mais do que uma empresa, somos um time movido por prop\u00f3sito, inova\u00e7\u00e3o e respeito</p>
+            <p className="text-gray-500 mt-4 max-w-2xl mx-auto text-base">Mais do que uma empresa, somos um time movido por prop\u00f3sito, inova\u00e7\u00e3o e respeito</p>
           </div>
 
-          {/* Pilares da Cultura */}
-          <div className="grid md:grid-cols-3 gap-8 mb-16" data-reveal>
-            <div className="group relative bg-gradient-to-br from-red-600 to-red-700 rounded-2xl p-8 text-white overflow-hidden hover:scale-[1.02] transition-transform duration-300">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-              <div className="relative z-10">
-                <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center mb-6">
-                  <span className="text-3xl">\ud83c\udfaf</span>
+          {/* Pilares da Cultura - 3 cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20" data-reveal>
+            {[
+              { icon: "\ud83c\udfaf", title: "Foco no Cliente", desc: "Nosso sucesso \u00e9 medido pelo sucesso dos nossos clientes. Cada decis\u00e3o visa entregar mais valor para quem confia em n\u00f3s.", bg: "from-red-600 to-red-700" },
+              { icon: "\ud83d\ude80", title: "Inova\u00e7\u00e3o Constante", desc: "Questionamos o status quo e buscamos novas formas de resolver problemas. Errar faz parte do processo de evoluir.", bg: "from-gray-800 to-gray-900" },
+              { icon: "\ud83e\udd1d", title: "Respeito e Transpar\u00eancia", desc: "Valorizamos a diversidade, a comunica\u00e7\u00e3o aberta e o respeito m\u00fatuo. Cada voz importa e cada opini\u00e3o \u00e9 ouvida.", bg: "from-red-600 to-red-700" },
+            ].map((pilar, idx) => (
+              <div key={idx} className={`group relative bg-gradient-to-br ${pilar.bg} rounded-2xl p-8 text-white overflow-hidden hover:scale-[1.02] transition-transform duration-300`}>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
+                <div className="relative z-10">
+                  <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center mb-6">
+                    <span className="text-3xl">{pilar.icon}</span>
+                  </div>
+                  <h3 className="text-2xl font-black mb-3" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>{pilar.title}</h3>
+                  <p className="text-white/80 text-sm leading-relaxed">{pilar.desc}</p>
                 </div>
-                <h3 className="text-2xl font-black mb-3" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>Foco no Cliente</h3>
-                <p className="text-white/80 text-sm leading-relaxed">Nosso sucesso \u00e9 medido pelo sucesso dos nossos clientes. Cada decis\u00e3o que tomamos visa entregar mais valor e resultados para quem confia em n\u00f3s.</p>
               </div>
-            </div>
-
-            <div className="group relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 text-white overflow-hidden hover:scale-[1.02] transition-transform duration-300">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-              <div className="relative z-10">
-                <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center mb-6">
-                  <span className="text-3xl">\ud83d\ude80</span>
-                </div>
-                <h3 className="text-2xl font-black mb-3" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>Inova\u00e7\u00e3o Constante</h3>
-                <p className="text-white/80 text-sm leading-relaxed">Questionamos o status quo e buscamos sempre novas formas de resolver problemas. Aqui, errar faz parte do processo de aprender e evoluir.</p>
-              </div>
-            </div>
-
-            <div className="group relative bg-gradient-to-br from-red-600 to-red-700 rounded-2xl p-8 text-white overflow-hidden hover:scale-[1.02] transition-transform duration-300">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-              <div className="relative z-10">
-                <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center mb-6">
-                  <span className="text-3xl">\ud83e\udd1d</span>
-                </div>
-                <h3 className="text-2xl font-black mb-3" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>Respeito e Transpar\u00eancia</h3>
-                <p className="text-white/80 text-sm leading-relaxed">Valorizamos a diversidade, a comunica\u00e7\u00e3o aberta e o respeito m\u00fatuo. Cada voz importa e cada opini\u00e3o \u00e9 ouvida.</p>
-              </div>
-            </div>
+            ))}
           </div>
 
-          {/* Valores no dia a dia */}
-          <div className="grid md:grid-cols-2 gap-12 items-center" data-reveal>
+          {/* Valores + Expectativas - lado a lado */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start" data-reveal>
+            {/* Valores */}
             <div>
-              <h3 className="text-3xl font-black text-gray-900 mb-6" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>Nossos Valores no Dia a Dia</h3>
-              <div className="space-y-5">
+              <h3 className="text-3xl font-black text-gray-900 mb-8" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>Nossos Valores no Dia a Dia</h3>
+              <div className="space-y-6">
                 {[
                   { icon: "\u2764\ufe0f", title: "Respeito", desc: "Tratamos todos com dignidade e empatia, criando um ambiente onde cada pessoa se sente valorizada e acolhida." },
                   { icon: "\ud83d\udca1", title: "Inova\u00e7\u00e3o", desc: "Buscamos constantemente novas solu\u00e7\u00f5es e tecnologias para transformar o mercado de pricing no Brasil." },
@@ -1133,6 +1119,7 @@ export default function Home() {
               </div>
             </div>
 
+            {/* O que esperamos */}
             <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
               <h3 className="text-2xl font-black text-gray-900 mb-6" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>O que Esperamos de Voc\u00ea</h3>
               <div className="space-y-4">
@@ -1144,8 +1131,8 @@ export default function Home() {
                   { emoji: "\u23f0", text: "Comprometimento com prazos e qualidade nas entregas" },
                   { emoji: "\ud83c\udfe2", text: "Cuidado com o ambiente de trabalho e com os colegas" },
                 ].map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-3 py-2 border-b border-gray-200 last:border-0">
-                    <span className="text-lg">{item.emoji}</span>
+                  <div key={idx} className="flex items-center gap-3 py-3 border-b border-gray-200 last:border-0">
+                    <span className="text-lg flex-shrink-0">{item.emoji}</span>
                     <p className="text-gray-700 text-sm">{item.text}</p>
                   </div>
                 ))}
@@ -1154,15 +1141,15 @@ export default function Home() {
           </div>
 
           {/* Frase inspiracional */}
-          <div className="mt-16 text-center" data-reveal>
-            <div className="bg-gradient-to-r from-red-600 to-red-700 rounded-2xl p-10 text-white relative overflow-hidden">
-              <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, white 1px, transparent 1px), radial-gradient(circle at 80% 50%, white 1px, transparent 1px)", backgroundSize: "40px 40px" }}></div>
+          <div className="mt-20 text-center" data-reveal>
+            <div className="bg-gradient-to-r from-red-600 to-red-700 rounded-2xl py-12 px-8 text-white relative overflow-hidden">
+              <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, white 1px, transparent 1px), radial-gradient(circle at 80% 50%, white 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
               <div className="relative z-10">
                 <span className="text-5xl mb-4 block">\u201c</span>
                 <p className="text-xl md:text-2xl font-bold italic leading-relaxed max-w-3xl mx-auto" style={{ fontFamily: "'Barlow', sans-serif" }}>
                   Sozinhos vamos mais r\u00e1pido, mas juntos vamos mais longe. Na Zukkin, cada conquista \u00e9 do time.
                 </p>
-                <div className="mt-6 w-16 h-0.5 bg-white/50 mx-auto"></div>
+                <div className="mt-6 w-16 h-0.5 bg-white/50 mx-auto" />
               </div>
             </div>
           </div>
