@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workshop Zukkin — Estrutura por Produtos e IA — 29 de Março 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --zk-red: #C41E24;
+    --zk-red-light: #E8353B;
+    --zk-dark: #0F0F0F;
+    --zk-charcoal: #1A1A1A;
+    --zk-gray: #2A2A2A;
+    --zk-gray-mid: #666;
+    --zk-gray-light: #999;
+    --zk-cream: #F5F0EB;
+    --zk-warm: #FAF7F4;
+    --zk-accent-blue: #1E3A5F;
+    --zk-accent-gold: #C49A2A;
+    --radius: 12px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Instrument Sans', sans-serif;
+    background: var(--zk-warm);
+    color: var(--zk-dark);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--zk-dark);
+    color: white;
+    padding: 80px 40px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    display: none;
+  }
+
+  .hero::after {
+    content: 'WORKSHOP';
+    position: absolute;
+    bottom: -30px;
+    right: 40px;
+    font-size: 140px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.03);
+    letter-spacing: -4px;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--zk-red);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    animation: fadeDown 0.6s ease both;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    animation: pulse 2s ease infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    animation: fadeDown 0.6s 0.1s ease both;
+  }
+
+  .hero h1 em {
+    color: white;
+    font-style: normal;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 32px;
+    margin-top: 24px;
+    font-size: 15px;
+    color: rgba(255,255,255,0.6);
+    animation: fadeDown 0.6s 0.2s ease both;
+  }
+
+  .hero-meta span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .hero-meta .icon {
+    width: 18px;
+    height: 18px;
+    opacity: 0.5;
+  }
+
+  .hero-logo { position: absolute; top: 32px; right: 40px; z-index: 2; }
+  .hero-logo img { height: 36px; width: auto; }
+
+  /* ── OVERVIEW STRIP ── */
+  .overview {
+    background: white;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    padding: 32px 40px;
+  }
+
+  .overview-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+  }
+
+  .overview-card {
+    text-align: center;
+    padding: 20px;
+    border-radius: var(--radius);
+    background: var(--zk-warm);
+  }
+
+  .overview-card .number {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--zk-red);
+  }
+
+  .overview-card .label {
+    font-size: 13px;
+    color: var(--zk-gray-mid);
+    margin-top: 4px;
+    font-weight: 500;
+  }
+
+  /* ── MAIN CONTENT ── */
+  .content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 48px 40px 80px;
+  }
+
+  /* ── PHASE DIVIDER ── */
+  .phase {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 48px 0 32px;
+  }
+
+  .phase:first-child {
+    margin-top: 0;
+  }
+
+  .phase-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .phase-icon.morning {
+    background: linear-gradient(135deg, var(--zk-red), #E84C51);
+    color: white;
+  }
+
+  .phase-icon.afternoon {
+    background: linear-gradient(135deg, var(--zk-accent-blue), #2D5A8E);
+    color: white;
+  }
+
+  .phase-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .phase-text p {
+    font-size: 13px;
+    color: var(--zk-gray-light);
+    margin-top: 2px;
+  }
+
+  .phase-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(0,0,0,0.1), transparent);
+  }
+
+  /* ── SESSION BLOCK ── */
+  .session {
+    background: white;
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    margin-bottom: 16px;
+    position: relative;
+    border: 1px solid rgba(0,0,0,0.04);
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+  }
+
+  .session:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+    transform: translateY(-1px);
+  }
+
+  .session-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 16px;
+  }
+
+  .session-time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--zk-red);
+    background: rgba(196,30,36,0.06);
+    padding: 6px 12px;
+    border-radius: 8px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-width: 80px;
+    text-align: center;
+  }
+
+  .session-time.blue {
+    color: var(--zk-accent-blue);
+    background: rgba(30,58,95,0.06);
+  }
+
+  .session-time.break {
+    color: var(--zk-accent-gold);
+    background: rgba(196,154,42,0.08);
+  }
+
+  .session-title {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .session-duration {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--zk-gray-light);
+    background: rgba(0,0,0,0.04);
+    padding: 2px 8px;
+    border-radius: 100px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  .session-presenter {
+    font-size: 13px;
+    color: var(--zk-gray-mid);
+    margin-top: 4px;
+  }
+
+  .session-presenter strong {
+    color: var(--zk-dark);
+  }
+
+  .session-body {
+    padding-left: 100px;
+  }
+
+  .session-body p {
+    font-size: 14px;
+    color: var(--zk-gray-mid);
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+
+  .session-body p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ── TOPIC CHIPS ── */
+  .topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .topic {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 100px;
+    background: var(--zk-cream);
+    color: var(--zk-gray-mid);
+    border: 1px solid rgba(0,0,0,0.04);
+  }
+
+  .topic.product {
+    background: rgba(196,30,36,0.06);
+    color: var(--zk-red);
+    border-color: rgba(196,30,36,0.1);
+  }
+
+  .topic.ai {
+    background: rgba(30,58,95,0.06);
+    color: var(--zk-accent-blue);
+    border-color: rgba(30,58,95,0.1);
+  }
+
+  /* ── PRODUCT GRID ── */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  .product-card {
+    background: var(--zk-warm);
+    border-radius: 10px;
+    padding: 16px;
+    border: 1px solid rgba(0,0,0,0.04);
+    transition: all 0.25s ease;
+  }
+
+  .product-card:hover {
+    border-color: var(--zk-red);
+    background: rgba(196,30,36,0.02);
+  }
+
+  .product-card .name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--zk-red);
+    margin-bottom: 4px;
+  }
+
+  .product-card .desc {
+    font-size: 12px;
+    color: var(--zk-gray-mid);
+    line-height: 1.5;
+  }
+
+  /* ── GESTOR GRID ── */
+  .gestor-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  .gestor-card {
+    background: var(--zk-warm);
+    border-radius: 10px;
+    padding: 16px 20px;
+    border: 1px solid rgba(0,0,0,0.04);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .gestor-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--zk-accent-blue), #4A8BC2);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+
+  .gestor-info .name {
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .gestor-info .area {
+    font-size: 12px;
+    color: var(--zk-gray-mid);
+  }
+
+  /* ── BREAK SESSION ── */
+  .session.break-session {
+    background: var(--zk-cream);
+    border: 1px dashed rgba(0,0,0,0.1);
+    padding: 20px 32px;
+  }
+
+  .session.break-session:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .session.break-session .session-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--zk-gray-mid);
+  }
+
+  /* ── CHECKLIST ── */
+  .checklist {
+    list-style: none;
+    margin-top: 12px;
+  }
+
+  .checklist li {
+    font-size: 14px;
+    color: var(--zk-gray-mid);
+    padding: 6px 0;
+    padding-left: 24px;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .checklist li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--zk-red);
+    font-weight: 600;
+  }
+
+  .checklist li.blue::before {
+    color: var(--zk-accent-blue);
+  }
+
+  /* ── VIDEO LIST ── */
+  .video-list {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .video-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    background: var(--zk-warm);
+    border-radius: 8px;
+    font-size: 13px;
+    border: 1px solid rgba(0,0,0,0.04);
+  }
+
+  .video-item .play-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--zk-red);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 10px;
+  }
+
+  .video-item .v-title {
+    font-weight: 600;
+    color: var(--zk-dark);
+  }
+
+  .video-item .v-source {
+    font-size: 11px;
+    color: var(--zk-gray-light);
+  }
+
+  /* ── CALLOUT BOX ── */
+  .callout {
+    background: rgba(196,30,36,0.04);
+    border-left: 3px solid var(--zk-red);
+    padding: 16px 20px;
+    border-radius: 0 8px 8px 0;
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--zk-gray-mid);
+    line-height: 1.6;
+  }
+
+  .callout strong {
+    color: var(--zk-dark);
+  }
+
+  .callout.blue {
+    background: rgba(30,58,95,0.04);
+    border-left-color: var(--zk-accent-blue);
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--zk-dark);
+    color: rgba(255,255,255,0.4);
+    padding: 40px;
+    text-align: center;
+    font-size: 13px;
+  }
+
+  .footer strong {
+    color: var(--zk-red-light);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .session {
+    animation: fadeUp 0.5s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .session:nth-child(1) { animation-delay: 0s; }
+  .session:nth-child(2) { animation-delay: 0.05s; }
+  .session:nth-child(3) { animation-delay: 0.1s; }
+  .session:nth-child(4) { animation-delay: 0.15s; }
+  .session:nth-child(5) { animation-delay: 0.2s; }
+
+  /* ── PRINT ── */
+  @media print {
+    .hero { padding: 40px; }
+    .hero::after { display: none; }
+    .session { break-inside: avoid; box-shadow: none; border: 1px solid #ddd; }
+    .session:hover { transform: none; }
+    body { background: white; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    .hero { padding: 48px 24px 40px; }
+    .hero-logo { top: 16px; right: 16px; }
+    .hero-logo img { height: 28px; }
+    .hero-meta { flex-direction: column; gap: 12px; }
+    .content { padding: 32px 20px 60px; }
+    .session { padding: 20px; }
+    .session-body { padding-left: 0; margin-top: 12px; }
+    .session-header { flex-direction: column; gap: 8px; }
+    .product-grid { grid-template-columns: repeat(2, 1fr); }
+    .gestor-grid { grid-template-columns: 1fr; }
+    .overview-inner { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <div class="hero-logo"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA00AAADBCAYAAAATmVsSAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDY3IDc5LjE1Nzc0NywgMjAxNS8wMy8zMC0yMzo0MDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo4NzFlMjMyMy1iMDc1LTk3NGItYWFjZS0yNWMyOWRlM2Y0YzMiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDJEMUI2QkFGNDZBMTFFNkI1MTg5ODM1RjcyMUVEOEYiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDJEMUI2QjlGNDZBMTFFNkI1MTg5ODM1RjcyMUVEOEYiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6Yzk5NzA3N2UtM2UwZi1mNTQyLThkNWUtYzc4M2EzNDY1NWZiIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjg3MWUyMzIzLWIwNzUtOTc0Yi1hYWNlLTI1YzI5ZGUzZjRjMyIv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" alt="Zukkin"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">Evento Interno</div>
+    <h1>Workshop: Estrutura por Produtos <em>e IA</em></h1>
+    <div class="hero-meta">
+      <span>
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Sábado, 29 de Março de 2026
+      </span>
+      <span>
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        08h00 — 17h00
+      </span>
+      <span>
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Escritório Zukkin — Santos, SP
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ OVERVIEW ═══════════ -->
+<section class="overview">
+  <div class="overview-inner">
+    <div class="overview-card">
+      <div class="number">3</div>
+      <div class="label">Grandes Blocos</div>
+    </div>
+    <div class="overview-card">
+      <div class="number">6</div>
+      <div class="label">Produtos Apresentados</div>
+    </div>
+    <div class="overview-card">
+      <div class="number">4</div>
+      <div class="label">Gestores com IA</div>
+    </div>
+    <div class="overview-card">
+      <div class="number">9h</div>
+      <div class="label">De Imersão</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CONTENT ═══════════ -->
+<div class="content">
+
+  <!-- ── BLOCO MANHÃ: PRODUTOS ── -->
+  <div class="phase">
+    <div class="phase-icon morning">☀</div>
+    <div class="phase-text">
+      <h2>Manhã — Produtos &amp; Estrutura</h2>
+      <p>08h00 às 12h00 · Alinhamento de portfólio e organização</p>
+    </div>
+    <div class="phase-line"></div>
+  </div>
+
+  <!-- 08h00 Coffee -->
+  <div class="session break-session">
+    <div class="session-header">
+      <div class="session-time break">08h00</div>
+      <div>
+        <div class="session-title">☕ Coffee de Boas-Vindas <span class="session-duration">30 min</span></div>
+      </div>
+    </div>
+    <div class="session-body">
+      <p>Recepção e networking. Momento para alinhar energia antes de um dia intenso de conteúdo e decisões.</p>
+    </div>
+  </div>
+
+  <!-- 08h30 Produtos -->
+  <div class="session">
+    <div class="session-header">
+      <div class="session-time">08h30</div>
+      <div>
+        <div class="session-title">Apresentação da Nova Estrutura de Produtos <span class="session-duration">1h30</span></div>
+        <div class="session-presenter">Apresentação: <strong>Ricardo / Diretoria</strong></div>
+      </div>
+    </div>
+    <div class="session-body">
+      <p>Visão geral da reestruturação do portfólio Zukkin em 6 produtos bem definidos. Cada produto será apresentado com seu posicionamento, público-alvo, proposta de valor e roadmap.</p>
+
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="name">ZPricing</div>
+          <div class="desc">Precificação inteligente e monitoramento de mercado</div>
+        </div>
+        <div class="product-card">
+          <div class="name">ZAnalytics</div>
+          <div class="desc">Inteligência de dados e dashboards analíticos</div>
+        </div>
+        <div class="product-card">
+          <div class="name">ZPromo</div>
+          <div class="desc">Gestão e planejamento de ações promocionais</div>
+        </div>
+        <div class="product-card">
+          <div class="name">ZRobot</div>
+          <div class="desc">Automação de coleta e captura de dados</div>
+        </div>
+        <div class="product-card">
+          <div class="name">ZGo</div>
+          <div class="desc">Operação de campo e execução em loja</div>
+        </div>
+        <div class="product-card">
+          <div class="name">ZConsulting</div>
+          <div class="desc">Consultoria estratégica e projetos sob medida</div>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top:20px">
+        <strong>Objetivo do bloco:</strong> Todos saírem com clareza sobre o que cada produto faz, para quem vende, e como se posiciona no mercado. Essa estrutura guia toda a comunicação e venda a partir de agora.
+      </div>
+    </div>
+  </div>
+
+  <!-- 10h00 Estrutura -->
+  <div class="session">
+    <div class="session-header">
+      <div class="session-time">10h00</div>
+      <div>
+        <div class="session-title">Nova Estrutura Orientada a Produtos <span class="session-duration">2h</span></div>
+        <div class="session-presenter">Apresentação: <strong>Ricardo / Diretoria</strong> · Participação: <strong>Bruno</strong> (Carteira Asana)</div>
+      </div>
+    </div>
+    <div class="session-body">
+      <p>A mudança para uma estrutura orientada a produtos traz novas responsabilidades e desafios. Esse bloco aprofunda o modelo operacional, incluindo papéis, ownership e pontos de conflito já identificados.</p>
+
+      <ul class="checklist">
+        <li>Nova matriz de responsabilidades por produto — quem é dono de quê</li>
+        <li>Desafios de transição: sobreposição de funções, handoff entre times</li>
+        <li>Apresentação do Borba — Cadastro: como funciona, pontos de conflito com operação e qualidade</li>
+        <li><strong>Bruno (10 min)</strong> — Carteira de Clientes no Asana</li>
+        <li>Discussão aberta: O que já está funcionando? Onde temos atrito?</li>
+        <li>Alinhamento de expectativas e próximos passos pra cada gestor</li>
+      </ul>
+
+      <div class="callout">
+        <strong>Dinâmica sugerida:</strong> Após a apresentação, abrir 30 minutos para discussão aberta. Colocar na tela os principais pontos de conflito identificados e pedir posicionamento de cada área. Documentar decisões em tempo real.
+      </div>
+    </div>
+  </div>
+
+  <!-- 12h00 Almoço -->
+  <div class="session break-session">
+    <div class="session-header">
+      <div class="session-time break">12h00</div>
+      <div>
+        <div class="session-title">🍽 Almoço <span class="session-duration">1h</span></div>
+      </div>
+    </div>
+    <div class="session-body">
+      <p>Pausa para almoço e descompressão. A tarde terá foco total em IA — vale recarregar as energias.</p>
+    </div>
+  </div>
+
+  <!-- ── BLOCO TARDE: IA ── -->
+  <div class="phase">
+    <div class="phase-icon afternoon">⚡</div>
+    <div class="phase-text">
+      <h2>Tarde — Inteligência Artificial</h2>
+      <p>13h00 às 17h00 · Da visão macro à aplicação prática no Zukkin</p>
+    </div>
+    <div class="phase-line"></div>
+  </div>
+
+  <!-- 13h00 Video -->
+  <div class="session">
+    <div class="session-header">
+      <div class="session-time blue">13h00</div>
+      <div>
+        <div class="session-title">🎨 Vídeo de Abertura — IA no Mundo dos Negócios <span class="session-duration">10 min</span></div>
+        <div class="session-presenter">Apresentação: <strong>Ricardo</strong></div>
+      </div>
+    </div>
+    <div class="session-body"><p>Abertura da tarde com vídeo impactante sobre IA.</p></div>
+  </div>
+
+  <!-- 13h10 Intro IA -->
+  <div class="session">
+    <div class="session-header">
+      <div class="session-time blue">13h10</div>
+      <div>
+        <div class="session-title">Introdução à IA — Panorama e Contexto <span class="session-duration">20 min</span></div>
+        <div class="session-presenter">Apresentação: <strong>Ricardo</strong></div>
+      </div>
+    </div>
+    <div class="session-body">
+      <p>Abertura da tarde com uma curadoria de vídeos que contextualizam a revolução da IA no mundo dos negócios. O objetivo é nivelar a equipe e criar urgência antes de entrar nas aplicações internas.</p>
+
+      <div class="video-list">
+        <div class="video-item">
+          <div class="play-icon">▶</div>
+          <div>
+            <div class="v-title">O Jogo da IA — Ep.1 com Tallis Gomes</div>
+            <div class="v-source">G4 Podcasts · Rafael Milagre & Yago Martins · ~5-8 min (corte)</div>
+          </div>
+        </div>
+        <div class="video-item">
+          <div class="play-icon">▶</div>
+          <div>
+            <div class="v-title">IA na Prática: Resultados Reais — Nardon & Rafael Milagre</div>
+            <div class="v-source">Papo de Gestão · G4 Podcasts · ~5-8 min (corte)</div>
+          </div>
+        </div>
+        <div class="video-item">
+          <div class="play-icon">▶</div>
+          <div>
+            <div class="v-title">Satya Nadella — IA Reshaping Business</div>
+            <div class="v-source">Microsoft AI Tour · ~3-5 min (corte legendado)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout blue">
+        <strong>Dica:</strong> Intercalar os vídeos com comentários seus conectando ao contexto do Zukkin. Ex: "O Tallis fala de IA como vantagem competitiva — pra nós, isso significa X no pricing, Y na operação."
+      </div>
+    </div>
+  </div>
+
+  <!-- 13h30 ZK IA -->
+  <div class="session">
+    <div class="session-header">
+      <div class="session-time blue">13h30</div>
+      <div>
+        <div class="session-title">ZK IA — A Inteligência Artificial do Zukkin <span class="session-duration">30 min</span></div>
+        <div class="session-presenter">Apresentação: <strong>Leo</strong></div>
+      </div>
+    </div>
+    <div class="session-body">
+      <p>Leo apresenta o ZK IA: o que é, como funciona, estágio atual de desenvolvimento e visão de futuro. Demonstração ao vivo do produto e cases iniciais de uso com clientes.</p>
+
+      <ul class="checklist">
+        <li class="blue">O que é o ZK IA e como ele se integra aos 6 produtos</li>
+        <li class="blue">Demonstração ao vivo — cases e exemplos práticos</li>
+        <li class="blue">Roadmap: o que vem a seguir no desenvolvimento</li>
+        <li class="blue">Como o time comercial pode começar a apresentar o ZK IA</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 14h00 IA no ADM -->
+  <div class="session">
+    <div class="session-header">
+      <div class="session-time blue">14h00</div>
+      <div>
+        <div class="session-title">IA Aplicada ao Zukkin ADM <span class="session-duration">30 min</span></div>
+        <div class="session-presenter">Apresentação: <strong>Bruno</strong></div>
+      </div>
+    </div>
+    <div class="session-body">
+      <p>Como a inteligência artificial será incorporada nas operações administrativas e internas do Zukkin. Foco em ganhos de eficiência, automação de processos e redução de retrabalho.</p>
+
+      <ul class="checklist">
+        <li class="blue">Processos internos que já podem ser otimizados com IA</li>
+        <li class="blue">Automação de tarefas repetitivas no financeiro, RH e operações</li>
+        <li class="blue">Uso de IA para análise de dados internos e tomada de decisão</li>
+        <li class="blue">Política de uso: diretrizes para utilização responsável de IA no dia a dia</li>
+      </ul>
+
+      <div class="callout blue">
+        <strong>Resultado esperado:</strong> O time entender que IA não é só produto para o cliente — é ferramenta interna que multiplica a capacidade de cada departamento.
+      </div>
+    </div>
+  </div>
+
+  <!-- 14h30 Claude -->
+  <div class="session">
+    <div class="session-header">
+      <div class="session-time blue">14h30</div>
+      <div>
+        <div class="session-title">Claude — A IA que o Zukkin Usa <span class="session-duration">30 min</span></div>
+        <div class="session-presenter">Apresentação: <strong>Bruno</strong></div>
+      </div>
+    </div>
+    <div class="session-body">
+      <p>Apresentação prática do Claude (Anthropic) como a principal ferramenta de IA adotada pelo Zukkin. Como funciona, o que consegue fazer, e demonstração ao vivo de aplicações reais.</p>
+
+      <ul class="checklist">
+        <li class="blue">O que é o Claude e por que escolhemos essa ferramenta</li>
+        <li class="blue">Demonstração ao vivo: análise de documentos, geração de conteúdo, apoio a decisões</li>
+        <li class="blue">Como cada área pode começar a usar amanhã</li>
+        <li class="blue">Boas práticas de prompting — como conversar com a IA pra ter resultados reais</li>
+      </ul>
+
+      <div class="callout blue">
+        <strong>Ideia:</strong> Fazer uma demo ao vivo pedindo pro Claude resolver um problema real que algum gestor traga na hora. Isso gera o efeito "wow" e mostra utilidade prática imediata.
+      </div>
+    </div>
+  </div>
+
+  <!-- 15h00 Gestores -->
+  <div class="session">
+    <div class="session-header">
+      <div class="session-time blue">15h00</div>
+      <div>
+        <div class="session-title">IA na Prática — Cada Gestor Apresenta <span class="session-duration">1h</span></div>
+        <div class="session-presenter">Apresentação: <strong>Fabiana, Guilherme, Chayeni, Rafael</strong> · 15 min cada</div>
+      </div>
+    </div>
+    <div class="session-body">
+      <p>Cada gestor apresenta como já está usando ou planeja usar IA no seu departamento. Foco em aplicações concretas, resultados iniciais e próximos passos.</p>
+
+      <div class="gestor-grid">
+        <div class="gestor-card">
+          <div class="gestor-avatar">FA</div>
+          <div class="gestor-info">
+            <div class="name">Fabiana</div>
+            <div class="area">Financeiro & RH — Automação de processos, folha, admissão</div>
+          </div>
+        </div>
+        <div class="gestor-card">
+          <div class="gestor-avatar">GU</div>
+          <div class="gestor-info">
+            <div class="name">Guilherme</div>
+            <div class="area">Operações & Qualidade — Controle, auditoria, eficiência</div>
+          </div>
+        </div>
+        <div class="gestor-card">
+          <div class="gestor-avatar">CH</div>
+          <div class="gestor-info">
+            <div class="name">Chayeni</div>
+            <div class="area">Projetos — Gestão de entregas, comunicação com cliente</div>
+          </div>
+        </div>
+        <div class="gestor-card">
+          <div class="gestor-avatar">RA</div>
+          <div class="gestor-info">
+            <div class="name">Rafael</div>
+            <div class="area">Pricing — Análise de mercado, modelos preditivos</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout blue" style="margin-top:20px">
+        <strong>Formato sugerido por gestor (15 min):</strong><br>
+        5 min → O que já estou usando de IA (ou pretendo usar)<br>
+        5 min → Resultado ou expectativa de impacto<br>
+        5 min → Perguntas do grupo e troca de ideias
+      </div>
+    </div>
+  </div>
+
+  <!-- 16h00 Plano de Ação -->
+  <div class="session">
+    <div class="session-header">
+      <div class="session-time blue">16h00</div>
+      <div>
+        <div class="session-title">Plano de Ação por Departamento <span class="session-duration">1h</span></div>
+        <div class="session-presenter">Facilitação: <strong>Ricardo</strong> · Todos os gestores</div>
+      </div>
+    </div>
+    <div class="session-body">
+      <p>Bloco de fechamento. Cada departamento define 3 ações concretas de aplicação de IA para implementar nos próximos 30, 60 e 90 dias. Compromisso documentado e compartilhado.</p>
+
+      <ul class="checklist">
+        <li class="blue"><strong>16h00–16h20</strong> — Cada gestor preenche o canvas de ação (individual ou em dupla)</li>
+        <li class="blue"><strong>16h20–16h45</strong> — Cada gestor apresenta suas 3 ações ao grupo (5 min cada)</li>
+        <li class="blue"><strong>16h45–17h00</strong> — Consolidação: Ricardo fecha com visão geral, prazos e responsáveis</li>
+      </ul>
+
+      <div class="callout blue">
+        <strong>Canvas sugerido por departamento:</strong><br><br>
+        <strong>1. Quick Win (30 dias)</strong> — Uma aplicação simples de IA que pode rodar já na próxima semana<br>
+        <strong>2. Projeto Médio (60 dias)</strong> — Uma implementação que exige mais preparo mas traz resultado visível<br>
+        <strong>3. Visão Estratégica (90 dias)</strong> — Como IA transforma o departamento no médio prazo<br><br>
+        Cada ação com: <strong>O quê · Quem · Quando · Resultado esperado</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- 17h00 Encerramento -->
+  <div class="session break-session">
+    <div class="session-header">
+      <div class="session-time break">17h00</div>
+      <div>
+        <div class="session-title">🎯 Encerramento &amp; Próximos Passos</div>
+      </div>
+    </div>
+    <div class="session-body">
+      <p>Palavras finais da diretoria. Reforço dos compromissos assumidos e celebração do dia. Follow-up será enviado na segunda-feira com a ata de decisões e planos de ação consolidados.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<div class="footer">
+  <strong>Zukkin Brasil</strong> · Inteligência de Mercado S/A<br>
+  Workshop Interno — Documento Confidencial
+</div>
+
+</body>
+</html>
