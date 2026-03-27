@@ -41,14 +41,7 @@
   }
 
   .hero::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -20%;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(196,30,36,0.15) 0%, transparent 70%);
-    pointer-events: none;
+    display: none;
   }
 
   .hero::after {
@@ -135,8 +128,17 @@
     opacity: 0.5;
   }
 
-  .hero-logo { position: absolute; top: 32px; right: 40px; z-index: 2; }
-  .hero-logo img { height: 36px; width: auto; }
+  .hero-logo {
+    position: absolute;
+    top: 32px;
+    right: 40px;
+    z-index: 2;
+  }
+
+  .hero-logo img {
+    height: 36px;
+    width: auto;
+  }
 
   /* ── OVERVIEW STRIP ── */
   .overview {
@@ -369,12 +371,38 @@
     transition: all 0.25s ease;
   }
 
-  .product-card:hover { border-color: var(--zk-red); background: rgba(196,30,36,0.02); }
-  .product-card.clickable { cursor: pointer; transition: all 0.3s cubic-bezier(0.25,0.46,0.45,0.94); }
-  .product-card.clickable:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(196,30,36,0.12); border-color: var(--zk-red); background: rgba(196,30,36,0.04); }
-  .card-cta { font-size: 11px; color: var(--zk-red); margin-top: 8px; font-weight: 600; opacity: 0; transition: opacity 0.3s; }
+  .product-card:hover {
+    border-color: var(--zk-red);
+    background: rgba(196,30,36,0.02);
+  }
+
+  .product-card.clickable {
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .product-card.clickable:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(196,30,36,0.12);
+    border-color: var(--zk-red);
+    background: rgba(196,30,36,0.04);
+  }
+
+  .card-cta {
+    font-size: 11px;
+    color: var(--zk-red);
+    margin-top: 8px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
   .product-card.clickable:hover .card-cta { opacity: 1; }
-  /* PRODUCT MODAL v2 HORIZONTAL */
+
+  /* ── PRODUCT MODAL ── */
+  /* ── PRODUCT MODAL v2 — HORIZONTAL LARGE ── */
+  /* ═══ PRODUCT MODAL v2 — HORIZONTAL LARGE ═══ */
   .pm-overlay{display:none;position:fixed;inset:0;background:rgba(10,10,10,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);z-index:9999;align-items:center;justify-content:center;opacity:0;transition:opacity .3s}
   .pm-overlay.active{display:flex;opacity:1}
   .pm-box{background:#fff;border-radius:24px;max-width:960px;width:94vw;max-height:90vh;overflow-y:auto;position:relative;transform:scale(.92) translateY(20px);transition:transform .45s cubic-bezier(.16,1,.3,1);box-shadow:0 48px 100px rgba(0,0,0,.4)}
@@ -388,7 +416,6 @@
   .pm-mgr-ov b{font-size:16px;display:block;margin-bottom:2px}
   .pm-mgr-ov small{font-size:10px;text-transform:uppercase;letter-spacing:1.2px;opacity:.6}
   .pm-info-col{flex:1;padding:40px 44px 28px;display:flex;flex-direction:column;justify-content:center}
-  
   .pm-name{font-size:36px;font-weight:800;margin:0 0 8px;line-height:1.1}
   .pm-tagline{font-size:16px;color:var(--zk-gray-mid);margin:0 0 16px;line-height:1.4}
   .pm-desc{font-size:14px;line-height:1.75;color:var(--zk-gray);margin:0}
@@ -479,7 +506,59 @@
     color: var(--zk-gray-mid);
   }
 
-  .video-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}.video-card{display:flex;align-items:center;gap:16px;background:var(--zk-dark);border-radius:14px;padding:18px 20px;cursor:pointer;text-decoration:none;color:white;transition:all .3s;border:1px solid rgba(255,255,255,.06);overflow:hidden;position:relative}.video-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.2);border-color:rgba(255,255,255,.15)}.video-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.04),transparent);pointer-events:none}.vp{flex-shrink:0;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;transition:transform .3s}.video-card:hover .vp{transform:scale(1.1)}.vi{flex:1}.vi .vl{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;opacity:.5;margin-bottom:4px}.vi .vt{font-size:15px;font-weight:700;line-height:1.3;margin-bottom:3px}.vi .vs{font-size:11px;opacity:.45}.va{font-size:20px;opacity:.3;flex-shrink:0}.video-card:hover .va{opacity:.8}@media(max-width:700px){.video-grid{grid-template-columns:1fr}}
+  /* ── VIDEO CARDS ── */
+  .video-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+    margin: 16px 0;
+  }
+  .video-card {
+    display: flex; align-items: center; gap: 16px;
+    background: var(--zk-dark); border-radius: 14px;
+    padding: 18px 20px; cursor: pointer;
+    text-decoration: none; color: white;
+    transition: all 0.3s cubic-bezier(0.25,0.46,0.45,0.94);
+    border: 1px solid rgba(255,255,255,0.06);
+    position: relative; overflow: hidden;
+  }
+  .video-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+    border-color: rgba(255,255,255,0.15);
+  }
+  .video-card::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.04), transparent);
+    pointer-events: none;
+  }
+  .video-play {
+    flex-shrink: 0; width: 52px; height: 52px;
+    border-radius: 50%; display: flex;
+    align-items: center; justify-content: center;
+    font-size: 20px; transition: transform 0.3s;
+  }
+  .video-card:hover .video-play { transform: scale(1.1); }
+  .video-info { flex: 1; min-width: 0; }
+  .video-info .video-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; opacity: 0.5; margin-bottom: 4px;
+  }
+  .video-info .video-title {
+    font-size: 15px; font-weight: 700; line-height: 1.3;
+    margin-bottom: 3px;
+  }
+  .video-info .video-source {
+    font-size: 11px; opacity: 0.45;
+  }
+  .video-card .video-arrow {
+    font-size: 20px; opacity: 0.3; transition: opacity 0.3s;
+    flex-shrink: 0;
+  }
+  .video-card:hover .video-arrow { opacity: 0.8; }
+
+  @media (max-width: 700px) {
+    .video-grid { grid-template-columns: 1fr; }
+  }
+
   /* ── CHECKLIST ── */
   .checklist {
     list-style: none;
@@ -627,18 +706,18 @@
     .gestor-grid { grid-template-columns: 1fr; }
     .overview-inner { grid-template-columns: repeat(2, 1fr); }
   }
-
-    .why-btn{display:inline-block;background:var(--zk-red);color:#fff;font-family:'Playfair Display',serif;font-size:18px;font-weight:700;padding:12px 32px;border:none;border-radius:var(--radius);cursor:pointer;margin-bottom:16px;transition:background .2s,transform .2s;box-shadow:0 4px 16px rgba(196,30,36,.25)}.why-btn:hover{background:#a01018;transform:translateY(-2px)}.why-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:9999;justify-content:center;align-items:center;padding:20px}.why-overlay.active{display:flex}.why-modal{background:#fff;border-radius:16px;max-width:680px;width:100%;max-height:85vh;overflow-y:auto;padding:40px;position:relative;box-shadow:0 24px 64px rgba(0,0,0,.2)}.why-modal-close{position:absolute;top:16px;right:16px;background:none;border:none;font-size:24px;cursor:pointer;color:var(--zk-gray-mid);width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .2s}.why-modal-close:hover{background:var(--zk-cream)}.why-modal h3{font-family:'Playfair Display',serif;font-size:22px;color:var(--zk-dark);margin-bottom:8px}.why-modal .why-intro{color:var(--zk-gray-mid);font-size:14px;margin-bottom:24px;line-height:1.6}.why-modal .why-item{display:flex;gap:14px;margin-bottom:20px;align-items:flex-start}.why-modal .why-number{background:var(--zk-red);color:#fff;min-width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;margin-top:2px}.why-modal .why-item-content strong{display:block;color:var(--zk-dark);margin-bottom:4px;font-size:15px}.why-modal .why-item-content span{color:var(--zk-gray-mid);font-size:14px;line-height:1.5}.why-cases{background:var(--zk-cream);border-radius:10px;padding:16px 20px;margin-top:24px;font-size:13px;color:var(--zk-gray-mid);line-height:1.6}.why-cases strong{color:var(--zk-dark)}
-  </style>
+</style>
 </head>
 <body>
 
 <!-- ═══════════ HERO ═══════════ -->
 <section class="hero">
-  <div class="hero-logo"><img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663336173657/Tnba4XxTLX7enrbaMxc7RB/LogoZukkin2_7f4d5964.png" alt="Zukkin"></div>
+  <div class="hero-logo">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA00AAADBCAYAAAATmVsSAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDY3IDc5LjE1Nzc0NywgMjAxNS8wMy8zMC0yMzo0MDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo4NzFlMjMyMy1iMDc1LTk3NGItYWFjZS0yNWMyOWRlM2Y0YzMiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDJEMUI2QkFGNDZBMTFFNkI1MTg5ODM1RjcyMUVEOEYiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDJEMUI2QjlGNDZBMTFFNkI1MTg5ODM1RjcyMUVEOEYiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6Yzk5NzA3N2UtM2UwZi1mNTQyLThkNWUtYzc4M2EzNDY1NWZiIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjg3MWUyMzIzLWIwNzUtOTc0Yi1hYWNlLTI1YzI5ZGUzZjRjMyIv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" alt="Zukkin" style="height: 36px; width: auto;">
+  </div>
   <div class="hero-inner">
     <div class="hero-tag">Evento Interno</div>
-    <h1>Workshop: Estrutura por Produtos <em>e IA</em></h1>
+    <h1>Workshop:<br>Estrutura por Produtos e IA</h1>
     <div class="hero-meta">
       <span>
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -660,20 +739,20 @@
 <section class="overview">
   <div class="overview-inner">
     <div class="overview-card">
-      <div class="number">3</div>
-      <div class="label">Grandes Blocos</div>
+      <div class="number">2</div>
+      <div class="label">Grandes Temas</div>
     </div>
     <div class="overview-card">
       <div class="number">6</div>
       <div class="label">Produtos Apresentados</div>
     </div>
     <div class="overview-card">
-      <div class="number">4</div>
-      <div class="label">Gestores com IA</div>
+      <div class="number">15</div>
+      <div class="label">Colaboradores com IA</div>
     </div>
     <div class="overview-card">
-      <div class="number">9h</div>
-      <div class="label">De Imersão</div>
+      <div class="number">8h</div>
+      <div class="label">De Conteúdo</div>
     </div>
   </div>
 </section>
@@ -714,14 +793,13 @@
       </div>
     </div>
     <div class="session-body">
-      <button class="why-btn" onclick="document.getElementById('whyModal').classList.add('active')">Por quê?</button>
-            <p>Visão geral da reestruturação do portfólio Zukkin em 6 produtos bem definidos. Cada produto será apresentado com os desafios para 2026.</p></p>
+      <p>Visão geral da reestruturação do portfólio Zukkin em 6 produtos bem definidos. Cada produto será apresentado com seu posicionamento, público-alvo, proposta de valor e roadmap.</p>
 
             <div class="product-grid">
         <div class="product-card clickable" onclick="openProduct('zpricing')" style="border-left:3px solid #02385A"><div class="name" style="color:#02385A">ZPricing</div><div class="desc">Precificação inteligente e monitoramento de mercado</div><div class="card-cta" style="color:#02385A">Clique para ver detalhes →</div></div>
         <div class="product-card clickable" onclick="openProduct('zanalytics')" style="border-left:3px solid #EE8625"><div class="name" style="color:#EE8625">ZAnalytics</div><div class="desc">Inteligência de dados e dashboards analíticos</div><div class="card-cta" style="color:#EE8625">Clique para ver detalhes →</div></div>
         <div class="product-card clickable" onclick="openProduct('zpromo')" style="border-left:3px solid #FF4D6A"><div class="name" style="color:#FF4D6A">ZPromo</div><div class="desc">Gestão e planejamento de ações promocionais</div><div class="card-cta" style="color:#FF4D6A">Clique para ver detalhes →</div></div>
-        <div class="product-card clickable" onclick="openProduct('zrobot')" style="border-left:3px solid #6B2246"><div class="name" style="color:#6B2246">ZRobot</div><div class="desc">Automação de coleta e captura de dados</div><div class="card-cta" style="color:#6B2246">Clique para ver detalhes →</div></div>
+        <div class="product-card clickable" onclick="openProduct('zrobot')" style="border-left:3px solid #6B2246"><div class="name" style="color:#6B2246">ZRobot</div><div class="desc">Automação de coleta e captura de dados de preços</div><div class="card-cta" style="color:#6B2246">Clique para ver detalhes →</div></div>
         <div class="product-card clickable" onclick="openProduct('zgo')" style="border-left:3px solid #78AE3F"><div class="name" style="color:#78AE3F">ZGo</div><div class="desc">Operação de campo e execução em loja</div><div class="card-cta" style="color:#78AE3F">Clique para ver detalhes →</div></div>
         <div class="product-card clickable" onclick="openProduct('zconsulting')" style="border-left:3px solid #8C9BAB"><div class="name" style="color:#8C9BAB">ZConsulting</div><div class="desc">Consultoria estratégica e projetos sob medida</div><div class="card-cta" style="color:#C41E24">Clique para ver detalhes →</div></div>
       </div>
@@ -745,7 +823,7 @@
       <p>A mudança para uma estrutura orientada a produtos traz novas responsabilidades e desafios. Esse bloco aprofunda o modelo operacional, incluindo papéis, ownership e pontos de conflito já identificados.</p>
 
       <ul class="checklist">
-        <li>Novo sistema com login único e relatórios alocados por produto</li>
+        <li>Nova matriz de responsabilidades por produto — quem é dono de quê</li>
         <li>Desafios de transição: sobreposição de funções, handoff entre times</li>
         <li>Apresentação do Borba — Cadastro: como funciona, pontos de conflito com operação e qualidade</li>
         <li><strong>Bruno (10 min)</strong> — Carteira de Clientes no Asana: como está organizada, fluxo de acompanhamento e como cada produto se conecta à gestão de clientes</li>
@@ -782,47 +860,100 @@
     <div class="phase-line"></div>
   </div>
 
-  <!-- 13h00 Abertura IA + ZK IA -->
+  <!-- 13h00 Abertura IA + Introdução -->
   <div class="session">
     <div class="session-header">
       <div class="session-time blue">13h00</div>
       <div>
-        <div class="session-title">Abertura IA, Vídeos e ZK IA — A Inteligência Artificial do Zukkin <span class="session-duration">1h</span></div>
-        <div class="session-presenter">Apresentação: <strong>Ricardo</strong> · <strong>Leo</strong></div>
+        <div class="session-title">🎬 Abertura IA — Vídeos + Introdução <span class="session-duration">1h</span></div>
+        <div class="session-presenter">Apresentação: <strong>Ricardo</strong> · Palestra: <strong>Leonardo</strong></div>
       </div>
     </div>
     <div class="session-body">
-      <p>Abertura da tarde com vídeos impactantes sobre IA nos negócios, panorama e contexto da revolução da IA, seguido da apresentação do ZK IA pelo Leo.</p>
+      <p>Abertura da tarde com vídeos impactantes sobre IA nos negócios, seguida de uma introdução completa que nivela todo o time — do conceito à aplicação prática.</p>
 
-      <div class="video-grid"><a class="video-card" data-link="aHR0cHM6Ly9yaWNhcmRvenVra2luLmdpdGh1Yi5pby92aWRlb3Mv" target="_blank"><div class="vp" style="background:linear-gradient(135deg,#FF6B6B,#CF110D)">▶</div><div class="vi"><div class="vl">Video 1</div><div class="vt">Tallis Gomes</div><div class="vs">IA nos Negocios</div></div><div class="va">→</div></a><a class="video-card" data-link="aHR0cHM6Ly93d3cueW91dHViZS5jb20vc2hvcnRzL1ZidEJqeDRJVEtv" target="_blank"><div class="vp" style="background:linear-gradient(135deg,#FF0000,#CC0000)">▶</div><div class="vi"><div class="vl">Video 2</div><div class="vt">Nardon</div><div class="vs">O Impacto da IA</div></div><div class="va">→</div></a></div>
+      <div class="video-grid">
+        <a class="video-card" href="https://ricardozukkin.github.io/videos/" target="_blank">
+          <div class="video-play" style="background:linear-gradient(135deg,#FF6B6B,#CF110D)">▶</div>
+          <div class="video-info">
+            <div class="video-label">Vídeo 1</div>
+            <div class="video-title">Tallis Gomes — IA nos Negócios</div>
+            <div class="video-source">ricardozukkin.github.io/videos</div>
+          </div>
+          <div class="video-arrow">→</div>
+        </a>
+        <a class="video-card" href="https://www.youtube.com/shorts/VbtBjx4ITKo" target="_blank">
+          <div class="video-play" style="background:linear-gradient(135deg,#FF0000,#CC0000)">▶</div>
+          <div class="video-info">
+            <div class="video-label">Vídeo 2</div>
+            <div class="video-title">Nardon — O Impacto da IA</div>
+            <div class="video-source">youtube.com/shorts</div>
+          </div>
+          <div class="video-arrow">→</div>
+        </a>
+      </div>
 
-      <p>Leo apresenta o ZK IA: o que é, como funciona, estágio atual de desenvolvimento e visão de futuro. Demonstração ao vivo do produto e cases iniciais de uso com clientes.</p>
+      <div class="callout blue" style="margin-top:16px">
+        <strong>Após os vídeos — Introdução à IA (Leonardo):</strong><br>
+        O que é AI, como funciona, como usar bem no dia a dia e os cuidados essenciais.
+      </div>
 
       <ul class="checklist">
-        <li class="blue">O que é o ZK IA e como ele se integra aos 6 produtos</li>
-        <li class="blue">Demonstração ao vivo — cases e exemplos práticos</li>
-        <li class="blue">Roadmap: o que vem a seguir no desenvolvimento</li>
-        <li class="blue">Como o time comercial pode começar a apresentar o ZK IA</li>
+        <li class="blue">O que é AI de verdade — desmistificando conceitos e jargões</li>
+        <li class="blue">Os principais modelos e ferramentas disponíveis no mercado</li>
+        <li class="blue">Como tirar o melhor da AI — técnicas de prompt</li>
+        <li class="blue">Limitações e cuidados de segurança</li>
+        <li class="blue">Casos de uso práticos no trabalho</li>
       </ul>
+
+      <div class="callout blue">
+        <strong>Objetivo:</strong> Todos saírem entendendo o que é IA, o que ela pode e não pode fazer, e como começar a usar com qualidade e segurança no dia a dia profissional.
+      </div>
     </div>
   </div>
 
-  <!-- 14h00 IA no ADM -->
+  <!-- 14h00 Leo Palestra 2 -->
   <div class="session">
     <div class="session-header">
       <div class="session-time blue">14h00</div>
       <div>
-        <div class="session-title">IA Aplicada ao Zukkin ADM <span class="session-duration">30 min</span></div>
+        <div class="session-title">AI na Prática: Ferramentas e Demos ao Vivo <span class="session-duration">30 min</span></div>
+        <div class="session-presenter">Apresentação: <strong>Leonardo</strong> · Palestra 2 · 30 min + perguntas</div>
+      </div>
+    </div>
+    <div class="session-body">
+      <p>Demonstração prática de plataformas de AI com casos de uso reais. Mão na massa — o time vê a IA funcionando ao vivo.</p>
+
+      <ul class="checklist">
+        <li class="blue">Plataformas de AI corporativas — visão geral do ecossistema</li>
+        <li class="blue">Demo ao vivo: AIHub</li>
+        <li class="blue">Demo ao vivo: Claude Code</li>
+        <li class="blue">Como combinar ferramentas no seu fluxo de trabalho</li>
+      </ul>
+
+      <div class="callout blue">
+        <strong>Formato:</strong> Sessão hands-on com demonstrações ao vivo. O time acompanha as ferramentas em ação e pode fazer perguntas em tempo real.
+      </div>
+    </div>
+  </div>
+
+  <!-- 14h30 Bruno: IA no Zukkin -->
+  <div class="session">
+    <div class="session-header">
+      <div class="session-time blue">14h30</div>
+      <div>
+        <div class="session-title">IA Aplicada ao Zukkin — ADM &amp; Claude <span class="session-duration">30 min</span></div>
         <div class="session-presenter">Apresentação: <strong>Bruno</strong></div>
       </div>
     </div>
     <div class="session-body">
-      <p>Como a inteligência artificial será incorporada nas operações administrativas e internas do Zukkin. Foco em ganhos de eficiência, automação de processos e redução de retrabalho.</p>
+      <p>Como a inteligência artificial será incorporada nas operações internas do Zukkin. Foco em ganhos de eficiência, automação de processos e uso do Claude como ferramenta principal do dia a dia.</p>
 
       <ul class="checklist">
         <li class="blue">Processos internos que já podem ser otimizados com IA</li>
         <li class="blue">Automação de tarefas repetitivas no financeiro, RH e operações</li>
-        <li class="blue">Uso de IA para análise de dados internos e tomada de decisão</li>
+        <li class="blue">O Claude no Zukkin — por que escolhemos e como cada área pode usar</li>
+        <li class="blue">Demo prática: resolver um problema real ao vivo com o Claude</li>
         <li class="blue">Política de uso: diretrizes para utilização responsável de IA no dia a dia</li>
       </ul>
 
@@ -832,79 +963,62 @@
     </div>
   </div>
 
-  <!-- 14h30 Claude -->
-  <div class="session">
-    <div class="session-header">
-      <div class="session-time blue">14h30</div>
-      <div>
-        <div class="session-title">Claude — A IA que o Zukkin Usa <span class="session-duration">30 min</span></div>
-        <div class="session-presenter">Apresentação: <strong>Bruno</strong></div>
-      </div>
-    </div>
-    <div class="session-body">
-      <p>Apresentação prática do Claude (Anthropic) como a principal ferramenta de IA adotada pelo Zukkin. Como funciona, o que consegue fazer, e demonstração ao vivo de aplicações reais.</p>
-
-      <ul class="checklist">
-        <li class="blue">O que é o Claude e por que escolhemos essa ferramenta</li>
-        <li class="blue">Demonstração ao vivo: análise de documentos, geração de conteúdo, apoio a decisões</li>
-        <li class="blue">Como cada área pode começar a usar amanhã</li>
-        <li class="blue">Boas práticas de prompting — como conversar com a IA pra ter resultados reais</li>
-      </ul>
-
-      <div class="callout blue">
-        <strong>Ideia:</strong> Fazer uma demo ao vivo pedindo pro Claude resolver um problema real que algum gestor traga na hora. Isso gera o efeito "wow" e mostra utilidade prática imediata.
-      </div>
-    </div>
-  </div>
-
   <!-- 15h00 Gestores -->
   <div class="session">
     <div class="session-header">
       <div class="session-time blue">15h00</div>
       <div>
-        <div class="session-title">IA na Prática — Cada Gestor Apresenta <span class="session-duration">1h</span></div>
-        <div class="session-presenter">Apresentação: <strong>Fabiana, Guilherme, Chayeni, Rafael</strong> · 15 min cada</div>
+        <div class="session-title">IA na Prática — Cada Área Apresenta <span class="session-duration">1h</span></div>
+        <div class="session-presenter">Apresentação: <strong>Fabiana, Rodrigo, Guilherme, Iris, André, Chayeni, Sabrina, Rafael</strong></div>
       </div>
     </div>
     <div class="session-body">
-      <p>Cada gestor apresenta como já está usando ou planeja usar IA no seu departamento. Foco em aplicações concretas, resultados iniciais e próximos passos.</p>
+      <p>Cada dupla apresenta como já está usando IA no seu produto ou área. Foco em aplicações concretas, resultados e próximos passos.</p>
 
       <div class="gestor-grid">
         <div class="gestor-card">
           <div class="gestor-avatar">FA</div>
           <div class="gestor-info">
-            <div class="name">Fabiana</div>
-            <div class="area">Financeiro & RH — Automação de processos, folha, admissão</div>
+            <div class="name">Fabiana e Rodrigo</div>
+            <div class="area">IA aplicada no RH</div>
           </div>
         </div>
         <div class="gestor-card">
           <div class="gestor-avatar">GU</div>
           <div class="gestor-info">
-            <div class="name">Guilherme</div>
-            <div class="area">Operações & Qualidade — Controle, auditoria, eficiência</div>
+            <div class="name">Guilherme e Iris</div>
+            <div class="area">IA no ZAnalytics</div>
+          </div>
+        </div>
+        <div class="gestor-card">
+          <div class="gestor-avatar">GU</div>
+          <div class="gestor-info">
+            <div class="name">Guilherme e André</div>
+            <div class="area">IA no ZGo</div>
           </div>
         </div>
         <div class="gestor-card">
           <div class="gestor-avatar">CH</div>
           <div class="gestor-info">
-            <div class="name">Chayeni</div>
-            <div class="area">Projetos — Gestão de entregas, comunicação com cliente</div>
+            <div class="name">Chayeni e Sabrina</div>
+            <div class="area">IA no ZPricing</div>
           </div>
         </div>
         <div class="gestor-card">
           <div class="gestor-avatar">RA</div>
           <div class="gestor-info">
             <div class="name">Rafael</div>
-            <div class="area">Pricing — Análise de mercado, modelos preditivos</div>
+            <div class="area">IA no ZPromo</div>
           </div>
         </div>
       </div>
 
       <div class="callout blue" style="margin-top:20px">
-        <strong>Formato sugerido por gestor (15 min):</strong><br>
-        5 min → O que já estou usando de IA (ou pretendo usar)<br>
-        5 min → Resultado ou expectativa de impacto<br>
-        5 min → Perguntas do grupo e troca de ideias
+        <strong>Formato por apresentação:</strong><br>
+        5 min → Como estou usando IA<br>
+        5 min → Resultado e impacto<br>
+        5 min → O que pretendo fazer<br><br>
+        <strong>20 min</strong> → Discussão do grupo sobre como a IA poderá ser aplicada em escala no Zukkin
       </div>
     </div>
   </div>
@@ -914,25 +1028,28 @@
     <div class="session-header">
       <div class="session-time blue">16h00</div>
       <div>
-        <div class="session-title">Plano de Ação por Departamento <span class="session-duration">1h</span></div>
+        <div class="session-title">Plano de Ação por Produto <span class="session-duration">1h</span></div>
         <div class="session-presenter">Facilitação: <strong>Ricardo</strong> · Todos os gestores</div>
       </div>
     </div>
     <div class="session-body">
-      <p>Bloco de fechamento. Cada departamento define 3 ações concretas de aplicação de IA para implementar nos próximos 30, 60 e 90 dias. Compromisso documentado e compartilhado.</p>
+      <p>Bloco de fechamento. Cada grupo de produto define <strong>2 ações concretas de IA para Abril</strong> — curtas e fáceis de medir. Compromisso documentado e compartilhado com todo o time.</p>
 
       <ul class="checklist">
-        <li class="blue"><strong>16h00–16h20</strong> — Cada gestor preenche o canvas de ação (individual ou em dupla)</li>
-        <li class="blue"><strong>16h20–16h45</strong> — Cada gestor apresenta suas 3 ações ao grupo (5 min cada)</li>
+        <li class="blue"><strong>16h00–16h15</strong> — Grupos se reúnem por produto e discutem as ações (15 min)</li>
+        <li class="blue"><strong>16h15–16h45</strong> — Cada gestor vai à frente e preenche as ações no painel (5 min cada)</li>
         <li class="blue"><strong>16h45–17h00</strong> — Consolidação: Ricardo fecha com visão geral, prazos e responsáveis</li>
       </ul>
 
       <div class="callout blue">
-        <strong>Canvas sugerido por departamento:</strong><br><br>
-        <strong>1. Quick Win (30 dias)</strong> — Uma aplicação simples de IA que pode rodar já na próxima semana<br>
-        <strong>2. Projeto Médio (60 dias)</strong> — Uma implementação que exige mais preparo mas traz resultado visível<br>
-        <strong>3. Visão Estratégica (90 dias)</strong> — Como IA transforma o departamento no médio prazo<br><br>
+        <strong>Formato por produto — 2 ações para Abril:</strong><br><br>
+        <strong>Ação 1</strong>: Primeira iniciativa de IA no produto<br>
+        <strong>Ação 2</strong>: Segunda iniciativa de IA no produto<br><br>
         Cada ação com: <strong>O quê · Quem · Quando · Resultado esperado</strong>
+      </div>
+
+      <div style="text-align:center;margin-top:24px">
+        <button onclick="openPlanoModal()" style="background:#CF110D;color:#fff;border:none;padding:16px 40px;font-size:1.1rem;font-weight:700;border-radius:12px;cursor:pointer;font-family:Montserrat,sans-serif;letter-spacing:.5px;box-shadow:0 4px 16px rgba(207,17,13,.3);transition:all .2s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 24px rgba(207,17,13,.4)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 16px rgba(207,17,13,.3)'">📋 Abrir Painel de Ações</button>
       </div>
     </div>
   </div>
@@ -958,50 +1075,225 @@
   Workshop Interno — Documento Confidencial
 </div>
 
-
+<!-- ═══════════ PRODUCT MODALS ═══════════ -->
 <div class="pm-overlay" id="pmOverlay" onclick="if(event.target===this)closeProduct()">
-<div class="pm-box" id="pm-zpricing" style="display:none"><button class="pm-close" onclick="closeProduct()">✕</button><div class="pm-top"><div class="pm-photo-col"><img class="pm-avatar" src="data:image/jpeg;base64,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" alt="Chayeni Campos"><div class="pm-mgr-ov"><b>Chayeni Campos</b><small>Gestor do Produto</small></div></div><div class="pm-info-col"><h2 class="pm-name" style="color:#02385A">ZPricing</h2><p class="pm-tagline">Precificação inteligente e monitoramento de mercado</p><p class="pm-desc">Plataforma completa que automatiza todo o processo de precificação — da coleta à sugestão do preço ideal por produto, loja e dia.</p></div></div><div class="pm-bottom"><div class="pm-label" style="color:#02385A">Desafios 2026</div><div class="pm-features"><div class="pm-feat" style="border-left-color:#02385A"><b style="color:#02385A">ZPricing IA</b><span>Inteligência artificial aplicada à precificação</span></div><div class="pm-feat" style="border-left-color:#02385A"><b style="color:#02385A">Validador de Custos</b><span>Validação automatizada de custos e margens</span></div><div class="pm-feat" style="border-left-color:#02385A"><b style="color:#02385A">Melhorar Engajamento dos Clientes</b><span>Aumentar a adoção e uso ativo da plataforma</span></div><div class="pm-feat" style="border-left-color:#02385A"><b style="color:#02385A">Criar rotina de Pricing com cada cliente</b><span>Processo recorrente de revisão de preços por cliente</span></div></div><div class="pm-label" style="color:#02385A">Números</div><div class="pm-stats"><div class="pm-stat"><strong style="color:#02385A">50</strong><span>Clientes</span></div><div class="pm-stat"><strong style="color:#02385A">60</strong><span>Clientes Dez26</span></div><div class="pm-stat"><strong style="color:#02385A">0</strong><span>Cancelamentos</span></div></div></div></div>
-<div class="pm-box" id="pm-zanalytics" style="display:none"><button class="pm-close" onclick="closeProduct()">✕</button><div class="pm-top"><div class="pm-photo-col"><img class="pm-avatar" src="data:image/jpeg;base64,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" alt="Guilherme Bezerra"><div class="pm-mgr-ov"><b>Guilherme Bezerra</b><small>Gestor do Produto</small></div></div><div class="pm-info-col"><h2 class="pm-name" style="color:#EE8625">ZAnalytics</h2><p class="pm-tagline">Inteligência de dados e dashboards analíticos</p><p class="pm-desc">Plataforma de BI voltada para pricing. Dashboards em tempo real que transformam dados em decisões estratégicas.</p></div></div><div class="pm-bottom"><div class="pm-label" style="color:#EE8625">Desafios 2026</div><div class="pm-features"><div class="pm-feat" style="border-left-color:#EE8625"><b style="color:#EE8625">Dashboards Real-time</b><span>Visão de competitividade e margens por loja</span></div><div class="pm-feat" style="border-left-color:#EE8625"><b style="color:#EE8625">Relatórios de Gestão</b><span>Acompanhamento de resultados e estratégias</span></div><div class="pm-feat" style="border-left-color:#EE8625"><b style="color:#EE8625">Análise por Categoria</b><span>Drill-down em cada segmento do sortimento</span></div><div class="pm-feat" style="border-left-color:#EE8625"><b style="color:#EE8625">Tendências de Mercado</b><span>Identificação de padrões e oportunidades</span></div></div><div class="pm-label" style="color:#EE8625">Números</div><div class="pm-stats"><div class="pm-stat"><strong style="color:#EE8625">360°</strong><span>Visão do negócio</span></div><div class="pm-stat"><strong style="color:#EE8625">Real-time</strong><span>Atualização</span></div><div class="pm-stat"><strong style="color:#EE8625">↑ Decisão</strong><span>Baseada em dados</span></div></div></div></div>
-<div class="pm-box" id="pm-zpromo" style="display:none"><button class="pm-close" onclick="closeProduct()">✕</button><div class="pm-top"><div class="pm-photo-col"><img class="pm-avatar" src="data:image/jpeg;base64,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" alt="Rafael Vandri"><div class="pm-mgr-ov"><b>Rafael Vandri</b><small>Gestor do Produto</small></div></div><div class="pm-info-col"><h2 class="pm-name" style="color:#FF4D6A">ZPromo</h2><p class="pm-tagline">Gestão e planejamento de ações promocionais</p><p class="pm-desc">Centraliza todo o ciclo de promoções — do planejamento à análise de performance com foco em margem.</p></div></div><div class="pm-bottom"><div class="pm-label" style="color:#FF4D6A">Desafios 2026</div><div class="pm-features"><div class="pm-feat" style="border-left-color:#FF4D6A"><b style="color:#FF4D6A">Planejamento de Ofertas</b><span>Ciclo completo de promoções com aprovações</span></div><div class="pm-feat" style="border-left-color:#FF4D6A"><b style="color:#FF4D6A">Gestão de Encartes</b><span>Controle de itens, margens e posicionamento</span></div><div class="pm-feat" style="border-left-color:#FF4D6A"><b style="color:#FF4D6A">Análise de Performance</b><span>ROI detalhado de cada ação por loja</span></div><div class="pm-feat" style="border-left-color:#FF4D6A"><b style="color:#FF4D6A">Calendário Promocional</b><span>Visão unificada de todas as ações do período</span></div></div><div class="pm-label" style="color:#FF4D6A">Números</div><div class="pm-stats"><div class="pm-stat"><strong style="color:#FF4D6A">↑ ROI</strong><span>Cada promoção</span></div><div class="pm-stat"><strong style="color:#FF4D6A">-50%</strong><span>Tempo de gestão</span></div><div class="pm-stat"><strong style="color:#FF4D6A">100%</strong><span>Rastreável</span></div></div></div></div>
-<div class="pm-box" id="pm-zrobot" style="display:none"><button class="pm-close" onclick="closeProduct()">✕</button><div class="pm-top"><div class="pm-photo-col"><img class="pm-avatar" src="data:image/jpeg;base64,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" alt="Rafael Vandri"><div class="pm-mgr-ov"><b>Rafael Vandri</b><small>Gestor do Produto</small></div></div><div class="pm-info-col"><h2 class="pm-name" style="color:#6B2246">ZRobot</h2><p class="pm-tagline">Automação de coleta e captura de dados de preços</p><p class="pm-desc">Robô crawler que monitora preços em e-commerces e apps automaticamente 24/7.</p></div></div><div class="pm-bottom"><div class="pm-label" style="color:#6B2246">Desafios 2026</div><div class="pm-features"><div class="pm-feat" style="border-left-color:#6B2246"><b style="color:#6B2246">Varredura Automática</b><span>Múltiplos sites e apps monitorados em paralelo</span></div><div class="pm-feat" style="border-left-color:#6B2246"><b style="color:#6B2246">Associação de Produtos</b><span>Match automático entre seus SKUs e concorrentes</span></div><div class="pm-feat" style="border-left-color:#6B2246"><b style="color:#6B2246">Início Rápido</b><span>Setup simplificado para focar na estratégia</span></div><div class="pm-feat" style="border-left-color:#6B2246"><b style="color:#6B2246">Dados Organizados</b><span>Preços coletados e estruturados para análise</span></div></div><div class="pm-label" style="color:#6B2246">Números</div><div class="pm-stats"><div class="pm-stat"><strong style="color:#6B2246">24/7</strong><span>Monitoramento</span></div><div class="pm-stat"><strong style="color:#6B2246">∞</strong><span>Sites e apps</span></div><div class="pm-stat"><strong style="color:#6B2246">Zero</strong><span>Trabalho manual</span></div></div></div></div>
-<div class="pm-box" id="pm-zgo" style="display:none"><button class="pm-close" onclick="closeProduct()">✕</button><div class="pm-top"><div class="pm-photo-col"><img class="pm-avatar" src="data:image/jpeg;base64,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" alt="Guilherme Bezerra"><div class="pm-mgr-ov"><b>Guilherme Bezerra</b><small>Gestor do Produto</small></div></div><div class="pm-info-col"><h2 class="pm-name" style="color:#78AE3F">ZGo</h2><p class="pm-tagline">Operação de campo e execução em loja</p><p class="pm-desc">App Android e iOS para pesquisa inteligente de preços em campo com equipe própria ou Zukkin.</p></div></div><div class="pm-bottom"><div class="pm-label" style="color:#78AE3F">Desafios 2026</div><div class="pm-features"><div class="pm-feat" style="border-left-color:#78AE3F"><b style="color:#78AE3F">App Mobile Nativo</b><span>Android e iOS com interface intuitiva e rápida</span></div><div class="pm-feat" style="border-left-color:#78AE3F"><b style="color:#78AE3F">Equipe Flexível</b><span>Pesquisadores Zukkin ou equipe própria do cliente</span></div><div class="pm-feat" style="border-left-color:#78AE3F"><b style="color:#78AE3F">Coleta em Tempo Real</b><span>Dados sincronizados instantaneamente na nuvem</span></div><div class="pm-feat" style="border-left-color:#78AE3F"><b style="color:#78AE3F">Cobertura Nacional</b><span>Operação ativa em todo o território brasileiro</span></div></div><div class="pm-label" style="color:#78AE3F">Números</div><div class="pm-stats"><div class="pm-stat"><strong style="color:#78AE3F">Brasil</strong><span>Cobertura</span></div><div class="pm-stat"><strong style="color:#78AE3F">Real-time</strong><span>Sincronização</span></div><div class="pm-stat"><strong style="color:#78AE3F">2 modos</strong><span>Próprio ou Zukkin</span></div></div></div></div>
-<div class="pm-box" id="pm-zconsulting" style="display:none"><button class="pm-close" onclick="closeProduct()">✕</button><div class="pm-top"><div class="pm-photo-col"><img class="pm-avatar" src="data:image/jpeg;base64,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" alt="André Sanches"><div class="pm-mgr-ov"><b>André Sanches</b><small>Gestor do Produto</small></div></div><div class="pm-info-col"><h2 class="pm-name" style="color:#8C9BAB">ZConsulting</h2><p class="pm-tagline">Consultoria estratégica e projetos sob medida</p><p class="pm-desc">Braço consultivo. Especialistas em pricing implementam, treinam e reestruturam a área de precificação.</p></div></div><div class="pm-bottom"><div class="pm-label" style="color:#8C9BAB">Desafios 2026</div><div class="pm-features"><div class="pm-feat" style="border-left-color:#8C9BAB"><b style="color:#8C9BAB">Consultoria de Pricing</b><span>Diagnóstico completo, estratégia e implementação</span></div><div class="pm-feat" style="border-left-color:#8C9BAB"><b style="color:#8C9BAB">Projetos Sob Medida</b><span>Escopo personalizado para cada cliente</span></div><div class="pm-feat" style="border-left-color:#8C9BAB"><b style="color:#8C9BAB">Treinamento</b><span>Capacitação do time interno em pricing</span></div><div class="pm-feat" style="border-left-color:#8C9BAB"><b style="color:#8C9BAB">Acompanhamento</b><span>Resultados validados com relatórios periódicos</span></div></div><div class="pm-label" style="color:#8C9BAB">Números</div><div class="pm-stats"><div class="pm-stat"><strong style="color:#8C9BAB">Sob medida</strong><span>Cada projeto</span></div><div class="pm-stat"><strong style="color:#8C9BAB">↑ Margem</strong><span>Desde o mês 1</span></div><div class="pm-stat"><strong style="color:#8C9BAB">Expert</strong><span>Em pricing</span></div></div></div></div>
+<div class="pm-box" id="pm-zpricing" style="display:none">
+<button class="pm-close" onclick="closeProduct()">✕</button>
+<div class="pm-top">
+<div class="pm-photo-col"><img class="pm-avatar" src="data:image/jpeg;base64,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" alt="Chayeni Campos"><div class="pm-mgr-ov"><b>Chayeni Campos</b><small>Gestor do Produto</small></div></div>
+<div class="pm-info-col"><h2 class="pm-name" style="color:#02385A">ZPricing</h2><p class="pm-tagline">Precificação inteligente e monitoramento de mercado</p><p class="pm-desc">Plataforma completa que automatiza todo o processo de precificação — da coleta à sugestão do preço ideal por produto, loja e dia.</p></div>
+</div>
+<div class="pm-bottom">
+<div class="pm-label" style="color:#02385A">Desafios</div>
+<div class="pm-features"><div class="pm-feat" style="border-left-color:#02385A"><b style="color:#02385A">ZPricing IA</b><span>Inteligência artificial aplicada à precificação</span></div><div class="pm-feat" style="border-left-color:#02385A"><b style="color:#02385A">Validador de Custos</b><span>Validação automatizada de custos e margens</span></div><div class="pm-feat" style="border-left-color:#02385A"><b style="color:#02385A">Melhorar Engajamento dos Clientes</b><span>Aumentar a adoção e uso ativo da plataforma</span></div><div class="pm-feat" style="border-left-color:#02385A"><b style="color:#02385A">Criar rotina de Pricing com cada cliente</b><span>Processo recorrente de revisão de preços por cliente</span></div></div>
+<div class="pm-label" style="color:#02385A">Números</div>
+<div class="pm-stats"><div class="pm-stat"><strong style="color:#02385A">50</strong><span>Clientes</span></div><div class="pm-stat"><strong style="color:#02385A">60</strong><span>Clientes Dez26</span></div><div class="pm-stat"><strong style="color:#02385A">0</strong><span>Cancelamentos</span></div></div>
+</div>
+</div>
+<div class="pm-box" id="pm-zanalytics" style="display:none">
+<button class="pm-close" onclick="closeProduct()">✕</button>
+<div class="pm-top">
+<div class="pm-photo-col"><img class="pm-avatar" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAsICAoIBwsKCQoNDAsNERwSEQ8PESIZGhQcKSQrKigkJyctMkA3LTA9MCcnOEw5PUNFSElIKzZPVU5GVEBHSEX/2wBDAQwNDREPESESEiFFLicuRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUX/wAARCACgAKADASIAAhEBAxEB/8QAGwAAAQUBAQAAAAAAAAAAAAAABQACAwQGAQf/xAA0EAABBAEDAwQCAQIDCQAAAAABAAIDBBEFEiETMUEGIlFhMnEUFZFCUnIkM0NEU2KBobH/xAAYAQADAQEAAAAAAAAAAAAAAAABAgMABP/EAB8RAQEBAQEAAwADAQAAAAAAAAABEQIhAxIxBAVRQf/aAAwDAQACEQMRAD8A31/WiT06vb/MUFcS55c4+49ynO7f9qaB/ZEXQF3bwuhOCLG/abLI2GN0jzgAJzyGMysZ6s18xtMETh9kIWsra96ukEhhrYwOCszNqUkxLnnkobJay52eST3XG+8cFJaaLJsPe3AUbmn/ABdynwMypXMy8ZBSidFH0Ytw8qETHe4FW3g9LACpSDG4+VmTRybufhW4bUu/DTwh0AIYVIJdhx5WYdib1mnLuUV0nWnabYbBL+JWVqWzCS5xyFbikF0F+cOB4W3Gr17T9QJYJq7xgrQU9RjsAB3tevINL1p9VrYHk/S2ta6NkRc4B5GRhPLpa2//AKXUJ0/Ut5Ec55P4lFgQRkIlYlIBdXQjgkF0pdlHM/pROefAyizOeqtYNOIMhfhy84u2X2Xuc92SeUQ9Saibl+RoPtB4QUZICnRMa3J5CsQQlzwAE+GDeQj2n6aBhzglt8PzNqvX05xwcK07THkcNJWjrVG7AQOFdgrszyAo3pacRjTp8wbjYVE/TXFvMZz+l6LHVhdwWhSHSIZB+IRnQ3h5c6m5n+HChNFziThelz+mWyHhqpn030yfbwmlTvLzmSu+M4ISimfC72reWvTJc3cGcLNahosleV2GkAI6X6q8V33te/kotV1meSxEQ7hp2rNuY9hwR2RDSTvsMZ8uyjKFj1ym8yVY3A8kd0b07UP+FMcY7FAdOGKTG/SskKyVV8LoCS74W08hDscofrEnT06U5xlpwiBxjj4Wd9X2ejpbcHGeEuj9Xl8jTJYe5xzyV1sQzgJ4YS7/AOqRreUugnrN24WgpZ2jKDVYHOcAEfrx7I/tTqvMGaXuGPCuCMg8Krp4O3PCItBJzg4UbFodC0gohDnAVeJgPkK7CwLQUzT9KRrWke5oXQzjhdwQqQtcdEwtwWjCF39GhsROO0ZKKEn54Ub3YAwltaR5jrmgPrAva3hUNDpOfcBx+JXpGrQtmqybgOAs56eqgW5AQMZT8XUe411WPZXYPpSlIDGAPASXSgrLmV0ppU7XVzy4XZPHdYr1tYc6Xo+AOy2FiUQQOfnBaM5XnuqWv6rvkPBBIS6PXPgPHVe5mWhPZUladxGVSe6Vr9rXO/ujFOpI6Bry85ITbMQkuk26axA6YyAkzXX78bPKmdSB5cCUMFYR3HsbzjnKXw3saSp6hnjwDANvyjdb1HWeA2U7XHwsaJ44vzPb7UjdQpPaQTz8pbD/AGehwXq8mCx7UQhnAwvI/wCTJHLuryu+uUVp+o7MBAsOOAh9TTp6rG4PGQU92cLK6Zr8NhgLZBn4JRtmoMcAA4FbB1c5+FFIOE1lxrjgEZT3EOBIOUlhgzVn9OhK4oZ6WhL2TSuHd/Cua/n+CYh+TyrWkVxW0+NvYkZKr8cQ+WrvkpJeOUl0IK2E0tyE9JTsdM6DdYBdReMeF58xggjc0nu4r0bVSG0X58rzJ26W29riQAcj7Ur+qbLFQx7rhAWjgYWRMb8IEzA1EN+VomfiMLUnK3FUEsRQN2lySahK1ucgcrQ1pgwAZ4TGuNbUnz7SY5Bg/ASens0Aboe4lryc/aaPTUjZM49mcrbsr1rmHROaT5wpDpx7A5CMrXl59qdDpPaIgQAOcKkyR/LCO3clbzUNMHTJOAsfegDpzDEMuHco6T6qleC1NIX1GSHb3x2RCPWr0Psc8tLeCCtn6SrsipFmBuPfhZzXNJbLqksbRguOchNoZYpw+pLZkwJuf2tDS1zUJm5bJ2Wdr+mZA85H/lWIYrVG4GgHpHhLcGa0cuqyyzME4MuPACM0tbrygQEdEgcByx9nVH0LDXQQl2e5wg2oanZtahFIWuY88cKvHiHfr1wHOCO2EkP0ETf0uP8AkHL+4z8IiqkV1wpyYUtL11gfrhAolYeaJjXOeByVudUhNioWhYW4enuaPHCjXR8XWwLhZuvb/grRRngD5WfrnE3KPVjuAKFUiZp920K/Gxz2bfHn7VOMYeUSrOAwApqxA6hY/wCXzH/pXW3NTpDG3qYRmOYYxhQXrPTgc44GAibAK7evXxtfH02+cKGpVgjcGflIe7ipKOpRunf1HAj7U0k1d1ve0jn4RLg/o1XoO47FD9Wr7PU0BPERbyftHNKLXMBBGFW9R0+tC17eSDxhBrHHaa9rt7DkO7KvbqDDd7OQoqOvzRNbHaGQ3gcK1Nq9awC1jSXHvwt/0tmRNRoQPgc+WFpHgkIM3T4NR9QtfHEBBCNrsDyiUmoumrivVY5ju2SFd0qgKVd/HvkO5xPyunmOTq+rzWNjYI28be36XSuk4aFxOVAmOCeEsJbNJ1NVrR2Qud8tXnts5Y/I53Fb/UuKhWA1L2MOPlSvivxywLZ/vEYpzYACCxEFxJV2vLh6Wrweh95yrcZEbdzjgITUtAzAeFDrV8td04yR9BTxTcg8dVhYMBwyql/UWzwlpPcLGfy5I5AZMgFXRM6ZgIcU0gfaobRMbyY3KOtbk6mC48J0jHGQAtKs1dMLsybePlMG2j9DXTXjYC9aFt59umXt5AWCAZvDCBwtDpNw14XxOOWnslp9FqjIbYPUAJBRGrSZDLw0EfpBtNOyw5w/ElaOt7yT4W4m0O74tNjGfaxrfvC7+0u+AUjyuufjiv6S4kksyEJy4O+UuDla+Dmh2tyhlLHnKw19hfDlaT1Bc6s2xp4aMIDKdzDlc/V9X558ZzcGyEFTRWNnKrXoyycn5UHU290c0NwarTbn7h8ogaQszBx5Wdq3Om5H9Ovb5gksNOl+1oMM8IBADsIdFpklR20M3Mz3Wl6wLASqvUBccnyli0kQR1K0uA8Yd+lbi0UFhMch2HxlXKj4ezw3+ytOjge3DXEfopgxhdXDdNnwAHOz5VZuovc5vGCfC3J0atI8ucwP/wBXKz+sU4IbbGsDQPOEC2YLaO8fwWyP77sLUUm/7MHfKx1Jxnkjih5YO+FtoW7Y2j4CpxMS6qXykuLpVojYaUkksIgiPZU9RuNqwnkZwnXLsdRhLnYd8LJahdkuyEu4aFPvqK88qz53TSue7kkqF57jwus7lMlPK5rdq8mBeoRBzS5AJX8rTWGgtI+Vn9Qr7HZCtzUu4qNlO8YRvTpiyRpygIO1yuQTYIOcYTWalLj0qrtsVgR3wqU8b2EoPp2rmCPAcjDJv5LA4u7qVjp46QMmkYeSiVa2TgAlRtjga3nunAMY4OacZQUop/L6dZzyVh9QtyXb5DD5RrWL3Tr9JjuXKl6b0p9q4ZHt4BTc8o99NL6XoOjh6jh3+VqQMBQ1oWwxhrQpwryIy/6XhJIrn7W/BJJd8dlxNPSWPLIPUzdSeBYfhx+UT6YczdnIPbC81HtPBw5HtI1+StiOclzTx+lzd8VXjv8A1pNm0lRytyMFWI54rMYfGeEyRgI4U5sX8ofIzcMIbdg3tIwjL2YKryxBzSnlDqayE0ZY45SY7GAjNvTi9hI7oQ+B0L8O8K0rn65XIJNuAtBVuiKEcrLx53A5V0zENABS2a0uD51LdznCX9TO3k8rOOsO4AKsVWSTSBueSh9TXsWrNfqNwNOSvRtG05tKqPb7iEG9MaEIWiaQDPda0DATyYXdL48JApJD6GQi2a6nMjfK7EbC4q5XoAMMth2IwMqKbXYIhtpx7x/nHCTv5efjm2tOer5Do9Nmf39p+1J/SZf+oxB5dZuSgh0gDfoKv/KsE56zv7rjv9hxvkWn8fqv/9k=" alt="Guilherme Bezerra"><div class="pm-mgr-ov"><b>Guilherme Bezerra</b><small>Gestor do Produto</small></div></div>
+<div class="pm-info-col"><h2 class="pm-name" style="color:#EE8625">ZAnalytics</h2><p class="pm-tagline">Inteligência de dados e dashboards analíticos</p><p class="pm-desc">Plataforma de competitividade. Dashboards em tempo real que transformam dados em decisões estratégicas.</p></div>
+</div>
+<div class="pm-bottom">
+<div class="pm-label" style="color:#EE8625">Desafios</div>
+<div class="pm-features"><div class="pm-feat" style="border-left-color:#EE8625"><b style="color:#EE8625">ZAnalytics IA</b><span>Inteligência artificial aplicada aos dashboards</span></div><div class="pm-feat" style="border-left-color:#EE8625"><b style="color:#EE8625">Melhorar Análises</b><span>Elevar a qualidade e profundidade das análises</span></div><div class="pm-feat" style="border-left-color:#EE8625"><b style="color:#EE8625">Melhorar Engajamento dos Clientes</b><span>Aumentar uso e satisfação com a plataforma</span></div><div class="pm-feat" style="border-left-color:#EE8625"><b style="color:#EE8625">Criar 2 Relatórios Novos</b><span>Novos relatórios de valor para os clientes</span></div></div>
+<div class="pm-label" style="color:#EE8625">Números</div>
+<div class="pm-stats"><div class="pm-stat"><strong style="color:#EE8625">68</strong><span>Clientes</span></div><div class="pm-stat"><strong style="color:#EE8625">75</strong><span>Clientes Dez26</span></div><div class="pm-stat"><strong style="color:#EE8625">0</strong><span>Cancelamentos</span></div></div>
+</div>
+</div>
+<div class="pm-box" id="pm-zpromo" style="display:none">
+<button class="pm-close" onclick="closeProduct()">✕</button>
+<div class="pm-top">
+<div class="pm-photo-col"><img class="pm-avatar" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAsICAoIBwsKCQoNDAsNERwSEQ8PESIZGhQcKSQrKigkJyctMkA3LTA9MCcnOEw5PUNFSElIKzZPVU5GVEBHSEX/2wBDAQwNDREPESESEiFFLicuRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUX/wAARCACgAKADASIAAhEBAxEB/8QAGwAAAgMBAQEAAAAAAAAAAAAABAUCAwYBAAf/xAA4EAACAQMDAQYFAgQGAwEAAAABAgMABBEFEiExBhMiQVFhMnGBkaEUQhUjsdEHJENSYsEzcqLx/8QAGQEAAwEBAQAAAAAAAAAAAAAAAQMEAgAF/8QAIxEAAwEAAgIDAAIDAAAAAAAAAAECEQMhEjEEE0EiUTJhkf/aAAwDAQACEQMRAD8A+fvGXXNUGIqeRRcUgJAoxbUTypGvxOcCkjQjsnYNc6iGx4R1rZdpdNjk0pwqgELUtH02LRrUNjLkZJqOtXFzcabM0S+HBpcU3yJooU5OHythtJB8qHYjdVkjkk560IzHdXs/K9oiCGPhrsUh7siqojuYA9KOMKRoFJwx8sVFzfhuf7A/UnpXVikZC4QlR+aNimHAZSUHmR6VM3cdwoi2kqcck7cUo4API5GKsjAKgEc0wkhaRkRTuUcZXkk1BYUMi7UbAOMGgawf6JoH6+LJTjHWmVv2URraYMMsCcUd2auBa2jlR4AcEZzg+lNrbWVc+GLK5wcVM3WlSU4fMr+wexnMcikY6ZpdcDivo/bVbW9t4xAqiYc5r56LWa6uRBGh3eftT4erSbkWPELWUlsAVo9As3I8SkZp5pvZFVRWlXLdSTWgh0eOFBsXms8lprEHjjHrEybrdsEcVdK0Rj3N1pjNaD9y9KFOki9jZFJHlU6WsoqmkYCMdDT/ALPoJdSRm/bSiGMNEDTPTZRa3Mb56nFU50Trpo+j+GSPawqDGCO1eNyApHnQ8dyHhVgeorJ9r9WeCEQISrN5g1nih3alFFNJaZPXIo4dVnWEgoTkYpQ3xVe7liWYkk+ZqtYnlfCivV+R0kmQvtloAigV8+JulExI8lskq7mYnDE+tER2ydynegeH1OPv+KipnV2C4EYYDOOB1xjNRVWs1hWCDHsJ2sRkAmibexu5oO8tmLEH4cfmvbEhZXPAJKu/XB/7redjdGXvRIw3Lt3EN19gaXVYbmfIx8MN0+XNse9jO8nGMj3qPeSJIWeLY68jI5z8vrX2htNgVSBAnIweKT3vZa3vpD3kShSPIYOaX9gz6zCdlb4W2omK6lZYJ2IZcZGegJ9PnWxNqlhHME5LHikOudkH0K9huoJWe3P726qfQ1oAo/TQi4kAYIAftS+V+mjfEn6YkvNIdrqGYkmJuWojTdKhW9eRUGKjq933bwwwS7gTzTPTFxEDXKnh1ytDWAUAAVYg4rwAzzVir6UDBW8CuORUIrdYnyKK4C8nFQGG6HNHDtPiX6l0XA6UTBcmWLPOQaF2/an2kG0ltGtnT+Y3TPn7irKj9EKjQaXqCzWQRGzIorK63JLd3bC4G0qcYq9f1Oh3yO6+Bvswpjrdol7ZrfW/JAyceYoRPhWoNW6WAtr2bt59O7zgnGc0shtY4JCo8ulWWup3FtGY0Y7fKhVldp2dj1Oa3dU/bMo5sEoUSAbc9Ou6jIoVYvI+08ng/wC0elUxErNzwo5BNEwsiOjZBB8KjyNLNDnStNt9U3203DMwcsB0x5j3r6DplvbaZb91bIQPVmyT9azXZm2SCxkudp7yVvToB0FNTevGSwTLf8uB8qmtt1iKonJ1mgFyWHSpCUHnzrLvrl0Ju7QwFx8SAHj60YNZQWzsQxnRSTEilj7dB51lpoKaaGmuQpdaNIJVDBWRuRnowpC9t3xyccVGPXpriF4ruSKHvYy3d4IOz1yR14pNfai1tYd9bTSSA8eOMgAeua6pdNAm1IrvbhG1towR/L4rW6ZzEuKwHZ2BtT1K4lnbLbq+i2cawpt9KbcJJf2KVumwl2QcFgDU4XBFJbmynkuO+EpCDyzT+wtojYCRnO4gnOelZcesYPIpuozLHtQ4Jqm0ia3XbI+T715rjwEg80uub11b5VqVqwD6eii17FRrgy80zt+zFpC2cAEdDTe4vordCXcACszf9pkilHdtkE460tO6fse/GRlqugJeWZUjJA4rO6LFNbzTafcKSnJQkfcVsLHVo5rZWOCMc1N4ILgGaADvBT4trqhNcafaPlup2Zsr6WLHhByvyoQVrNW0i4u7h5HABHQUlsdMaTVY4JvCM5PvTft461J7gt8VzjaNd2I062l07vpUVp5JjGSwB2qBnHPrROvdnNNewke1hSK4Q7lCkhT64HQZ9qYRWKWESGDhWI3AfLGfzU7uMuHcKSGXBz+0io/LvUWTKc4zP6Pp1s1nGz9948n/AMrDg+2aYrottbyJcRNNjeAwaUsBxjOD74oa0kx4F4APFPLZ/wCVtYAgjBB6UG3ofFJAz6cf1DTA+NviJ86hp0ZguZHEjPub93Tjypj3A7vHey7fJd3H9/zS8CS3TZ3asVPBBPND2aSSD4dIshazi42yOiHb3p/byRj19Kx9+76pYtFaQBASACvRgP6c1vEc/wAOka6ijKBCwBAOKBiWPYuFXGOMCmqsJrXZ850SyvNPvnLRMuTya0w1FkfDcGtLDHa727xRkVm9Tiiub49yBt6ZA4NGnq7Mx0x7pEX8Q0+Vz03FR9qVQ3DiNkDkKeozTuwaLQNJcSyA5JbkeZHQVkBegE88E1Hz/Ys8RkY29GAu1imRZT4CcGrdQNvxgjkfal0wWWEMaHt5EkuVjLAjPnVa4XXGu+zC5VF9mUvNXu74nvJCF9BQu5nUKTxXbiHuLl4x0B4ry1ZKWdCL1PGMdM1ifTnALFovMGtdZ61DJLC9u/L/ABKKwLYxR+i3sVjctJIM8cVm4T7GcdtPGbzVbyKF1ZzgGszq10itHcQoVKnO4ClWqa5JeS5/ap4FTue0cU1gITFhsY6VJPxJi/s/R3J8pufBejWDW++0wZPOKr0W9uZkmha6lZAfCCQcA+WetYqPU3WHZyBWg7JTvNPMxUhOACfM+dZfHUtv8OjkTxDS3c296YpOQfEDT8PiPg0p1SzLqJYuHTkUNb6w0ShLlCB6jmstaN00hldohtXe3pux+aEFxcoSZO5hXzB5/NDW2qRSNhX3KffrR36uFmG9VwDySKGNBVJB6xT3doyGZJY5UIDKu0j+9LdPmMc7Wdxww+E+tFTdrdN0mW3S6V8TgqDGAdvTkj0pdqRjubn9RZyK44ZHQ5BFMaaSoQ62mgy5h37lz4x0PrSmHMMw/UDau7BPtTAtLdWoliOJUHIpJqF3LNGIyAsnT5Uzjfl/FirTXaNjLoVreW8cssrMqjIUvlayuoWNrHM6xMMD8V1bjULTSx/NOzHTPQUlW5LSgM55PNUOJJo80+2aey0U3lqPEQPlQ03ZiS0lEyNkA5NafStgtk2HjFEX7AWrk+lK1rod7PhV5JvunNVCSoklnbPXNdAFUSsQLe02dZ6ioLeeB71MIMHAya6MAepNdpkjtz05qQgBbOBUlIPpU88cUDipkA4AreaLaG00bSmP+tG8pHzc4P2ArC9fpW7/AFPd6b2bGfBLYsi/+yucj80rlWz0N4nljtxviIPQilLWKSuy5INNbdxJDx6VQI9zn1FRplbQjm7P3ayFre4EYz1Ip1Y9mRLDGby+nkfqQhCr/TNEeI4EmMCiZJ2SA4O1QK52zPgfO+11kll2im7hiYZI0aPknA6Y+4NA21ybeMsHbefIGnXbpUj1u3hQ5MVnErfM5b/usw7EdDV8ekRV7YZPq98/C3cqKP2q5Aomw1OU5NxJuVfNutKAvGT1oyyi3t4vgTk/OtJIGmna/naARlsoRx8qXtGC2cnNRinGRtkXaPQZq1pepQbh6eYrSQNG+ma3NZqFZiyiir/tHJcQmNOM1nEu4yOlT79DWfBMOgdp2Yu765kIZY493U1zXNOtdIMVrExluGG6Rz0UeQ+tF6lqF5Zz7IJNiN5jrWfkmeeZpJWLsx5JNZhtpMdzT420eAwKiQN2KkK43IrQkhjBroJB/rXfiUMOvnXq446Pjp3PPNJ2N09hkCyvpYww/buVWH5BpGR0PpWj01BP2I1tD/oXFvOPrlTQZww0LtFFcFYrl1im6c8K39jTy4cxyBgG58x518waPHTp6UXbavqFkAsF1Iqjop5H2NIvg17I+ebOmfRYGaRtz549aV3utLe6hb6XZEO88qxs4PCgnn58ZrJXGu6ndoY5buQo3VU8IP2ozsym28u7tuBZWU0w9m27V/LUI4Me0G+bViBdavv4nrV7eftllYr/AOoOB+AKVMTuzV2NqAfSqscmqiYmBkirHmIYRxkhckn3qKjGPeogeJj9K44tWdk6VdDdMDu3EUIRkgeZ/pXc4K4+lcEbgLcKCfDIf3Dz+dRkDREBhg0FHcMh2oNzepphv7237qTcXODvAyRRTAEa9Hi3D+lZxOlaPXyRpy56s2Kzi9KTxf4lvzc+0nXs+Rrm4Dg8VwsV+IeH19KYRnlOxmB6YzUgQwyvTNQY4weorsPIb0zXAJD0Ip3okx/hWu2eeJrMSD5xup/oTSfFPex0aXOuPZSY/wA5azW6k/7mTj8iuYREDkV0DzrxVo3KsMMDgj0Ne6c4onHjTqwBtOyeq3TcNeyx2cfuB43/AKKKSnpWh1dBB2U7O2/QyJNcsPdmwD9hQOM4/QVVirnFVef1ogJtwRXj1+fNck8vnXC2RiuOOFsEn6AV4ZJwOvmfSoZ8Z9qkCAvTNccXKQg8Dc+oqcVy8fCHHv50NkkZPArqEAlmzgeQ86ARt2iu2KQQLzjxsPx/ekyYPI5HpRmsn/PHPTatBhdvIrELJQ/5NOuV6dOceo9DXFOOAxHsRUsbhwSDUSP9yhvlwa2TnJdyxnjj2qdvxH71W+DE3dkD1B61ZbnMdccX0w0CdrbtDp06jlLmM/8A0B/3S7yxR+iwvNrFksaFsXEZOPIbxzROIasoXV75cYxcSD/6NCeVNO0sRh7S6opBA/VSYyMZG40roBIMeMVoe00wb+EQr8MOmQD6kFj/AFrOueD8qfdqYTa6tHbn4orS3Qj0PdrxXHCU/ivSyRHCxQhcn4i2TXD0qocyCiAk9USNtINXSdTzVD8nFcceBySfeuluPetT2W7GtraGe5laCAHagUeJz/YVPtb2FuezhFxA5ubJjjeF5Q/8vb3rPktwOGUXrz5eVeJz9TVgt5im8RSFB+7YcfevC3lY7e6ky3AG080ThlrEIeJZ1BJThvl60oTgeE5FPNVu0fTlijHPeeI+o/8A2kXgU+/tS+LfEp+Vn2dFufapAk8dRUVckcL9674j5L96YSnJI/3LwRVUD7XKHoav8Q8hQ2P5rDBFccGAY8+Kd9nZBBO1wR8LKB9Of7Uhjbjmvoug9jjcaBa3P6gJLOneFGHqePxitTcw9pgqapZIbJp1vqJluI9QjuC7ZZGXxbjk4wev0pXddlVcv/kdyqQN0RweRnoDRM3ZfULdsiMsBzuXmoSNqcJ5LxnOfCNv46fiqE0/T1CMa/MFMHZKJtRgR5ZYF7xd/fLwFyCefl/Wl/ayY3XaS9udwZZn3JjyXov4FaefWtRkt2hnKurIYzujGdvHH4H2rEX8ne3srZ88D6cUvklJabhtvAVulQjHOa7Ia9GPDSRxBhljRFjYyXepwWqrl5HVQPnV4tgsUTY8TeI1q/8AD3Sm1DtIdQK4t7Pnd6v5D/ui+loDbaZYR2ckNvF8MTbfnjzppqEcV1i0lG6OXwuucZHpSjQ7z9ZqJB+MbmNHxSd9rLjyViftxUcvpf7Y5+yL2FrNINPeFTaRgfyyTg45FU3MNhb2t5eXSRd3bA7HcZ2Aenv0ou1kD6hcuDkKDzWB/wAQNYjOm2+lx8yyS/qJDn4VGQo+vP2rcryf/TL6P//Z" alt="Rafael Vandri"><div class="pm-mgr-ov"><b>Rafael Vandri</b><small>Gestor do Produto</small></div></div>
+<div class="pm-info-col"><h2 class="pm-name" style="color:#FF4D6A">ZPromo</h2><p class="pm-tagline">Monitoramento de preços promocionais</p><p class="pm-desc">Acompanha ofertas de encartes, folhetos, redes sociais e whatsapp</p></div>
+</div>
+<div class="pm-bottom">
+<div class="pm-label" style="color:#FF4D6A">Desafios</div>
+<div class="pm-features"><div class="pm-feat" style="border-left-color:#FF4D6A"><b style="color:#FF4D6A">Criar o ZPromo 2.0</b><span>Nova versão da plataforma de monitoramento promocional</span></div><div class="pm-feat" style="border-left-color:#FF4D6A"><b style="color:#FF4D6A">Melhorar Processo de Captura</b><span>Otimizar a coleta de dados de ofertas e encartes</span></div><div class="pm-feat" style="border-left-color:#FF4D6A"><b style="color:#FF4D6A">Fidelizar os Clientes</b><span>Aumentar retenção e satisfação da base atual</span></div><div class="pm-feat" style="border-left-color:#FF4D6A"><b style="color:#FF4D6A">Criar Novos Relatórios</b><span>Entregar mais valor com relatórios diferenciados</span></div></div>
+<div class="pm-label" style="color:#FF4D6A">Números</div>
+<div class="pm-stats"><div class="pm-stat"><strong style="color:#FF4D6A">5</strong><span>Clientes</span></div><div class="pm-stat"><strong style="color:#FF4D6A">40</strong><span>Clientes Dez26</span></div><div class="pm-stat"><strong style="color:#FF4D6A">0</strong><span>Cancelamentos</span></div></div>
+</div>
+</div>
+<div class="pm-box" id="pm-zrobot" style="display:none">
+<button class="pm-close" onclick="closeProduct()">✕</button>
+<div class="pm-top">
+<div class="pm-photo-col"><img class="pm-avatar" src="data:image/jpeg;base64,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" alt="Rafael Vandri"><div class="pm-mgr-ov"><b>Rafael Vandri</b><small>Gestor do Produto</small></div></div>
+<div class="pm-info-col"><h2 class="pm-name" style="color:#6B2246">ZRobot</h2><p class="pm-tagline">Automação de coleta e captura de preços online</p><p class="pm-desc">Robô crawler que monitora preços em e-commerces e apps automaticamente</p></div>
+</div>
+<div class="pm-bottom">
+<div class="pm-label" style="color:#6B2246">Desafios</div>
+<div class="pm-features"><div class="pm-feat" style="border-left-color:#6B2246"><b style="color:#6B2246">Criar Relatórios Personalizados</b><span>Relatórios customizados por cliente e segmento</span></div><div class="pm-feat" style="border-left-color:#6B2246"><b style="color:#6B2246">Melhorar Processo de Captura</b><span>Otimizar velocidade e precisão da varredura</span></div><div class="pm-feat" style="border-left-color:#6B2246"><b style="color:#6B2246">Expandir Cobertura de Sites</b><span>Ampliar a base de e-commerces e apps monitorados</span></div><div class="pm-feat" style="border-left-color:#6B2246"><b style="color:#6B2246">Comparação Online vs Físico</b><span>Criar comparação automática entre preço online e preço físico</span></div></div>
+<div class="pm-label" style="color:#6B2246">Números</div>
+<div class="pm-stats"><div class="pm-stat"><strong style="color:#6B2246">21</strong><span>Clientes</span></div><div class="pm-stat"><strong style="color:#6B2246">40</strong><span>Clientes Dez26</span></div><div class="pm-stat"><strong style="color:#6B2246">0</strong><span>Cancelamentos</span></div></div>
+</div>
+</div>
+<div class="pm-box" id="pm-zgo" style="display:none">
+<button class="pm-close" onclick="closeProduct()">✕</button>
+<div class="pm-top">
+<div class="pm-photo-col"><img class="pm-avatar" src="data:image/jpeg;base64,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" alt="Guilherme Bezerra"><div class="pm-mgr-ov"><b>Guilherme Bezerra</b><small>Gestor do Produto</small></div></div>
+<div class="pm-info-col"><h2 class="pm-name" style="color:#78AE3F">ZGo</h2><p class="pm-tagline">Operação de campo e execução em loja</p><p class="pm-desc">App Android e iOS para pesquisa inteligente de preços em campo. Coleta em tempo real com equipe própria ou Zukkin.</p></div>
+</div>
+<div class="pm-bottom">
+<div class="pm-label" style="color:#78AE3F">Desafios</div>
+<div class="pm-features"><div class="pm-feat" style="border-left-color:#78AE3F"><b style="color:#78AE3F">ZGo IA</b><span>Inteligência artificial aplicada à operação de campo</span></div><div class="pm-feat" style="border-left-color:#78AE3F"><b style="color:#78AE3F">Aumentar Produtividade</b><span>Otimizar roteiros e tempo dos pesquisadores em loja</span></div><div class="pm-feat" style="border-left-color:#78AE3F"><b style="color:#78AE3F">Área de KPIs para Clientes</b><span>Criar área para cliente acompanhar KPIs dos seus pesquisadores</span></div><div class="pm-feat" style="border-left-color:#78AE3F"><b style="color:#78AE3F">Dashboard Tempo Real</b><span>Gestores acompanharem a operação de campo ao vivo</span></div></div>
+<div class="pm-label" style="color:#78AE3F">Números</div>
+<div class="pm-stats"><div class="pm-stat"><strong style="color:#78AE3F">23</strong><span>Clientes</span></div><div class="pm-stat"><strong style="color:#78AE3F">40</strong><span>Clientes Dez26</span></div><div class="pm-stat"><strong style="color:#78AE3F">0</strong><span>Cancelamentos</span></div></div>
+</div>
+</div>
+<div class="pm-box" id="pm-zconsulting" style="display:none">
+<button class="pm-close" onclick="closeProduct()">✕</button>
+<div class="pm-top">
+<div class="pm-photo-col"><img class="pm-avatar" src="data:image/jpeg;base64,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" alt="André Sanches"><div class="pm-mgr-ov"><b>André Sanches</b><small>Gestor do Produto</small></div></div>
+<div class="pm-info-col"><h2 class="pm-name" style="color:#8C9BAB">ZConsulting</h2><p class="pm-tagline">Consultoria Estratégica de Pricing</p><p class="pm-desc">Especialistas em Pricing ensinam e estruturam a área de precificação.</p></div>
+</div>
+<div class="pm-bottom">
+<div class="pm-label" style="color:#8C9BAB">Desafios</div>
+<div class="pm-features"><div class="pm-feat" style="border-left-color:#8C9BAB"><b style="color:#8C9BAB">Validar e Vender a Tese</b><span>Conquistar os primeiros clientes e provar o modelo</span></div><div class="pm-feat" style="border-left-color:#8C9BAB"><b style="color:#8C9BAB">Aprender com os Primeiros Clientes</b><span>Coletar feedback e refinar a entrega do serviço</span></div><div class="pm-feat" style="border-left-color:#8C9BAB"><b style="color:#8C9BAB">Criar Playbook de Consultoria</b><span>Padronizar a metodologia para escalar o produto</span></div><div class="pm-feat" style="border-left-color:#8C9BAB"><b style="color:#8C9BAB">Gerar Upsell Produtos Zukkin</b><span>Converter clientes de consultoria em clientes de plataforma</span></div></div>
+<div class="pm-label" style="color:#8C9BAB">Números</div>
+<div class="pm-stats"><div class="pm-stat"><strong style="color:#8C9BAB">0</strong><span>Clientes</span></div><div class="pm-stat"><strong style="color:#8C9BAB">32</strong><span>Clientes Dez26</span></div><div class="pm-stat"><strong style="color:#8C9BAB">0</strong><span>Cancelamentos</span></div></div>
+</div>
+</div>
 </div>
 <script>
 function openProduct(id){var o=document.getElementById('pmOverlay');document.querySelectorAll('.pm-box').forEach(function(b){b.style.display='none'});document.getElementById('pm-'+id).style.display='block';o.classList.add('active');document.body.style.overflow='hidden';requestAnimationFrame(function(){o.style.opacity='1'})}
 function closeProduct(){var o=document.getElementById('pmOverlay');o.style.opacity='0';setTimeout(function(){o.classList.remove('active');document.body.style.overflow=''},300)}
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeProduct()});
-document.querySelectorAll('[data-link]').forEach(function(a){a.href=atob(a.dataset.link)});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeProduct();closePlanoModal()}});
 </script>
-  <div class="why-overlay" id="whyModal" onclick="if(event.target===this)this.classList.remove('active')">
-    <div class="why-modal">
-      <button class="why-modal-close" onclick="document.getElementById('whyModal').classList.remove('active')">✕</button>
-      <h3>Por que mudar para uma Empresa Orientada a Produto?</h3>
-      <p class="why-intro">Esse modelo coloca cada produto no centro da operação, com um gestor responsável por toda a sua jornada. É uma mudança estratégica que grandes empresas de tecnologia já adotaram com sucesso.</p>
-      <div class="why-item"><div class="why-number">1</div><div class="why-item-content"><strong>Foco total no produto</strong><span>Cada produto passa a ter um gestor dedicado, que conhece a fundo suas necessidades, desafios e oportunidades.</span></div></div>
-      <div class="why-item"><div class="why-number">2</div><div class="why-item-content"><strong>Dono do produto de ponta a ponta</strong><span>O gestor é responsável por todo o ciclo: da implementação ao atendimento, eliminando lacunas entre áreas.</span></div></div>
-      <div class="why-item"><div class="why-number">3</div><div class="why-item-content"><strong>Especialização real</strong><span>Times que vivem o produto diariamente se tornam especialistas, entendem melhor o cliente e entregam mais valor.</span></div></div>
-      <div class="why-item"><div class="why-number">4</div><div class="why-item-content"><strong>Evolução contínua</strong><span>Com foco dedicado, cada produto ganha um plano próprio de melhorias e inovação, sem competir por atenção com outros.</span></div></div>
-      <div class="why-item"><div class="why-number">5</div><div class="why-item-content"><strong>Decisões mais rápidas</strong><span>Quem cuida do produto tem autonomia para decidir prioridades, reduzindo burocracia e acelerando entregas.</span></div></div>
-      <div class="why-item"><div class="why-number">6</div><div class="why-item-content"><strong>Atendimento especializado por produto</strong><span>Cada cliente passa a contar com especialistas dedicados para cada solução que utiliza. Quem usa ZPricing, ZGo e ZPromo, por exemplo, tem um gestor especialista em cada um — mais profundidade, mais qualidade.</span></div></div>
-      <div class="why-cases"><strong>Quem já faz isso?</strong> Empresas como Spotify, Nubank, Magazine Luiza, TOTVS e Atlassian adotaram o modelo de Empresa Orientada a Produto — e os resultados falam por si. Agora é a vez do Zukkin.</div>
-    </div>
-  </div>
 
+<!-- ═══════════ PLANO DE AÇÃO MODAL ═══════════ -->
+<style>
+.pa-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:2000;display:none;overflow-y:auto;padding:20px;backdrop-filter:blur(4px)}
+.pa-overlay.active{display:flex;justify-content:center;align-items:flex-start}
+.pa-box{background:#fff;border-radius:20px;max-width:1100px;width:100%;margin:20px auto;padding:0;box-shadow:0 20px 60px rgba(0,0,0,.3);animation:paSlide .3s ease}
+@keyframes paSlide{from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1}}
+.pa-header{background:linear-gradient(135deg,#CF110D,#8B0000);color:#fff;padding:28px 36px;border-radius:20px 20px 0 0;display:flex;justify-content:space-between;align-items:center}
+.pa-header h2{margin:0;font-family:Montserrat,sans-serif;font-size:1.5rem;font-weight:800}
+.pa-header .pa-close{background:rgba(255,255,255,.2);border:none;color:#fff;width:36px;height:36px;border-radius:50%;font-size:1.3rem;cursor:pointer;transition:all .2s}
+.pa-header .pa-close:hover{background:rgba(255,255,255,.4)}
+.pa-body{padding:28px 36px}
+.pa-product{margin-bottom:28px;border:2px solid #eee;border-radius:16px;overflow:hidden;transition:all .2s}
+.pa-product:hover{border-color:#CF110D20}
+.pa-product-header{padding:16px 20px;display:flex;align-items:center;gap:12px;cursor:pointer;user-select:none}
+.pa-product-header .pa-dot{width:14px;height:14px;border-radius:50%;flex-shrink:0}
+.pa-product-header h3{margin:0;font-family:Montserrat,sans-serif;font-size:1.1rem;font-weight:700;flex:1}
+.pa-product-header .pa-toggle{font-size:1.2rem;color:#999;transition:transform .2s}
+.pa-product-header.open .pa-toggle{transform:rotate(180deg)}
+.pa-product-body{padding:0 20px 20px;display:none}
+.pa-product-header.open + .pa-product-body{display:block}
+.pa-action{background:#f8f9fa;border-radius:12px;padding:20px;margin-bottom:12px}
+.pa-action h4{margin:0 0 14px;font-family:Montserrat,sans-serif;font-size:.95rem;font-weight:700;display:flex;align-items:center;gap:8px}
+.pa-action h4 .pa-badge{padding:3px 10px;border-radius:6px;font-size:.75rem;color:#fff;font-weight:700}
+.pa-fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pa-field{display:flex;flex-direction:column}
+.pa-field label{font-size:.75rem;font-weight:600;color:#666;margin-bottom:4px;font-family:Montserrat,sans-serif;text-transform:uppercase;letter-spacing:.5px}
+.pa-field input,.pa-field textarea{border:1.5px solid #ddd;border-radius:8px;padding:10px 12px;font-size:.9rem;font-family:'Plus Jakarta Sans',sans-serif;transition:border-color .2s;resize:none}
+.pa-field input:focus,.pa-field textarea:focus{outline:none;border-color:#CF110D;box-shadow:0 0 0 3px rgba(207,17,13,.1)}
+.pa-field.full{grid-column:1/-1}
+.pa-footer{padding:20px 36px 28px;text-align:center;border-top:1px solid #eee}
+.pa-send{background:#CF110D;color:#fff;border:none;padding:16px 48px;font-size:1.1rem;font-weight:700;border-radius:12px;cursor:pointer;font-family:Montserrat,sans-serif;letter-spacing:.5px;box-shadow:0 4px 16px rgba(207,17,13,.3);transition:all .2s}
+.pa-send:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(207,17,13,.4)}
+.pa-send:active{transform:translateY(0)}
+@media(max-width:700px){.pa-fields{grid-template-columns:1fr}.pa-body{padding:16px}.pa-header{padding:20px}}
+</style>
 
-  <div class="why-overlay" id="whyModal" onclick="if(event.target===this)this.classList.remove('active')">
-    <div class="why-modal">
-      <button class="why-modal-close" onclick="document.getElementById('whyModal').classList.remove('active')">✕</button>
-      <h3>Por que mudar para uma Empresa Orientada a Produto?</h3>
-      <p class="why-intro">Esse modelo coloca cada produto no centro da operação, com um gestor responsável por toda a sua jornada. É uma mudança estratégica que grandes empresas de tecnologia já adotaram com sucesso.</p>
-      <div class="why-item"><div class="why-number">1</div><div class="why-item-content"><strong>Foco total no produto</strong><span>Cada produto passa a ter um gestor dedicado, que conhece a fundo suas necessidades, desafios e oportunidades.</span></div></div>
-      <div class="why-item"><div class="why-number">2</div><div class="why-item-content"><strong>Dono do produto de ponta a ponta</strong><span>O gestor é responsável por todo o ciclo: da implementação ao atendimento, eliminando lacunas entre áreas.</span></div></div>
-      <div class="why-item"><div class="why-number">3</div><div class="why-item-content"><strong>Especialização real</strong><span>Times que vivem o produto diariamente se tornam especialistas, entendem melhor o cliente e entregam mais valor.</span></div></div>
-      <div class="why-item"><div class="why-number">4</div><div class="why-item-content"><strong>Evolução contínua</strong><span>Com foco dedicado, cada produto ganha um plano próprio de melhorias e inovação, sem competir por atenção com outros.</span></div></div>
-      <div class="why-item"><div class="why-number">5</div><div class="why-item-content"><strong>Decisões mais rápidas</strong><span>Quem cuida do produto tem autonomia para decidir prioridades, reduzindo burocracia e acelerando entregas.</span></div></div>
-      <div class="why-item"><div class="why-number">6</div><div class="why-item-content"><strong>Atendimento especializado por produto</strong><span>Cada cliente passa a contar com especialistas dedicados para cada solução que utiliza. Quem usa ZPricing, ZGo e ZPromo, por exemplo, tem um gestor especialista em cada um — mais profundidade, mais qualidade.</span></div></div>
-      <div class="why-cases"><strong>Quem já faz isso?</strong> Empresas como Spotify, Nubank, Magazine Luiza, TOTVS e Atlassian adotaram o modelo de Empresa Orientada a Produto — e os resultados falam por si. Agora é a vez do Zukkin.</div>
-    </div>
-  </div>
+<div class="pa-overlay" id="paOverlay" onclick="if(event.target===this)closePlanoModal()">
+<div class="pa-box">
+<div class="pa-header">
+<h2>📋 Plano de Ação IA — Workshop 2026</h2>
+<button class="pa-close" onclick="closePlanoModal()">✕</button>
+</div>
+<div class="pa-body" id="paBody"></div>
+<div class="pa-footer">
+<button class="pa-send" onclick="enviarPlano()">📧 Gerar Documento e Enviar por Email</button>
+</div>
+</div>
+</div>
+
+<script>
+var paProducts=[
+{id:'zpricing',name:'ZPricing',color:'#02385A',gestor:'Chayeni Campos'},
+{id:'zanalytics',name:'ZAnalytics',color:'#EE8625',gestor:'Guilherme Bezerra'},
+{id:'zpromo',name:'ZPromo',color:'#FF4D6A',gestor:'Rafael Vandri'},
+{id:'zrobot',name:'ZRobot',color:'#6B2246',gestor:'Rafael Vandri'},
+{id:'zgo',name:'ZGo',color:'#78AE3F',gestor:'Guilherme Bezerra'},
+{id:'zconsulting',name:'ZConsulting',color:'#8C9BAB',gestor:'André Sanches'}
+];
+
+function buildPlanoForm(){
+var h='';
+paProducts.forEach(function(p,i){
+var oc=i===0?' open':'';
+h+='<div class="pa-product"><div class="pa-product-header'+oc+'" onclick="this.classList.toggle(\'open\')" style="background:'+p.color+'10;border-left:4px solid '+p.color+'"><div class="pa-dot" style="background:'+p.color+'"></div><h3 style="color:'+p.color+'">'+p.name+' <span style="font-weight:400;font-size:.85rem;color:#666">— '+p.gestor+'</span></h3><span class="pa-toggle">▼</span></div>';
+h+='<div class="pa-product-body"'+(i===0?' style="display:block"':'')+'>';
+['Ação 1','Ação 2'].forEach(function(acao,mi){
+var bg=mi===0?'#CF110D':'#02385A';
+h+='<div class="pa-action"><h4><span class="pa-badge" style="background:'+bg+'">Abril</span> '+acao+'</h4>';
+h+='<div class="pa-fields">';
+h+='<div class="pa-field full"><label>O que vamos fazer</label><textarea id="pa_'+p.id+'_'+mi+'_oque" rows="2" placeholder="Descreva a ação de IA..."></textarea></div>';
+h+='<div class="pa-field"><label>Quem é responsável</label><input id="pa_'+p.id+'_'+mi+'_quem" placeholder="Nome(s)"></div>';
+h+='<div class="pa-field"><label>Prazo</label><input id="pa_'+p.id+'_'+mi+'_quando" type="date"></div>';
+h+='<div class="pa-field full"><label>Resultado esperado</label><input id="pa_'+p.id+'_'+mi+'_resultado" placeholder="O que esperamos alcançar"></div>';
+h+='</div></div>';
+});
+h+='</div></div>';
+});
+document.getElementById('paBody').innerHTML=h;
+}
+
+function openPlanoModal(){
+buildPlanoForm();
+var o=document.getElementById('paOverlay');
+o.classList.add('active');
+document.body.style.overflow='hidden';
+}
+
+function closePlanoModal(){
+var o=document.getElementById('paOverlay');
+o.classList.remove('active');
+document.body.style.overflow='';
+}
+
+function enviarPlano(){
+var linhas=[];
+linhas.push('PLANO DE AÇÃO IA — WORKSHOP ZUKKIN 2026');
+linhas.push('Data: 29 de Março de 2026');
+linhas.push('========================================\n');
+paProducts.forEach(function(p){
+linhas.push('▸ '+p.name.toUpperCase()+' (Gestor: '+p.gestor+')');
+linhas.push('----------------------------------------');
+['Ação 1','Ação 2'].forEach(function(acao,mi){
+var oque=document.getElementById('pa_'+p.id+'_'+mi+'_oque').value||'(não preenchido)';
+var quem=document.getElementById('pa_'+p.id+'_'+mi+'_quem').value||'(não definido)';
+var quando=document.getElementById('pa_'+p.id+'_'+mi+'_quando').value||'(sem prazo)';
+var resultado=document.getElementById('pa_'+p.id+'_'+mi+'_resultado').value||'(não definido)';
+linhas.push('  Abril — '+acao+':');
+linhas.push('    O quê: '+oque);
+linhas.push('    Quem: '+quem);
+linhas.push('    Prazo: '+quando);
+linhas.push('    Resultado: '+resultado);
+linhas.push('');
+});
+linhas.push('');
+});
+linhas.push('========================================');
+linhas.push('Documento gerado no Workshop Zukkin — 29/03/2026');
+var texto=linhas.join('\n');
+var emails='ricardo@zukkin.com.br,fabiana@zukkin.com.br,guilherme@zukkin.com.br,chayeni@zukkin.com.br,rafael@zukkin.com.br,andre@zukkin.com.br';
+var assunto=encodeURIComponent('Plano de Ação IA — Workshop Zukkin 29/03/2026');
+var corpo=encodeURIComponent(texto);
+var blob=new Blob([texto],{type:'text/plain'});
+var url=URL.createObjectURL(blob);
+var a=document.createElement('a');
+a.href=url;a.download='Plano-Acao-IA-Workshop-Zukkin-2026.txt';a.click();
+URL.revokeObjectURL(url);
+setTimeout(function(){
+window.open('mailto:'+emails+'?subject='+assunto+'&body='+corpo,'_blank');
+},500);
+alert('✅ Documento baixado!\n\nO email será aberto com o plano para enviar aos gestores.');
+}
+</script>
+
 </body>
 </html>
